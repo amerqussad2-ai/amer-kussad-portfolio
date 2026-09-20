@@ -4,11 +4,6 @@ import { forwardRef } from "react";
 import Image from "next/image";
 import styles from "./Work.module.css";
 
-// Casa Luce's future chapter (#casa-luce) does not exist yet. `href` is kept
-// here, unused, so it can become a real <a href={project.href}> with a
-// single-line change once that chapter is built — see the implementation
-// report for why "View Project" stays a plain <button> (not a link) for it
-// in the meantime. Tatweer's chapter now exists, so it links for real.
 const PROJECTS = [
   {
     id: "tatweer",
@@ -30,7 +25,7 @@ const PROJECTS = [
   {
     id: "casa-luce",
     href: "#casa-luce",
-    live: false,
+    live: true,
     number: "02",
     name: "Casa Luce",
     type: "Restaurant website",

@@ -1,0 +1,745 @@
+.casaLuce {
+  --terracotta: #a65033;
+  --terracotta-light: #c96a3f;
+  --terracotta-soft: rgba(166, 80, 51, 0.16);
+  --fg-bright: #fbf3e9;
+  --fg-soft: #c2b9ae;
+  --shot-filter: saturate(1.14) contrast(1.1) brightness(1.06);
+  position: relative;
+  background: var(--color-bg);
+  opacity: 0;
+  transform: translateY(28px) scale(0.99);
+  transition: opacity 1000ms ease, transform 1000ms ease;
+  /* Fixed header is ~85px tall. #casa-luce anchor navigation can land the
+     section short of its natural resting position while images are still
+     settling, so this leaves enough clearance to comfortably absorb that
+     drift and keep "04 CASA LUCE" clear of the header. Overridden for
+     mobile further down. */
+  scroll-margin-top: 220px;
+}
+
+.casaLuceRevealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.casaLuce::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Shared scene mechanics ------------------------------------------------ */
+
+.scene {
+  position: relative;
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  transition: opacity 1000ms ease, transform 1000ms ease;
+}
+
+.sceneRevealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sceneInner {
+  position: relative;
+  z-index: 1;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem) 0 clamp(4.5rem, 9vw, 7rem);
+}
+
+.rule {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: var(--color-border);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.label {
+  display: block;
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin: 0 0 1.1rem;
+}
+
+/* A — Overview ------------------------------------------------------------ */
+
+.overview {
+  padding: 6rem clamp(1.25rem, 5vw, 3.5rem) 7rem clamp(4.5rem, 9vw, 7rem);
+  overflow: hidden;
+}
+
+.overviewAtmosphere {
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.overviewAtmosphereImage {
+  object-fit: cover;
+  filter: blur(80px) brightness(0.26) contrast(1.12) saturate(1.15);
+  transform: scale(1.15);
+  opacity: 0.9;
+}
+
+.overviewText {
+  position: relative;
+  z-index: 1;
+  max-width: 40ch;
+}
+
+.overviewImageWrap {
+  position: relative;
+  z-index: 1;
+  margin: clamp(1.5rem, 3vw, 2.25rem) calc(-1 * clamp(1.25rem, 3vw, 2.5rem)) 0 0;
+}
+
+.overviewImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 925;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+}
+
+.overviewImageEl {
+  object-fit: cover;
+  object-position: center;
+  filter: var(--shot-filter);
+}
+
+.kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin: 0 0 1.75rem;
+}
+
+.kickerNumber {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--terracotta-light);
+}
+
+.kickerLabel {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-soft);
+}
+
+.overviewType {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.overviewHeadline {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  line-height: 1.08;
+  font-weight: 400;
+  margin: 1rem 0 0;
+  color: var(--fg-bright);
+}
+
+.overviewCopy {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 36ch;
+  margin: 1.25rem 0 0;
+}
+
+.overviewMeta {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  margin: 1.25rem 0 0;
+}
+
+/* B — Visual Direction ------------------------------------------------------ */
+
+.visualDirection {
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.visualGlow {
+  position: absolute;
+  top: -10%;
+  left: 15%;
+  width: 55%;
+  height: 70%;
+  background: radial-gradient(ellipse, var(--terracotta-soft) 0%, transparent 70%);
+  filter: blur(70px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.visualHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 clamp(3.5rem, 7vw, 6rem);
+  color: var(--fg-bright);
+}
+
+.principleList {
+  display: flex;
+  flex-direction: column;
+}
+
+.principleRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.principleRow:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.principleRow:nth-child(2) {
+  margin-left: clamp(2rem, 6vw, 5rem);
+}
+
+.principleRow:nth-child(3) {
+  margin-left: clamp(3.5rem, 10vw, 8rem);
+}
+
+.principleNumber {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1;
+  color: var(--terracotta-light);
+}
+
+.principleLabel {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: var(--fg-bright);
+}
+
+.principleText {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 40ch;
+  margin: 0;
+}
+
+/* C — Gallery Experience ------------------------------------------------------ */
+
+.gallery {
+  padding: 7rem 0 8rem;
+  overflow: hidden;
+}
+
+.galleryHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  line-height: 1.08;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  color: var(--fg-bright);
+}
+
+.galleryCopy {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 44ch;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.galleryFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 925;
+  overflow: hidden;
+}
+
+.galleryAtmosphere {
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.galleryAtmosphereImage {
+  object-fit: cover;
+  filter: blur(80px) brightness(0.26) contrast(1.1) saturate(1.1);
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+.galleryImage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.galleryImageEl {
+  object-fit: cover;
+  object-position: center;
+  filter: var(--shot-filter);
+}
+
+/* D — Reservations ------------------------------------------------------------ */
+
+.reservations {
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.reservationsGlow {
+  position: absolute;
+  top: 8%;
+  right: 4%;
+  width: 45%;
+  height: 60%;
+  background: radial-gradient(ellipse, var(--terracotta-soft) 0%, transparent 72%);
+  filter: blur(80px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.reservationsHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  line-height: 1.08;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  color: var(--fg-bright);
+}
+
+.reservationsCopy {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 42ch;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  max-width: 42rem;
+}
+
+.stepRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: clamp(1.5rem, 3vw, 2rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.stepRow:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stepNumber {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--terracotta-light);
+}
+
+.stepLabel {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-bright);
+  margin-bottom: 0.4rem;
+}
+
+.stepText {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.demoNote {
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--terracotta);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--fg-soft);
+  max-width: 42ch;
+}
+
+.demoNoteLabel {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  margin-bottom: 0.5rem;
+}
+
+/* E — Responsive Experience ---------------------------------------------------- */
+
+.responsive {
+  padding: 7rem 0 8rem;
+  overflow: hidden;
+}
+
+.responsiveHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  line-height: 1.08;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  color: var(--fg-bright);
+}
+
+.responsiveCopy {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 42ch;
+  margin: 0;
+}
+
+.responsivePair {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+.responsiveMobileFigure {
+  position: relative;
+  width: clamp(220px, 20vw, 280px);
+}
+
+.responsiveMobileImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 750 / 1624;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.responsiveDesktopFigure {
+  position: relative;
+  min-width: 0;
+}
+
+.responsiveDesktopImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 925;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  opacity: 0.9;
+}
+
+.responsiveImageEl {
+  object-fit: cover;
+  object-position: top center;
+  filter: var(--shot-filter);
+}
+
+.responsiveCaption {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-soft);
+}
+
+/* F — Project Outcome ----------------------------------------------------------- */
+
+.outcome {
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.outcomeGlow {
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 50%;
+  background: radial-gradient(ellipse, var(--terracotta) 0%, transparent 72%);
+  filter: blur(110px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.outcomeHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+  color: var(--fg-bright);
+}
+
+.outcomeCopy {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 48ch;
+  margin: 0 0 clamp(3rem, 6vw, 5rem);
+}
+
+.outcomeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.outcomeCard {
+  padding: clamp(2rem, 4vw, 2.75rem);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: background 300ms ease;
+}
+
+.outcomeCard:hover {
+  background: rgba(166, 80, 51, 0.05);
+}
+
+.outcomeLabel {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: var(--fg-bright);
+  font-weight: 500;
+}
+
+.outcomeText {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.techLine {
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+/* G — Live Site + GitHub / H — Next Chapter -------------------------------------- */
+
+.cta {
+  padding: 6rem 0 8rem;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.liveButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.85rem;
+  background: var(--terracotta);
+  color: #fff8f2;
+  border: 1px solid var(--terracotta);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 250ms ease;
+}
+
+.liveButton:hover,
+.liveButton:focus-visible {
+  opacity: 0.85;
+}
+
+.codeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.85rem;
+  background: transparent;
+  color: var(--fg-bright);
+  border: 1px solid var(--color-border-strong);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 250ms ease, color 250ms ease;
+}
+
+.codeButton:hover,
+.codeButton:focus-visible {
+  border-color: var(--terracotta-light);
+  color: var(--terracotta-light);
+}
+
+.liveArrow {
+  transition: transform 250ms ease;
+}
+
+.liveButton:hover .liveArrow,
+.liveButton:focus-visible .liveArrow,
+.codeButton:hover .liveArrow,
+.codeButton:focus-visible .liveArrow {
+  transform: translate(3px, -3px);
+}
+
+.nextProject {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  text-align: right;
+  opacity: 0.55;
+}
+
+.nextLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.nextName {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  color: var(--color-fg);
+}
+
+/* Responsive --------------------------------------------------------------------- */
+
+@media (max-width: 899px) {
+  .sceneInner {
+    padding: 0 1.25rem;
+  }
+
+  /* Fixed mobile header is ~88px tall — clear it with room to spare so the
+     "04 CASA LUCE" identifier never sits under the AK mark, whether
+     arriving by natural scroll or by #casa-luce anchor jump. */
+  .casaLuce {
+    scroll-margin-top: 112px;
+  }
+
+  .overview {
+    padding: 8.5rem 1.25rem 4rem;
+  }
+
+  .overviewText {
+    max-width: none;
+  }
+
+  .overviewImageWrap {
+    margin: 2.5rem 0 0;
+  }
+
+  .visualDirection {
+    padding: 5rem 0;
+  }
+
+  .principleRow:nth-child(2),
+  .principleRow:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .gallery {
+    padding: 5rem 0 5rem;
+  }
+
+  .reservations {
+    padding: 5rem 0;
+  }
+
+  .responsive {
+    padding: 5rem 0 5rem;
+  }
+
+  .responsivePair {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .responsiveMobileFigure {
+    width: clamp(200px, 56vw, 260px);
+  }
+
+  .outcome {
+    padding: 5rem 0;
+  }
+
+  .outcomeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    padding: 4.5rem 0 5rem;
+  }
+
+  .ctaRow {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .nextProject {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
