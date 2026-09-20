@@ -6,7 +6,12 @@ import styles from "./Header.module.css";
 const NAV_ITEMS = [
   { label: "Work", cursor: "WORK", href: "#work" },
   { label: "About", cursor: "ABOUT", href: "#about" },
-  { label: "Resume", cursor: "RESUME" },
+  {
+    label: "Resume",
+    cursor: "VIEW",
+    href: "/Amer_Kussad_Frontend_Resume.pdf",
+    external: true,
+  },
   { label: "Contact", cursor: "CONTACT", href: "#contact" },
 ];
 
@@ -41,6 +46,9 @@ export default function Header() {
                   href={item.href}
                   className={styles.navItem}
                   data-cursor={item.cursor}
+                  {...(item.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                 >
                   {item.label}
                 </a>
@@ -76,6 +84,9 @@ export default function Header() {
                     href={item.href}
                     className={styles.mobileNavItem}
                     onClick={() => setOpen(false)}
+                    {...(item.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
                     {item.label}
                   </a>

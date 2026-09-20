@@ -25,6 +25,13 @@ const CONTACT_LINKS = [
     cursor: "CODE",
     external: true,
   },
+  {
+    label: "Resume",
+    value: "View Resume",
+    href: "/Amer_Kussad_Frontend_Resume.pdf",
+    cursor: "VIEW",
+    external: true,
+  },
 ];
 
 // Breaks long emails/URLs only after "@" or "/" — avoids the browser's
@@ -115,14 +122,6 @@ const Contact = forwardRef<HTMLElement, { revealed: boolean }>(
                     </span>
                   </a>
                 ))}
-
-                <div
-                  className={`${styles.linkItem} ${styles.linkItemDisabled}`}
-                  data-cursor="RESUME"
-                >
-                  <span className={styles.linkLabel}>Resume</span>
-                  <span className={styles.linkValue}>Unavailable</span>
-                </div>
               </div>
             </div>
           </div>

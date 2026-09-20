@@ -31,11 +31,15 @@ export default function Hero({ receded = false }: { receded?: boolean }) {
           >
             Explore My Work
           </a>
-          {/* Resume CTA: enable once the safe CV is available — add href, remove
-              disabled, and set data-cursor="OPEN". */}
-          <button type="button" className="button button--secondary" disabled>
+          <a
+            href="/Amer_Kussad_Frontend_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button button--secondary"
+            data-cursor="VIEW"
+          >
             View Resume
-          </button>
+          </a>
         </div>
       </div>
 
