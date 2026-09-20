@@ -5,9 +5,9 @@ import styles from "./Header.module.css";
 
 const NAV_ITEMS = [
   { label: "Work", cursor: "WORK", href: "#work" },
-  { label: "About", cursor: "ABOUT" },
+  { label: "About", cursor: "ABOUT", href: "#about" },
   { label: "Resume", cursor: "RESUME" },
-  { label: "Contact", cursor: "CONTACT" },
+  { label: "Contact", cursor: "CONTACT", href: "#contact" },
 ];
 
 export default function Header() {
