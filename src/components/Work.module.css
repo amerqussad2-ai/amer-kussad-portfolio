@@ -5,6 +5,11 @@
   transform: translateY(28px);
   transition: opacity 800ms ease, transform 800ms ease;
   overflow: hidden;
+  /* Anchor navigation (direct /#work load or Header click) can otherwise
+     land the "02 SELECTED WORK" identifier with ~0px clearance under the
+     fixed header. This only affects where anchor scrolling stops — it has
+     no effect on the section's own layout or spacing. */
+  scroll-margin-top: 56px;
 }
 
 .workRevealed {
@@ -297,6 +302,10 @@
 }
 
 @media (max-width: 899px) {
+  .work {
+    scroll-margin-top: 112px;
+  }
+
   .intro {
     padding: 0 1.25rem 3rem;
   }

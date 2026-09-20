@@ -206,4 +206,13 @@
   .editorial {
     gap: 1.25rem;
   }
+
+  /* Desktop anchor navigation (direct /#about load or Header click) can
+     settle short of the section's true top while layout is still
+     resolving, landing the "05 ABOUT" identifier under the fixed header.
+     This scroll-margin only affects where anchor scrolling stops — it has
+     no effect on the section's own layout or spacing. */
+  .about {
+    scroll-margin-top: 200px;
+  }
 }
