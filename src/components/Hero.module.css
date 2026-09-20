@@ -1,0 +1,188 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 8rem clamp(1.25rem, 5vw, 3.5rem) 6rem clamp(4.5rem, 9vw, 7rem);
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: min(38rem, 50vw);
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin: 0;
+}
+
+.name {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3.25rem, 9vw, 8rem);
+  line-height: 0.92;
+  font-weight: 400;
+  margin: 0;
+  color: var(--color-fg);
+}
+
+.nameLine {
+  display: block;
+}
+
+.copy {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+  max-width: 32ch;
+  margin: 0;
+}
+
+.location {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.portrait {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(220px, 34vw, 460px);
+  height: min(78vh, 640px);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.portraitImage {
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(1) contrast(1.2) brightness(0.5);
+}
+
+.portraitFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, transparent 35%, var(--color-bg) 100%),
+    linear-gradient(to top, var(--color-bg) 0%, transparent 45%),
+    linear-gradient(to bottom, transparent 75%, var(--color-bg) 100%),
+    rgba(10, 10, 11, 0.32);
+  pointer-events: none;
+}
+
+.scrollCue {
+  position: absolute;
+  left: clamp(1.25rem, 5vw, 3.5rem);
+  bottom: 2.5rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 34px;
+  background: var(--color-border-strong);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollLine::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--color-fg);
+  animation: scrollDrip 2.2s ease-in-out infinite;
+}
+
+.scrollText {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+@keyframes scrollDrip {
+  0% {
+    top: -100%;
+  }
+  60% {
+    top: 100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollLine::after {
+    animation: none;
+    top: 0;
+  }
+}
+
+@media (max-width: 899px) {
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 6.5rem 1.25rem 4rem;
+    gap: 2rem;
+  }
+
+  .content {
+    max-width: none;
+    order: 2;
+  }
+
+  .portrait {
+    position: relative;
+    order: 1;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    right: auto;
+    bottom: auto;
+  }
+
+  .portraitImage {
+    transform: scale(1.25);
+    transform-origin: top center;
+  }
+
+  .portraitFade {
+    background: linear-gradient(to top, var(--color-bg) 0%, transparent 55%),
+      linear-gradient(to bottom, transparent 60%, var(--color-bg) 100%),
+      rgba(10, 10, 11, 0.5);
+  }
+
+  .name {
+    font-size: clamp(2.75rem, 14vw, 4.25rem);
+  }
+
+  .scrollCue {
+    left: 1.25rem;
+    bottom: 1.5rem;
+  }
+}

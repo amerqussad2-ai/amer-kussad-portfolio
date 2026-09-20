@@ -1,0 +1,43 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 241, 234, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 1;
+  transition: width 200ms ease, height 200ms ease, border-color 200ms ease,
+    opacity 200ms ease;
+  will-change: transform;
+}
+
+.cursorActive {
+  width: 88px;
+  height: 88px;
+  border-color: var(--color-fg);
+}
+
+.cursorHidden {
+  opacity: 0;
+}
+
+.label {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    transition: none;
+  }
+}

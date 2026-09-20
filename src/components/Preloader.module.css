@@ -1,0 +1,45 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: var(--color-bg);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.preloaderExiting {
+  opacity: 0;
+  transform: translateY(-16px);
+  pointer-events: none;
+}
+
+.number {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+  line-height: 1;
+}
+
+.track {
+  width: clamp(140px, 20vw, 220px);
+  height: 1px;
+  background: var(--color-border);
+}
+
+.bar {
+  height: 100%;
+  background: var(--color-fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader {
+    transition: none;
+  }
+}
