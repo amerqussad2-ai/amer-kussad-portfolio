@@ -4,15 +4,16 @@ import { forwardRef } from "react";
 import Image from "next/image";
 import styles from "./Work.module.css";
 
-// Each project's future chapter (#tatweer / #casa-luce) does not exist yet.
-// `href` is kept here, unused, so the showcase can become a real
-// <a href={project.href}> with a single-line change once those chapters are
-// built — see the implementation report for why "View Project" stays a plain
-// <button> (not a link) in the meantime.
+// Casa Luce's future chapter (#casa-luce) does not exist yet. `href` is kept
+// here, unused, so it can become a real <a href={project.href}> with a
+// single-line change once that chapter is built — see the implementation
+// report for why "View Project" stays a plain <button> (not a link) for it
+// in the meantime. Tatweer's chapter now exists, so it links for real.
 const PROJECTS = [
   {
     id: "tatweer",
     href: "#tatweer",
+    live: true,
     number: "01",
     name: "Tatweer Employment",
     type: "Recruitment web application",
@@ -29,6 +30,7 @@ const PROJECTS = [
   {
     id: "casa-luce",
     href: "#casa-luce",
+    live: false,
     number: "02",
     name: "Casa Luce",
     type: "Restaurant website",
@@ -94,12 +96,25 @@ const Work = forwardRef<HTMLElement, { revealed: boolean }>(function Work(
                 ))}
               </ul>
 
-              <button type="button" className={styles.viewButton}>
-                <span>View Project</span>
-                <span aria-hidden="true" className={styles.viewArrow}>
-                  &rarr;
-                </span>
-              </button>
+              {project.live ? (
+                <a
+                  href={project.href}
+                  className={styles.viewButton}
+                  data-cursor="VIEW"
+                >
+                  <span>View Project</span>
+                  <span aria-hidden="true" className={styles.viewArrow}>
+                    &rarr;
+                  </span>
+                </a>
+              ) : (
+                <button type="button" className={styles.viewButton}>
+                  <span>View Project</span>
+                  <span aria-hidden="true" className={styles.viewArrow}>
+                    &rarr;
+                  </span>
+                </button>
+              )}
             </div>
 
             <div className={styles.showcaseImageWrap}>

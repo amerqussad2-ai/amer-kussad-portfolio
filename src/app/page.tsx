@@ -6,29 +6,48 @@ import Header from "@/components/Header";
 import ChapterIndex from "@/components/ChapterIndex";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
+import Tatweer from "@/components/Tatweer";
 
 export default function Home() {
   const [introDone, setIntroDone] = useState(false);
   const [activeChapter, setActiveChapter] = useState("intro");
   const [workRevealed, setWorkRevealed] = useState(false);
+  const [tatweerRevealed, setTatweerRevealed] = useState(false);
   const workRef = useRef<HTMLElement | null>(null);
+  const tatweerRef = useRef<HTMLElement | null>(null);
 
   const handleIntroFinish = useCallback(() => {
     setIntroDone(true);
   }, []);
 
   useEffect(() => {
-    const node = workRef.current;
-    if (!node) return;
+    const introNode = document.getElementById("intro");
+    const workNode = workRef.current;
+    const tatweerNode = tatweerRef.current;
+    const sections = [introNode, workNode, tatweerNode].filter(
+      (node): node is HTMLElement => node !== null
+    );
+    if (!sections.length) return;
 
     // Drives which chapter reads as "active" — a passive scroll-spy, never
     // intercepting the wheel/touch, so scrolling stays entirely native.
     const activeObserver = new IntersectionObserver(
-      ([entry]) => {
-        setActiveChapter(entry.isIntersecting ? "work" : "intro");
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveChapter(entry.target.id);
+        });
       },
       { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
     );
+
+    sections.forEach((node) => activeObserver.observe(node));
+
+    return () => activeObserver.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const node = workRef.current;
+    if (!node) return;
 
     // One-time reveal: once Work has entered the viewport, it stays revealed
     // even if the user scrolls back up past it.
@@ -39,13 +58,23 @@ export default function Home() {
       { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
     );
 
-    activeObserver.observe(node);
     revealObserver.observe(node);
+    return () => revealObserver.disconnect();
+  }, []);
 
-    return () => {
-      activeObserver.disconnect();
-      revealObserver.disconnect();
-    };
+  useEffect(() => {
+    const node = tatweerRef.current;
+    if (!node) return;
+
+    const revealObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setTatweerRevealed(true);
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
+    );
+
+    revealObserver.observe(node);
+    return () => revealObserver.disconnect();
   }, []);
 
   return (
@@ -55,8 +84,9 @@ export default function Home() {
         <Header />
         <ChapterIndex activeId={activeChapter} />
         <main>
-          <Hero receded={activeChapter === "work"} />
+          <Hero receded={activeChapter !== "intro"} />
           <Work ref={workRef} revealed={workRevealed} />
+          <Tatweer ref={tatweerRef} revealed={tatweerRevealed} />
         </main>
       </div>
     </>

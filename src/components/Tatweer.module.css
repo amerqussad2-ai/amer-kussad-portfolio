@@ -1,0 +1,981 @@
+.tatweer {
+  --yellow: #f4b900;
+  --yellow-soft: rgba(244, 185, 0, 0.16);
+  --fg-bright: #faf8f3;
+  --fg-soft: #aeaba4;
+  --shot-filter: saturate(1.08) contrast(1.08) brightness(1.05);
+  position: relative;
+  background: var(--color-bg);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 800ms ease, transform 800ms ease;
+}
+
+.tatweerRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tatweer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Shared scene mechanics ------------------------------------------------ */
+
+.scene {
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 900ms ease, transform 900ms ease;
+}
+
+.sceneRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sceneInner {
+  position: relative;
+  z-index: 1;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem) 0 clamp(4.5rem, 9vw, 7rem);
+}
+
+.rule {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: var(--color-border);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.label {
+  display: block;
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin: 0 0 1.1rem;
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+/* A — Overview ----------------------------------------------------------- */
+
+.overview {
+  padding: 6.5rem 0 7.5rem;
+  overflow: hidden;
+}
+
+.overviewAtmosphere {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.overviewAtmosphereImage {
+  object-fit: cover;
+  filter: blur(70px) grayscale(0.55) brightness(0.15) contrast(1.2);
+  transform: scale(1.15);
+  opacity: 0.78;
+}
+
+.overviewGlow {
+  position: absolute;
+  top: 4%;
+  right: -6%;
+  width: 46%;
+  height: 60%;
+  background: radial-gradient(
+    circle,
+    var(--yellow) 0%,
+    transparent 72%
+  );
+  filter: blur(90px);
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.overviewGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(260px, 34%) 1fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem) 0 clamp(4.5rem, 9vw, 7rem);
+}
+
+.kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin: 0 0 1.75rem;
+}
+
+.kickerNumber {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--yellow);
+}
+
+.kickerLabel {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.overviewTitle {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  line-height: 1.02;
+  font-weight: 400;
+  margin: 0;
+  color: var(--fg-bright);
+}
+
+.overviewType {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin: 0.9rem 0 0;
+}
+
+.overviewCopy {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 32ch;
+  margin: 1.25rem 0 0;
+}
+
+.overviewStack {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.overviewStack li:not(:last-child)::after {
+  content: "\00b7";
+  margin: 0 0.55rem;
+  color: var(--color-border-strong);
+}
+
+.overviewImageWrap {
+  position: relative;
+  min-width: 0;
+  margin-right: calc(-1 * clamp(1.25rem, 5vw, 3.5rem));
+}
+
+.overviewImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2000 / 1307;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+  transition: border-color 300ms ease;
+}
+
+.overviewImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 11, 0.14) 0%,
+    transparent 30%,
+    transparent 75%,
+    rgba(10, 10, 11, 0.12) 100%
+  );
+}
+
+.overviewImageEl {
+  object-fit: cover;
+  object-position: top center;
+  filter: var(--shot-filter);
+}
+
+/* B — The Solution -------------------------------------------------------- */
+
+.solution {
+  padding: 7rem 0;
+  overflow: hidden;
+}
+
+.solutionAtmosphere {
+  position: absolute;
+  top: -10%;
+  left: 10%;
+  width: 50%;
+  height: 70%;
+  background: radial-gradient(
+    ellipse,
+    var(--yellow-soft) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.solutionHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1;
+  font-weight: 400;
+  margin: 0 0 clamp(3rem, 6vw, 5rem);
+  color: var(--color-fg);
+}
+
+.solutionList {
+  display: flex;
+  flex-direction: column;
+}
+
+.solutionRow {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: baseline;
+  column-gap: clamp(1.25rem, 3vw, 2.25rem);
+  padding: clamp(1.75rem, 3.5vw, 2.75rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.solutionRow:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.solutionRow:nth-child(2) {
+  margin-left: clamp(2rem, 6vw, 5rem);
+}
+
+.solutionRow:nth-child(3) {
+  margin-left: clamp(4rem, 11vw, 9rem);
+}
+
+.solutionNumber {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--yellow);
+}
+
+.solutionLabel {
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+.solutionText {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+  max-width: 36ch;
+  margin: 0;
+}
+
+/* C — Tech Stack ----------------------------------------------------------- */
+
+.techStack {
+  padding: 7rem 0;
+}
+
+.techHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1;
+  font-weight: 400;
+  margin: 0 0 clamp(3rem, 6vw, 5rem);
+  color: var(--color-fg);
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: clamp(3rem, 6vw, 6rem);
+  row-gap: clamp(3rem, 6vw, 4rem);
+}
+
+.techGroup {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+}
+
+.techGroup:nth-child(even) {
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.techNumber {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--yellow);
+  margin-bottom: 0.85rem;
+}
+
+.techLabel {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 1.1rem;
+  color: var(--color-fg);
+}
+
+.techItems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--color-fg-muted);
+}
+
+/* D — Jobs Experience ------------------------------------------------------ */
+
+.jobs {
+  padding: 7rem 0 8rem;
+  overflow: hidden;
+}
+
+.jobsAtmosphere {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.jobsAtmosphereImage {
+  object-fit: cover;
+  filter: blur(75px) grayscale(0.45) brightness(0.14) contrast(1.25)
+    saturate(1.05);
+  transform: scale(1.15);
+  opacity: 0.7;
+}
+
+.jobs::before {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  left: -6%;
+  width: 40%;
+  height: 55%;
+  background: radial-gradient(
+    circle,
+    var(--yellow) 0%,
+    transparent 72%
+  );
+  filter: blur(90px);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.jobsGrid {
+  display: grid;
+  grid-template-columns: minmax(260px, 38%) 1fr;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.jobsTitle {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  color: var(--fg-bright);
+}
+
+.jobsCopy {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 34ch;
+  margin: 0;
+}
+
+.stepsList {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stepRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.1rem;
+  align-items: baseline;
+}
+
+.stepNumber {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--yellow);
+}
+
+.stepLabel {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  margin-bottom: 0.35rem;
+}
+
+.stepText {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.jobsImages {
+  position: relative;
+  min-height: clamp(320px, 36vw, 460px);
+}
+
+.jobsListingFigure {
+  position: relative;
+  z-index: 1;
+  width: 86%;
+  margin: 0;
+}
+
+.jobsListingImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 925;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.jobDetailFigure {
+  position: absolute;
+  z-index: 2;
+  width: 52%;
+  right: -4%;
+  bottom: -12%;
+  margin: 0;
+}
+
+.jobDetailImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 925;
+  border: 1px solid var(--color-border-strong);
+  overflow: hidden;
+  background: var(--color-bg);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65);
+}
+
+.jobsImageEl {
+  object-fit: cover;
+  object-position: top center;
+  filter: var(--shot-filter);
+}
+
+.jobsCaption {
+  margin-top: 0.75rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+/* E — Arabic / RTL ---------------------------------------------------------- */
+
+.rtl {
+  padding: 7rem 0 8rem;
+  overflow: hidden;
+}
+
+.rtlAtmosphere {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.rtlAtmosphereImage {
+  object-fit: cover;
+  filter: blur(75px) grayscale(0.45) brightness(0.16) contrast(1.2);
+  transform: scale(1.15);
+  opacity: 0.7;
+}
+
+.rtlGrid {
+  display: grid;
+  grid-template-columns: minmax(230px, 26%) 1fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.rtlTitle {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  color: var(--fg-bright);
+}
+
+.rtlCopy {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 32ch;
+  margin: 0;
+}
+
+.featureList {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.1rem;
+  align-items: baseline;
+}
+
+.featureNumber {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--yellow);
+}
+
+.featureLabel {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  margin-bottom: 0.35rem;
+}
+
+.featureText {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.rtlImageWrap {
+  position: relative;
+  min-width: 0;
+  margin-right: calc(-1 * clamp(1.25rem, 5vw, 3.5rem));
+}
+
+.rtlImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 925;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+}
+
+.rtlImageEl {
+  object-fit: cover;
+  object-position: top center;
+  filter: var(--shot-filter);
+}
+
+/* F — Admin Dashboard -------------------------------------------------------- */
+
+.admin {
+  padding: 7rem 0 8rem;
+  overflow: hidden;
+}
+
+.adminAtmosphere {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.adminAtmosphereImage {
+  object-fit: cover;
+  filter: blur(70px) grayscale(0.8) brightness(0.14) contrast(1.15)
+    saturate(0.35);
+  transform: scale(1.15);
+  opacity: 0.65;
+}
+
+.adminGrid {
+  display: grid;
+  grid-template-columns: minmax(260px, 34%) 1fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.adminTitle {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  color: var(--fg-bright);
+}
+
+.adminCopy {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 32ch;
+  margin: 0;
+}
+
+.capabilityList {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+}
+
+.capability {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.capability:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.capabilityLabel {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--color-fg);
+  font-weight: 500;
+}
+
+.capabilityText {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+.technicalNote {
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--color-border-strong);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--fg-soft);
+}
+
+.technicalNoteLabel {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.adminImageWrap {
+  position: relative;
+  min-width: 0;
+  margin-right: calc(-1 * clamp(1.25rem, 5vw, 3.5rem));
+}
+
+.adminImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2048 / 925;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+}
+
+.adminImageEl {
+  object-fit: cover;
+  object-position: top center;
+  filter: var(--shot-filter);
+}
+
+/* G — Project Outcome --------------------------------------------------------- */
+
+.outcome {
+  padding: 8rem 0 9rem;
+  overflow: hidden;
+}
+
+.outcomeGlow {
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 50%;
+  background: radial-gradient(
+    ellipse,
+    var(--yellow) 0%,
+    transparent 72%
+  );
+  filter: blur(110px);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.outcomeHeading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+  color: var(--color-fg);
+}
+
+.outcomeCopy {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-fg-muted);
+  max-width: 48ch;
+  margin: 0 0 clamp(3rem, 6vw, 5rem);
+}
+
+.outcomeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.outcomeCard {
+  padding: clamp(2rem, 4vw, 2.75rem);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: background 300ms ease;
+}
+
+.outcomeCard:hover {
+  background: rgba(244, 185, 0, 0.03);
+}
+
+.outcomeLabel {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: var(--color-fg);
+  font-weight: 500;
+}
+
+.outcomeText {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+  margin: 0;
+}
+
+/* H — Live Site + Next Project ------------------------------------------------ */
+
+.cta {
+  padding: 6rem 0 8rem;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.liveButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.85rem;
+  background: var(--yellow);
+  color: #0a0a0b;
+  border: 1px solid var(--yellow);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 250ms ease;
+}
+
+.liveButton:hover,
+.liveButton:focus-visible {
+  opacity: 0.85;
+}
+
+.liveArrow {
+  transition: transform 250ms ease;
+}
+
+.liveButton:hover .liveArrow,
+.liveButton:focus-visible .liveArrow {
+  transform: translate(3px, -3px);
+}
+
+.nextProject {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  text-align: right;
+  opacity: 0.55;
+}
+
+.nextLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.nextName {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  color: var(--color-fg);
+}
+
+/* Responsive ------------------------------------------------------------------ */
+
+@media (max-width: 899px) {
+  .sceneInner {
+    padding: 0 1.25rem;
+  }
+
+  .overviewGrid,
+  .jobsGrid,
+  .rtlGrid,
+  .adminGrid {
+    grid-template-columns: 1fr;
+    padding: 0 1.25rem;
+    gap: 2.5rem;
+  }
+
+  /* Fixed mobile header is ~88px tall — clear it with room to spare so the
+     "03 TATWEER EMPLOYMENT" identifier never sits under the AK mark,
+     whether arriving by natural scroll or by #tatweer anchor jump. */
+  .tatweer {
+    scroll-margin-top: 112px;
+  }
+
+  .overview {
+    padding: 8.5rem 0 4rem;
+  }
+
+  .overviewImageWrap,
+  .rtlImageWrap,
+  .adminImageWrap {
+    margin-right: 0;
+  }
+
+  .techGroup:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .solutionRow:nth-child(2),
+  .solutionRow:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .jobsImages {
+    min-height: 0;
+  }
+
+  .jobsListingFigure {
+    width: 100%;
+  }
+
+  .jobDetailFigure {
+    position: relative;
+    width: 78%;
+    right: auto;
+    bottom: auto;
+    margin: 1.5rem 0 0 auto;
+  }
+
+  .ctaRow {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .nextProject {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .techGrid,
+  .outcomeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .outcomeGrid {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .outcomeCard {
+    border-right: none;
+  }
+
+  .jobDetailFigure {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .solution,
+  .techStack,
+  .jobs,
+  .rtl,
+  .admin,
+  .outcome,
+  .cta {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
