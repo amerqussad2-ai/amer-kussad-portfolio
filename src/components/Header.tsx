@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
 
 const NAV_ITEMS = [
-  { label: "Work", cursor: "WORK" },
+  { label: "Work", cursor: "WORK", href: "#work" },
   { label: "About", cursor: "ABOUT" },
   { label: "Resume", cursor: "RESUME" },
   { label: "Contact", cursor: "CONTACT" },
@@ -36,9 +36,19 @@ export default function Header() {
         <ul className={styles.navList}>
           {NAV_ITEMS.map((item) => (
             <li key={item.label}>
-              <span className={styles.navItem} data-cursor={item.cursor}>
-                {item.label}
-              </span>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  className={styles.navItem}
+                  data-cursor={item.cursor}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <span className={styles.navItem} data-cursor={item.cursor}>
+                  {item.label}
+                </span>
+              )}
             </li>
           ))}
         </ul>
@@ -61,7 +71,17 @@ export default function Header() {
           <ul>
             {NAV_ITEMS.map((item) => (
               <li key={item.label}>
-                <span className={styles.mobileNavItem}>{item.label}</span>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    className={styles.mobileNavItem}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <span className={styles.mobileNavItem}>{item.label}</span>
+                )}
               </li>
             ))}
           </ul>

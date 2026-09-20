@@ -1,9 +1,13 @@
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
-export default function Hero() {
+export default function Hero({ receded = false }: { receded?: boolean }) {
   return (
-    <main className={styles.hero} data-cursor="SCROLL">
+    <section
+      id="intro"
+      className={`${styles.hero}${receded ? ` ${styles.heroReceded}` : ""}`}
+      data-cursor="SCROLL"
+    >
       <div className={styles.content}>
         <p className={styles.eyebrow}>Front-End Developer</p>
 
@@ -55,6 +59,6 @@ export default function Hero() {
           to explore
         </span>
       </div>
-    </main>
+    </section>
   );
 }

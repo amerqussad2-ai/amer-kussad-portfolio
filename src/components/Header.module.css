@@ -42,6 +42,13 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-fg-muted);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+a.navItem:hover,
+a.navItem:focus-visible {
+  color: var(--color-fg);
 }
 
 .menuToggle {
@@ -105,6 +112,13 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-fg-muted);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+a.mobileNavItem:hover,
+a.mobileNavItem:focus-visible {
+  color: var(--color-fg);
 }
 
 @media (min-width: 900px) {

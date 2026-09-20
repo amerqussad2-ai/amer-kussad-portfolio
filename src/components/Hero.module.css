@@ -5,6 +5,19 @@
   align-items: center;
   padding: 8rem clamp(1.25rem, 5vw, 3.5rem) 6rem clamp(4.5rem, 9vw, 7rem);
   overflow: hidden;
+  transition: transform 700ms ease, opacity 700ms ease;
+}
+
+.heroReceded {
+  transform: translateY(-6vh);
+  opacity: 0.85;
+}
+
+@media (max-width: 899px) {
+  .heroReceded {
+    transform: translateY(-2vh);
+    opacity: 0.92;
+  }
 }
 
 .content {
