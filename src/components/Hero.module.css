@@ -73,16 +73,31 @@
 .portraitImage {
   object-fit: cover;
   object-position: top center;
-  filter: grayscale(1) contrast(1.2) brightness(0.5);
+  filter: grayscale(1) contrast(1.12) brightness(0.72);
+  mask-image: radial-gradient(
+    ellipse farthest-side at 60% 40%,
+    white 0%,
+    white 58%,
+    rgba(255, 255, 255, 0.5) 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse farthest-side at 60% 40%,
+    white 0%,
+    white 58%,
+    rgba(255, 255, 255, 0.5) 80%,
+    transparent 100%
+  );
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
 }
 
 .portraitFade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to left, transparent 35%, var(--color-bg) 100%),
-    linear-gradient(to top, var(--color-bg) 0%, transparent 45%),
-    linear-gradient(to bottom, transparent 75%, var(--color-bg) 100%),
-    rgba(10, 10, 11, 0.32);
+  background: rgba(10, 10, 11, 0.18);
   pointer-events: none;
 }
 
@@ -167,14 +182,28 @@
   }
 
   .portraitImage {
-    transform: scale(1.25);
-    transform-origin: top center;
+    object-fit: contain;
+    object-position: top center;
+    transform: none;
+    filter: grayscale(1) contrast(1.12) brightness(0.72);
+    mask-image: radial-gradient(
+      ellipse 24% 75% at 50% 30%,
+      white 0%,
+      white 42%,
+      rgba(255, 255, 255, 0.5) 68%,
+      transparent 96%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 24% 75% at 50% 30%,
+      white 0%,
+      white 42%,
+      rgba(255, 255, 255, 0.5) 68%,
+      transparent 96%
+    );
   }
 
   .portraitFade {
-    background: linear-gradient(to top, var(--color-bg) 0%, transparent 55%),
-      linear-gradient(to bottom, transparent 60%, var(--color-bg) 100%),
-      rgba(10, 10, 11, 0.5);
+    background: rgba(10, 10, 11, 0.16);
   }
 
   .name {
