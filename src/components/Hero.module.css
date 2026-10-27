@@ -69,8 +69,65 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
   margin-top: 0.5rem;
+}
+
+/* Hero CTA option A — refined original buttons; intentionally scoped to the Hero. */
+.actions :global(.button) {
+  min-height: 3.3rem;
+  padding: 0.95rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.79rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.actions :global(.button--primary) {
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.actions :global(.button--primary)::after {
+  content: "→";
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 1.22rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 220ms ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .actions :global(.button--primary):hover::after {
+    transform: translateX(3px);
+  }
+}
+
+.actions :global(.button--secondary) {
+  min-width: 9.8rem;
+  border-color: rgba(244, 241, 234, 0.42);
+}
+
+@media (max-width: 399px) {
+  .actions {
+    gap: 0.6rem;
+  }
+
+  .actions :global(.button) {
+    min-height: 3.1rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.74rem;
+  }
+
+  .actions :global(.button--primary) {
+    gap: 0.65rem;
+  }
+
+  .actions :global(.button--secondary) {
+    min-width: auto;
+  }
 }
 
 .portrait {
