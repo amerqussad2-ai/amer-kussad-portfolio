@@ -1,0 +1,11 @@
+/* Separate legacy case-study routes remain available without altering the main design. */
+.v2-case{min-height:100svh;background:#0a0b0d;color:#f4f1ea}
+.v2-case-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px clamp(24px,5vw,90px);border-bottom:1px solid #303237}
+.v2-case-nav a{color:inherit;text-decoration:none;font-size:13px;letter-spacing:.05em}
+.v2-case-nav a:hover{color:#d9d3ca}
+.v2-case-back{display:inline-flex;gap:12px;align-items:center}
+.v2-case-intro{text-align:center;padding:65px 24px 58px}
+.v2-case-intro h1{font-family:var(--font-display),Georgia,serif;font-weight:400;font-size:clamp(36px,6vw,75px);line-height:1.07;margin:0 0 17px}
+.v2-case-intro p{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#b2afa8;margin:0}
+.v2-case-footer{padding:55px 24px;text-align:center;border-top:1px solid #303237}
+.v2-case-footer a{color:inherit;text-decoration:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid #77736e;padding-bottom:8px}

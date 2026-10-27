@@ -33,9 +33,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <span className={styles.mark} data-cursor="SCROLL">
+      <a href="#intro" className={styles.mark} aria-label="Amer Kussad — back to intro" data-cursor="SCROLL">
         AK
-      </span>
+      </a>
 
       <div className={styles.nav}>
         <ul className={styles.navList}>

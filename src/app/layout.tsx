@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Manrope } from "next/font/google";
 import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
-import "./portfolio-v2.css";
+import "./case-study.css";
 
 const displayFont = Bodoni_Moda({
   subsets: ["latin"],

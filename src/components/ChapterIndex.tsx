@@ -10,18 +10,17 @@ const CHAPTERS = [
 
 export default function ChapterIndex({ activeId }: { activeId: string }) {
   return (
-    <div className={styles.index} aria-hidden="true">
+    <nav className={styles.index} aria-label="Page chapters">
       <ol className={styles.list}>
         {CHAPTERS.map((chapter) => (
-          <li
-            key={chapter.number}
-            className={`${styles.item}${chapter.id === activeId ? ` ${styles.itemActive}` : ""}`}
-          >
-            <span className={styles.number}>{chapter.number}</span>
-            <span className={styles.label}>{chapter.label}</span>
+          <li key={chapter.id} className={styles.item + (chapter.id === activeId ? " " + styles.itemActive : "")}>
+            <a href={"#" + chapter.id} aria-current={chapter.id === activeId ? "location" : undefined}>
+              <span className={styles.number}>{chapter.number}</span>
+              <span className={styles.label}>{chapter.label}</span>
+            </a>
           </li>
         ))}
       </ol>
-    </div>
+    </nav>
   );
 }

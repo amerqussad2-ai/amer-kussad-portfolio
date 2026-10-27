@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import styles from "./Preloader.module.css";
 
-const DURATION_MS = 1600;
-const EXIT_MS = 500;
+const DURATION_MS = 650;
+const EXIT_MS = 260;
 
 function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3);

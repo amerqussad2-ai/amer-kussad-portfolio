@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #0a0a0b;
+  --color-bg: #0a0b0d;
   --color-fg: #f4f1ea;
-  --color-fg-muted: #8f8c86;
-  --color-border: #2a2c2e;
-  --color-border-strong: #4a4d51;
+  --color-fg-muted: #aaa7a0;
+  --color-border: #303237;
+  --color-border-strong: #55585e;
 }
 
 @theme inline {
@@ -112,3 +112,11 @@ html.has-custom-cursor * {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Small refinements shared by every chapter; no extra animation runtime. */
+.button{min-height:47px;padding:.9rem 1.6rem;letter-spacing:.1em;font-size:.75rem;transition:background-color .23s ease,border-color .23s ease,color .23s ease,transform .23s ease}
+.button--primary:hover{opacity:1;background:#d5d1c9;border-color:#d5d1c9;transform:translateY(-2px)}
+.button--secondary:hover:not(:disabled){border-color:#bdb9b0;transform:translateY(-2px)}
+@media(max-width:899px){.button{font-size:.72rem;padding:.85rem 1.2rem}}
+@media(prefers-reduced-motion:reduce){.button:hover{transform:none}}

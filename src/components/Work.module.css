@@ -361,3 +361,51 @@
     transform: none;
   }
 }
+
+
+/* High-contrast project presentation: readable copy and quiet imagery. */
+.work{padding-top:8.5rem;padding-bottom:8.5rem}
+.work::before{background:radial-gradient(ellipse 55% 45% at 18% 0%,rgba(218,218,218,.025),transparent 65%)}
+.intro{padding-bottom:4.25rem}
+.heading{font-size:clamp(3rem,6.4vw,5.25rem);letter-spacing:-.018em}
+.introRule{max-width:100%;background:#323438}
+.list{gap:3rem}
+.showcase{
+  grid-template-columns:minmax(220px,31%) minmax(0,1fr) 18px;
+  gap:clamp(1.7rem,3vw,3.6rem);
+  min-height:425px;
+  border-color:#303136;
+  background:#111215;
+  padding:clamp(2.4rem,4.6vw,4.5rem) clamp(1.5rem,3vw,2.7rem);
+  transition:border-color .32s ease,background-color .32s ease,transform .4s cubic-bezier(.2,.75,.25,1);
+}
+.showcaseBackdrop{filter:grayscale(1) blur(70px) brightness(.12);opacity:.38}
+.showcaseCasaLuce .showcaseBackdrop{filter:grayscale(1) blur(70px) brightness(.12);opacity:.38}
+.showcaseScrim,.showcaseCasaLuce .showcaseScrim{background:rgba(11,12,14,.55)}
+.showcaseCasaLuce{grid-template-columns:minmax(220px,31%) minmax(0,1fr) 18px;align-items:center;padding:clamp(2.4rem,4.6vw,4.5rem) clamp(1.5rem,3vw,2.7rem)}
+.showcaseNumber{color:#d5d1ca;margin-bottom:1.35rem}
+.showcaseName{font-size:clamp(2.2rem,3.3vw,3.35rem);letter-spacing:-.01em}
+.showcaseType{color:#b0ada6;margin-top:.9rem}
+.showcaseDescription{color:#b3b0aa;line-height:1.78;max-width:35ch}
+.stack{color:#a9a6a0;letter-spacing:.06em}
+.viewButton{padding-bottom:.55rem;border-bottom:1px solid #77736d;font-size:.74rem;letter-spacing:.12em;gap:1.1rem}
+.showcaseImageWrap,.showcaseCasaLuce .showcaseImageWrap{margin-right:0}
+.showcaseImage{border-color:#383a3e;box-shadow:0 30px 65px rgba(0,0,0,.42);transition:transform .55s cubic-bezier(.2,.75,.25,1),border-color .35s ease}
+.showcaseImage::after{background:linear-gradient(145deg,rgba(9,10,12,.06),transparent 47%)}
+.showcaseMeta{color:#b5b0a8;opacity:.65}
+.showcase:hover,.showcase:focus-within{border-color:#63656a;background:#151619;transform:translateY(-2px)}
+.showcase:hover .showcaseImage,.showcase:focus-within .showcaseImage{transform:translateY(-5px);border-color:#5d6064}
+@media(max-width:899px){
+ .work{padding:6rem 0 5rem}
+ .intro{padding-bottom:2.7rem}
+ .list{gap:0}
+ .showcase,.showcaseCasaLuce{display:block;min-height:0;background:transparent;border:0;border-top:1px solid #303237;padding:2.9rem 0 3.5rem;transform:none}
+ .showcase:hover,.showcase:focus-within{background:transparent;transform:none;border-color:#55585b}
+ .showcaseName{font-size:clamp(2rem,7.6vw,2.65rem)}
+ .showcaseImageWrap,.showcaseCasaLuce .showcaseImageWrap{margin:2rem 0 0}
+ .showcase:hover .showcaseImage,.showcase:focus-within .showcaseImage{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .showcase,.showcaseImage,.viewArrow{transition:none}
+ .showcase:hover{transform:none}
+}

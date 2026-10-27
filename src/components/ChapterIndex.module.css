@@ -48,3 +48,17 @@
     display: block;
   }
 }
+
+
+/* Refined chapter navigation: original numbered index, now keyboard accessible. */
+.index { left:clamp(1.25rem,2.7vw,2.75rem); }
+.list { gap:1.7rem; }
+.item { position:relative;opacity:.48;transition:opacity 320ms ease,transform 320ms ease; }
+.item a { display:flex;flex-direction:column;gap:.3rem;text-decoration:none; }
+.item:hover,.item:focus-within{opacity:.85}
+.itemActive {opacity:1}
+.itemActive::before {content:"";position:absolute;top:7px;left:-13px;width:6px;height:1px;background:#e4e0d8}
+.number{font-size:.72rem;letter-spacing:.04em;color:#eeeae3}
+.label{font-size:.61rem;letter-spacing:.16em;color:#a9a6a0}
+.item a:focus-visible{outline:1px solid #eeeae3;outline-offset:6px}
+@media (prefers-reduced-motion:reduce){.item{transition:none}}

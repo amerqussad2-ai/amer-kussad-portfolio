@@ -130,3 +130,20 @@ a.mobileNavItem:focus-visible {
     display: none;
   }
 }
+
+
+/* Quiet, consistent navigation; no decorative UI competing with the work. */
+.header {
+  padding-top:1.8rem;
+  padding-bottom:1.8rem;
+  background:linear-gradient(180deg,rgba(10,11,13,.88) 0%,rgba(10,11,13,.38) 63%,transparent 100%);
+  pointer-events:none;
+}
+.header a,.header button,.header .nav{pointer-events:auto}
+.mark{display:inline-block;color:#f1eee8;text-decoration:none;letter-spacing:.045em;transition:opacity 220ms ease}
+.mark:hover{opacity:.72}
+.navList{gap:clamp(1.5rem,2.7vw,2.7rem)}
+.navItem{color:#b3b0a9;font-size:.72rem;letter-spacing:.12em}
+a.navItem:hover,a.navItem:focus-visible{color:#f4f1ea}
+.mobilePanel{background:#101113;border:1px solid #2e3033;box-shadow:0 22px 50px rgba(0,0,0,.4)}
+@media(max-width:899px){.header{padding-top:1.4rem;padding-bottom:1.4rem}}

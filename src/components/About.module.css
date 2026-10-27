@@ -216,3 +216,22 @@
     scroll-margin-top: 200px;
   }
 }
+
+
+/* Restore the original About story, with more generous editorial spacing. */
+.about{border-top:1px solid #27292d}
+.spread{padding:8.2rem 0 9.5rem}
+.glow{opacity:.22;filter:blur(110px)}
+.kicker{margin-bottom:4.4rem}
+.grid{grid-template-columns:minmax(265px,39%) minmax(0,1fr);column-gap:clamp(3.5rem,7vw,7rem)}
+.name{letter-spacing:-.012em;font-size:clamp(3.5rem,7vw,6.5rem)}
+.editorial{gap:2.6rem;padding-left:clamp(2.25rem,4vw,4rem)}
+.aboutMeHeading{font-size:clamp(2rem,3.5vw,2.9rem);letter-spacing:-.013em}
+.aboutMeCopy,.journeyCopy{color:#bab6ae;line-height:1.8;max-width:55ch}
+.stack{color:#c09b7e}
+@media(max-width:899px){
+ .spread{padding:6.5rem 0}
+ .kicker{margin-bottom:3.5rem}
+ .grid{grid-template-columns:1fr;row-gap:3rem}
+ .editorial{padding-left:0;gap:2.7rem}
+}

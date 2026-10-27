@@ -203,3 +203,26 @@ a.linkItem:focus-visible {
     gap: 0.5rem;
   }
 }
+
+
+/* A composed closing section, with accessible, generously sized links. */
+.contact{border-top:1px solid #303135}
+.closing{padding:7rem 0 6.3rem}
+.grid{grid-template-columns:minmax(220px,35%) 1fr;column-gap:clamp(3rem,5vw,5.5rem)}
+.heading{font-size:clamp(3rem,5vw,4rem);letter-spacing:-.015em}
+.copy{color:#b5b1aa;line-height:1.8;max-width:38ch}
+.linkRow{grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #323438}
+.linkItem{min-height:110px;padding:1.3rem 1.2rem;border-bottom:1px solid #323438;transition:background-color .2s ease}
+.linkItem:first-child{padding-left:1.2rem}
+a.linkItem:hover,a.linkItem:focus-visible{background:rgba(255,255,255,.035);opacity:1}
+.linkLabel{color:#c7a78b}
+.linkValue{font-size:.82rem;line-height:1.65}
+.footer{padding-top:2rem;padding-bottom:2rem}
+@media(max-width:899px){
+ .closing{padding:5.5rem 0 4rem}
+ .grid{grid-template-columns:1fr;row-gap:2.5rem}
+ .linkRow{display:flex;border-left:0;flex-direction:column}
+ .linkItem{min-height:0;padding:1.3rem 0;gap:1rem;align-items:flex-start}
+ .linkItem:first-child{padding-left:0}
+ .linkValue{max-width:70%}
+}
