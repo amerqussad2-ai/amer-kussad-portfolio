@@ -17,7 +17,42 @@ const NAV_ITEMS = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const toggleRef = useRef<HTMLButtonElement | null>(null);
+
+  // Highlight the section currently reached while scrolling, not just the last clicked link.
+  useEffect(() => {
+    const sectionIds = ["work", "about", "contact"];
+    let frame = 0;
+
+    const updateActiveSection = () => {
+      frame = 0;
+      const marker = window.innerHeight * 0.35;
+      let current = "";
+
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= marker) {
+          current = id;
+        }
+      }
+
+      setActiveSection((previous) => previous === current ? previous : current);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -44,7 +79,8 @@ export default function Header() {
               {item.href ? (
                 <a
                   href={item.href}
-                  className={styles.navItem}
+                  className={`${styles.navItem}${!item.external && item.href === `#${activeSection}` ? ` ${styles.navItemActive}` : ""}`}
+                  aria-current={!item.external && item.href === `#${activeSection}` ? "location" : undefined}
                   data-cursor={item.cursor}
                   {...(item.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -82,7 +118,8 @@ export default function Header() {
                 {item.href ? (
                   <a
                     href={item.href}
-                    className={styles.mobileNavItem}
+                    className={`${styles.mobileNavItem}${!item.external && item.href === `#${activeSection}` ? ` ${styles.mobileNavItemActive}` : ""}`}
+                    aria-current={!item.external && item.href === `#${activeSection}` ? "location" : undefined}
                     onClick={() => setOpen(false)}
                     {...(item.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
