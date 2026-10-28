@@ -6,8 +6,6 @@ import Header from "@/components/Header";
 import ChapterIndex from "@/components/ChapterIndex";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
-import Tatweer from "@/components/Tatweer";
-import CasaLuce from "@/components/CasaLuce";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 
@@ -15,38 +13,26 @@ export default function Home() {
   const [introDone, setIntroDone] = useState(false);
   const [activeChapter, setActiveChapter] = useState("intro");
   const [workRevealed, setWorkRevealed] = useState(false);
-  const [tatweerRevealed, setTatweerRevealed] = useState(false);
-  const [casaLuceRevealed, setCasaLuceRevealed] = useState(false);
   const [aboutRevealed, setAboutRevealed] = useState(false);
   const [contactRevealed, setContactRevealed] = useState(false);
+
   const workRef = useRef<HTMLElement | null>(null);
-  const tatweerRef = useRef<HTMLElement | null>(null);
-  const casaLuceRef = useRef<HTMLElement | null>(null);
   const aboutRef = useRef<HTMLElement | null>(null);
   const contactRef = useRef<HTMLElement | null>(null);
 
-  const handleIntroFinish = useCallback(() => {
-    setIntroDone(true);
-  }, []);
+  const handleIntroFinish = useCallback(() => setIntroDone(true), []);
 
   useEffect(() => {
-    const introNode = document.getElementById("intro");
-    const workNode = workRef.current;
-    const tatweerNode = tatweerRef.current;
-    const casaLuceNode = casaLuceRef.current;
-    const aboutNode = aboutRef.current;
-    const sections = [
-      introNode,
-      workNode,
-      tatweerNode,
-      casaLuceNode,
-      aboutNode,
+    const nodes = [
+      document.getElementById("intro"),
+      workRef.current,
+      aboutRef.current,
+      contactRef.current,
     ].filter((node): node is HTMLElement => node !== null);
-    if (!sections.length) return;
 
-    // Drives which chapter reads as "active" — a passive scroll-spy, never
-    // intercepting the wheel/touch, so scrolling stays entirely native.
-    const activeObserver = new IntersectionObserver(
+    if (!nodes.length) return;
+
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) setActiveChapter(entry.target.id);
@@ -55,86 +41,34 @@ export default function Home() {
       { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
     );
 
-    sections.forEach((node) => activeObserver.observe(node));
-
-    return () => activeObserver.disconnect();
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    const node = workRef.current;
-    if (!node) return;
+    const registrations: Array<[HTMLElement | null, (value: boolean) => void]> = [
+      [workRef.current, setWorkRevealed],
+      [aboutRef.current, setAboutRevealed],
+      [contactRef.current, setContactRevealed],
+    ];
 
-    // One-time reveal: once Work has entered the viewport, it stays revealed
-    // even if the user scrolls back up past it.
-    const revealObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setWorkRevealed(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const match = registrations.find(([node]) => node === entry.target);
+          if (match) {
+            match[1](true);
+            observer.unobserve(entry.target);
+          }
+        });
       },
       { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
     );
-
-    revealObserver.observe(node);
-    return () => revealObserver.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const node = tatweerRef.current;
-    if (!node) return;
-
-    const revealObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setTatweerRevealed(true);
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
-    );
-
-    revealObserver.observe(node);
-    return () => revealObserver.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const node = casaLuceRef.current;
-    if (!node) return;
-
-    const revealObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setCasaLuceRevealed(true);
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
-    );
-
-    revealObserver.observe(node);
-    return () => revealObserver.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const node = aboutRef.current;
-    if (!node) return;
-
-    const revealObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setAboutRevealed(true);
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
-    );
-
-    revealObserver.observe(node);
-    return () => revealObserver.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const node = contactRef.current;
-    if (!node) return;
-
-    const revealObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setContactRevealed(true);
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
-    );
-
-    revealObserver.observe(node);
-    return () => revealObserver.disconnect();
+    registrations.forEach(([node]) => {
+      if (node) observer.observe(node);
+    });
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -146,8 +80,6 @@ export default function Home() {
         <main>
           <Hero receded={activeChapter !== "intro"} />
           <Work ref={workRef} revealed={workRevealed} />
-          <Tatweer ref={tatweerRef} revealed={tatweerRevealed} />
-          <CasaLuce ref={casaLuceRef} revealed={casaLuceRevealed} />
           <About ref={aboutRef} revealed={aboutRevealed} />
           <Contact ref={contactRef} revealed={contactRevealed} />
         </main>

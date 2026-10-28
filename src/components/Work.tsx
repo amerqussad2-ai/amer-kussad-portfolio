@@ -7,7 +7,7 @@ import styles from "./Work.module.css";
 const PROJECTS = [
   {
     id: "tatweer",
-    href: "#tatweer",
+    href: "/projects/tatweer",
     live: true,
     number: "01",
     name: "Tatweer Employment",
@@ -17,6 +17,7 @@ const PROJECTS = [
       "A bilingual recruitment web application for employers, candidates and internal administration.",
     stack: ["React", "TypeScript", "Supabase"],
     image: "/images/projects/tatweer-home.webp",
+    mobileImage: "/images/projects/tatweer-home.webp",
     alt: "Tatweer Employment homepage",
     width: 1350,
     height: 610,
@@ -24,7 +25,7 @@ const PROJECTS = [
   },
   {
     id: "casa-luce",
-    href: "#casa-luce",
+    href: "/projects/casa-luce",
     live: true,
     number: "02",
     name: "Casa Luce",
@@ -34,6 +35,7 @@ const PROJECTS = [
       "A multi-page restaurant website for a fictional modern Italian restaurant in Dubai Marina.",
     stack: ["Next.js", "TypeScript"],
     image: "/images/projects/casa-luce-home.webp",
+    mobileImage: "/images/projects/casa-luce/home-mobile.png",
     alt: "Casa Luce restaurant website homepage",
     width: 1352,
     height: 608,
@@ -79,7 +81,11 @@ const Work = forwardRef<HTMLElement, { revealed: boolean }>(function Work(
 
             <div className={styles.showcaseText}>
               <span className={styles.showcaseNumber}>{project.number}</span>
-              <h3 className={styles.showcaseName}>{project.name}</h3>
+              <h3 className={styles.showcaseName}>
+                <a href={project.href} className={styles.projectTitleLink}>
+                  {project.name}
+                </a>
+              </h3>
               <p className={styles.showcaseType}>{project.type}</p>
               <p className={styles.showcaseDescription}>
                 {project.description}
@@ -112,20 +118,46 @@ const Work = forwardRef<HTMLElement, { revealed: boolean }>(function Work(
               )}
             </div>
 
-            <div className={styles.showcaseImageWrap}>
-              <div
-                className={styles.showcaseImage}
-                style={{ aspectRatio: `${project.width} / ${project.height}` }}
-              >
-                <Image
-                  src={project.image}
-                  alt={project.alt}
-                  fill
-                  sizes="(min-width: 900px) 58vw, 92vw"
-                  className={styles.showcaseImageEl}
-                />
+            <a
+              href={project.href}
+              className={styles.showcaseImageWrap}
+              aria-label={`Open ${project.name} case study`}
+              data-cursor="VIEW"
+            >
+              <div className={styles.deviceStage}>
+                <div className={styles.laptopFrame}>
+                  <div className={styles.laptopLid}>
+                    <span className={styles.laptopCamera} aria-hidden="true" />
+                    <div
+                      className={styles.showcaseImage}
+                      style={{ aspectRatio: `${project.width} / ${project.height}` }}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.alt}
+                        fill
+                        sizes="(min-width: 900px) 48vw, 86vw"
+                        className={styles.showcaseImageEl}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.laptopBase} aria-hidden="true" />
+                </div>
+
+                <div className={styles.phoneFrame} aria-hidden="true">
+                  <span className={styles.phoneNotch} />
+                  <div className={styles.phoneScreen}>
+                    <Image
+                      src={project.mobileImage}
+                      alt=""
+                      fill
+                      sizes="(min-width: 900px) 12vw, 28vw"
+                      className={styles.phoneImage}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
 
             <div className={styles.showcaseMeta} aria-hidden="true">
               <span>{project.metaLabel}</span>

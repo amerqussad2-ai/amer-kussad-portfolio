@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 
 const NAV_ITEMS = [
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const toggleRef = useRef<HTMLButtonElement | null>(null);
@@ -68,9 +70,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <span className={styles.mark} data-cursor="SCROLL">
+      <a href="/" className={styles.mark} data-cursor="SCROLL" aria-label="Amer Kussad home">
         AK
-      </span>
+      </a>
 
       <div className={styles.nav}>
         <ul className={styles.navList}>
@@ -78,7 +80,7 @@ export default function Header() {
             <li key={item.label}>
               {item.href ? (
                 <a
-                  href={item.href}
+                  href={pathname !== "/" && item.href.startsWith("#") ? `/${item.href}` : item.href}
                   className={`${styles.navItem}${!item.external && item.href === `#${activeSection}` ? ` ${styles.navItemActive}` : ""}`}
                   aria-current={!item.external && item.href === `#${activeSection}` ? "location" : undefined}
                   data-cursor={item.cursor}
@@ -117,7 +119,7 @@ export default function Header() {
               <li key={item.label}>
                 {item.href ? (
                   <a
-                    href={item.href}
+                    href={pathname !== "/" && item.href.startsWith("#") ? `/${item.href}` : item.href}
                     className={`${styles.mobileNavItem}${!item.external && item.href === `#${activeSection}` ? ` ${styles.mobileNavItemActive}` : ""}`}
                     aria-current={!item.external && item.href === `#${activeSection}` ? "location" : undefined}
                     onClick={() => setOpen(false)}
