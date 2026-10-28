@@ -507,3 +507,170 @@
     transition: none;
   }
 }
+
+/* Device presentation refinement — matches the warm studio mockup reference.
+   Screenshot sources are real captures (Tatweer mobile is independently cropped). */
+.deviceStage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 1.95 / 1;
+  padding: 7.5% 5.5% 6.5% 6%;
+  overflow: hidden;
+  border: 1px solid rgba(244, 241, 234, 0.12);
+  background:
+    radial-gradient(ellipse at 50% 6%, rgba(232, 218, 200, 0.25), transparent 70%),
+    linear-gradient(135deg, #4d4742 0%, #35322f 45%, #292726 100%);
+}
+
+.deviceStage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.55;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, rgba(235, 225, 210, 0.17) 0%, transparent 37%),
+    radial-gradient(ellipse at 50% 112%, rgba(11, 10, 10, 0.54), transparent 64%);
+}
+
+.deviceStage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 3.5%;
+  left: 5%;
+  width: 90%;
+  height: 14%;
+  border-radius: 50%;
+  background: rgba(9, 9, 10, 0.33);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.laptopFrame {
+  z-index: 1;
+  width: 78%;
+  margin: 0 0 2% 1.6%;
+  transform: none;
+}
+
+.laptopLid {
+  padding: clamp(4px, 0.53vw, 8px);
+  padding-top: clamp(11px, 0.92vw, 15px);
+  border: 1px solid #77787a;
+  border-bottom-color: #2d2e31;
+  border-radius: clamp(7px, 0.9vw, 12px) clamp(7px, 0.9vw, 12px) 2px 2px;
+  background: linear-gradient(155deg, #38393b, #0d0e10 68%, #262728);
+  box-shadow: 0 14px 31px rgba(0, 0, 0, 0.40);
+}
+
+.laptopCamera {
+  top: clamp(3px, 0.4vw, 6px);
+  background: #85888d;
+}
+
+.laptopBase {
+  height: clamp(6px, 0.9vw, 11px);
+  margin: 0 -4%;
+  border-color: #77787a;
+  background: linear-gradient(180deg, #949598 0%, #626367 21%, #222427 72%, #55565a 100%);
+}
+
+.showcaseImage {
+  background: #f5f3ec;
+}
+
+.phoneFrame {
+  z-index: 4;
+  right: 6.3%;
+  bottom: 7.3%;
+  width: 21%;
+  aspect-ratio: 9 / 19.6;
+  border: 2px solid #6d7073;
+  border-radius: clamp(13px, 1.95vw, 28px);
+  padding: clamp(3px, 0.46vw, 6px);
+  background: #111214;
+  box-shadow:
+    0 15px 27px rgba(0, 0, 0, 0.57),
+    inset 0 0 0 1px #252729,
+    1px 0 0 rgba(232, 233, 234, 0.26);
+  transform: rotate(0deg);
+}
+
+.phoneScreen {
+  background: #f6f2e7;
+  border-radius: clamp(9px, 1.5vw, 22px);
+}
+
+.phoneNotch {
+  background: #111214;
+  width: 32%;
+}
+
+.phoneImage {
+  object-fit: contain;
+  object-position: center top;
+  background: #f6f2e7;
+}
+
+.showcaseTatweer .phoneImage {
+  object-position: center top;
+}
+
+.showcase:hover .phoneFrame,
+.showcase:focus-within .phoneFrame {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 899px) {
+  .deviceStage {
+    aspect-ratio: 1.83 / 1;
+    padding: 7% 5% 6% 5%;
+  }
+
+  .laptopFrame {
+    width: 79%;
+    margin-left: 1%;
+  }
+
+  .phoneFrame {
+    right: 5%;
+    bottom: 7%;
+    width: 22.5%;
+  }
+
+  .showcase:hover .phoneFrame,
+  .showcase:focus-within .phoneFrame {
+    transform: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .deviceStage {
+    aspect-ratio: 1.55 / 1;
+    padding-bottom: 8%;
+  }
+
+  .phoneFrame {
+    width: 25%;
+    right: 4%;
+    bottom: 9%;
+  }
+
+  .laptopFrame {
+    width: 81%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase:hover .phoneFrame,
+  .showcase:focus-within .phoneFrame {
+    transform: none;
+  }
+}

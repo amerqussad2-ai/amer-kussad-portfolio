@@ -17,7 +17,7 @@ const PROJECTS = [
       "A bilingual recruitment web application for employers, candidates and internal administration.",
     stack: ["React", "TypeScript", "Supabase"],
     image: "/images/projects/tatweer-home.webp",
-    mobileImage: "/images/projects/tatweer-home.webp",
+    mobileImage: "/images/projects/tatweer-mobile-clean.webp",
     alt: "Tatweer Employment homepage",
     width: 1350,
     height: 610,
