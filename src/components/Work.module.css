@@ -133,8 +133,9 @@
 .viewButton:hover .viewArrow, .viewButton:focus-visible .viewArrow { transform: translateX(4px); }
 .viewButton:hover, .liveButton:hover { opacity: 0.73; }
 
-/* Approved photographic project mockups replace CSS-built devices.
-   Keep the entire 1500x844 picture visible, never crop the frames. */
+/* Monochrome editorial hardware scenes with the original project captures.
+   The screen layers display the actual unmodified site screenshots.
+   Original screenshot aspect ratios are preserved with object-fit: contain. */
 .showcaseImageWrap {
   grid-area: preview;
   display: block;
@@ -144,20 +145,90 @@
   text-decoration: none;
 }
 
+.studioScene {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  border: 1px solid rgba(244, 241, 234, 0.15);
+  border-radius: 2px;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 250ms ease, transform 250ms ease;
+}
+
 .mockupImage {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1500 / 844;
+  aspect-ratio: 1672 / 941;
   object-fit: contain;
-  border: 1px solid rgba(244, 241, 234, 0.12);
-  border-radius: 2px;
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.20);
-  transition: box-shadow 250ms ease, transform 250ms ease;
 }
 
-.showcaseImageWrap:hover .mockupImage,
-.showcaseImageWrap:focus-visible .mockupImage {
+.desktopScreen,
+.mobileScreen {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+
+.desktopScreen {
+  left: 15.25%;
+  top: 14.45%;
+  width: 61.42%;
+  height: 62.81%;
+  border-radius: 2px;
+  background: #f7f4ea;
+}
+
+.mobileScreen {
+  left: 77.15%;
+  top: 32.94%;
+  width: 14.6%;
+  height: 57.28%;
+  border-radius: 7% / 3.5%;
+  background: #f7f4ea;
+  z-index: 3;
+}
+
+.realDesktopImage,
+.realMobileImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+.realDesktopImage {
+  background: #f7f4ea;
+}
+
+.realMobileImage {
+  background: #f7f4ea;
+  object-position: center top;
+}
+
+.showcaseCasaLuce .desktopScreen,
+.showcaseCasaLuce .mobileScreen,
+.showcaseCasaLuce .realDesktopImage,
+.showcaseCasaLuce .realMobileImage {
+  background: #1b1512;
+}
+
+.showcaseCasaLuce .desktopScreen {
+  top: 14.35%;
+  width: 61.48%;
+  height: 63%;
+}
+
+.showcaseCasaLuce .mobileScreen {
+  left: 76.85%;
+  top: 32.94%;
+  width: 14.65%;
+  height: 57.28%;
+}
+
+.showcaseImageWrap:hover .studioScene,
+.showcaseImageWrap:focus-visible .studioScene {
   box-shadow: 0 19px 48px rgba(0, 0, 0, 0.28);
   transform: translateY(-2px);
 }
@@ -196,7 +267,7 @@
   .viewButton, .liveButton { font-size: .65rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .work, .mockupImage, .viewArrow, .viewButton, .liveButton { transition: none; }
-  .showcaseImageWrap:hover .mockupImage,
-  .showcaseImageWrap:focus-visible .mockupImage { transform: none; }
+  .work, .studioScene, .viewArrow, .viewButton, .liveButton { transition: none; }
+  .showcaseImageWrap:hover .studioScene,
+  .showcaseImageWrap:focus-visible .studioScene { transform: none; }
 }

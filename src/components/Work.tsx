@@ -15,7 +15,9 @@ const PROJECTS = [
     description:
       "A bilingual recruitment web application connecting employers, candidates and internal administration through a clear, accessible experience.",
     stack: ["REACT", "TYPESCRIPT", "SUPABASE"],
-    mockup: "/images/projects/tatweer-studio.avif",
+    scene: "/images/projects/tatweer-mono-scene.avif",
+    image: "/images/projects/tatweer-home.webp",
+    mobileImage: "/images/projects/tatweer-mobile-clean.webp",
     alt: "Tatweer Employment website shown on a laptop and mobile phone",
     modifier: styles.showcaseTatweer,
   },
@@ -29,7 +31,9 @@ const PROJECTS = [
     description:
       "A refined multi-page restaurant website for a fictional modern Italian restaurant in Dubai Marina, built around atmosphere and responsive design.",
     stack: ["NEXT.JS", "TYPESCRIPT", "TAILWIND CSS"],
-    mockup: "/images/projects/casa-luce-studio.avif",
+    scene: "/images/projects/casa-luce-mono-scene.avif",
+    image: "/images/projects/casa-luce-home.webp",
+    mobileImage: "/images/projects/casa-luce/home-mobile.png",
     alt: "Casa Luce restaurant website shown on a laptop and mobile phone",
     modifier: styles.showcaseCasaLuce,
   },
@@ -67,14 +71,35 @@ const Work = forwardRef<HTMLElement, { revealed: boolean }>(function Work(
               aria-label={`View ${project.name} project details`}
               data-cursor="VIEW"
             >
-              <Image
-                src={project.mockup}
-                alt={project.alt}
-                width={1500}
-                height={844}
-                sizes="(min-width: 1200px) 55vw, (min-width: 900px) 60vw, 95vw"
-                className={styles.mockupImage}
-              />
+              <div className={styles.studioScene}>
+                <Image
+                  src={project.scene}
+                  alt=""
+                  aria-hidden="true"
+                  width={1672}
+                  height={941}
+                  sizes="(min-width: 1200px) 55vw, (min-width: 900px) 60vw, 95vw"
+                  className={styles.mockupImage}
+                />
+                <span className={styles.desktopScreen}>
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    sizes="(min-width: 1200px) 36vw, (min-width: 900px) 40vw, 68vw"
+                    className={styles.realDesktopImage}
+                  />
+                </span>
+                <span className={styles.mobileScreen} aria-hidden="true">
+                  <Image
+                    src={project.mobileImage}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1200px) 9vw, (min-width: 900px) 10vw, 19vw"
+                    className={styles.realMobileImage}
+                  />
+                </span>
+              </div>
             </a>
 
             <div className={styles.showcaseText}>
