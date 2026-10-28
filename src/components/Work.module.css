@@ -135,7 +135,7 @@
 
 /* Monochrome editorial hardware scenes with the original project captures.
    The screen layers display the actual unmodified site screenshots.
-   Original screenshot aspect ratios are preserved with object-fit: contain. */
+   Screenshots fill each screen viewport without letterboxing. */
 .showcaseImageWrap {
   grid-area: preview;
   display: block;
@@ -194,8 +194,8 @@
 
 .realDesktopImage,
 .realMobileImage {
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .realDesktopImage {

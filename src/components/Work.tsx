@@ -17,7 +17,7 @@ const PROJECTS = [
     stack: ["REACT", "TYPESCRIPT", "SUPABASE"],
     scene: "/images/projects/tatweer-mono-scene.avif",
     image: "/images/projects/tatweer-home.webp",
-    mobileImage: "/images/projects/tatweer-mobile-clean.webp",
+    mobileImage: "/images/projects/tatweer-mobile-hq.webp",
     alt: "Tatweer Employment website shown on a laptop and mobile phone",
     modifier: styles.showcaseTatweer,
   },
@@ -86,7 +86,7 @@ const Work = forwardRef<HTMLElement, { revealed: boolean }>(function Work(
                     src={project.image}
                     alt={project.alt}
                     fill
-                    sizes="(min-width: 1200px) 36vw, (min-width: 900px) 40vw, 68vw"
+                    sizes="(min-width: 1200px) 55vw, (min-width: 900px) 60vw, 100vw"
                     className={styles.realDesktopImage}
                   />
                 </span>
@@ -95,7 +95,7 @@ const Work = forwardRef<HTMLElement, { revealed: boolean }>(function Work(
                     src={project.mobileImage}
                     alt=""
                     fill
-                    sizes="(min-width: 1200px) 9vw, (min-width: 900px) 10vw, 19vw"
+                    sizes="(min-width: 1200px) 16vw, (min-width: 900px) 18vw, 30vw"
                     className={styles.realMobileImage}
                   />
                 </span>
