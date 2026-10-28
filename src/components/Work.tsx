@@ -15,10 +15,8 @@ const PROJECTS = [
     description:
       "A bilingual recruitment web application connecting employers, candidates and internal administration through a clear, accessible experience.",
     stack: ["REACT", "TYPESCRIPT", "SUPABASE"],
-    image: "/images/projects/tatweer-home.webp",
-    mobileImage: "/images/projects/tatweer-mobile-clean.webp",
+    mockup: "/images/projects/tatweer-studio.avif",
     alt: "Tatweer Employment website shown on a laptop and mobile phone",
-    imageAspect: "2000 / 1307",
     modifier: styles.showcaseTatweer,
   },
   {
@@ -31,10 +29,8 @@ const PROJECTS = [
     description:
       "A refined multi-page restaurant website for a fictional modern Italian restaurant in Dubai Marina, built around atmosphere and responsive design.",
     stack: ["NEXT.JS", "TYPESCRIPT", "TAILWIND CSS"],
-    image: "/images/projects/casa-luce-home.webp",
-    mobileImage: "/images/projects/casa-luce/home-mobile.png",
+    mockup: "/images/projects/casa-luce-studio.avif",
     alt: "Casa Luce restaurant website shown on a laptop and mobile phone",
-    imageAspect: "2000 / 904",
     modifier: styles.showcaseCasaLuce,
   },
 ];
@@ -71,36 +67,14 @@ const Work = forwardRef<HTMLElement, { revealed: boolean }>(function Work(
               aria-label={`View ${project.name} project details`}
               data-cursor="VIEW"
             >
-              <div className={styles.deviceStage}>
-                <div className={styles.laptopFrame}>
-                  <div className={styles.laptopLid}>
-                    <span className={styles.laptopCamera} aria-hidden="true" />
-                    <div className={styles.showcaseImage}>
-                      <Image
-                        src={project.image}
-                        alt={project.alt}
-                        fill
-                        sizes="(min-width: 1000px) 33vw, (min-width: 700px) 55vw, 73vw"
-                        className={styles.showcaseImageEl}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.laptopBase} aria-hidden="true" />
-                </div>
-
-                <div className={styles.phoneFrame} aria-hidden="true">
-                  <span className={styles.phoneNotch} />
-                  <div className={styles.phoneScreen}>
-                    <Image
-                      src={project.mobileImage}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1000px) 9vw, 18vw"
-                      className={styles.phoneImage}
-                    />
-                  </div>
-                </div>
-              </div>
+              <Image
+                src={project.mockup}
+                alt={project.alt}
+                width={1500}
+                height={844}
+                sizes="(min-width: 1200px) 55vw, (min-width: 900px) 60vw, 95vw"
+                className={styles.mockupImage}
+              />
             </a>
 
             <div className={styles.showcaseText}>

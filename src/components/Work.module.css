@@ -133,166 +133,34 @@
 .viewButton:hover .viewArrow, .viewButton:focus-visible .viewArrow { transform: translateX(4px); }
 .viewButton:hover, .liveButton:hover { opacity: 0.73; }
 
-/* Studio stage. Aspect is intentionally tall enough for BOTH complete device frames.
-   Avoid overflow clipping on all viewport widths. */
+/* Approved photographic project mockups replace CSS-built devices.
+   Keep the entire 1500x844 picture visible, never crop the frames. */
 .showcaseImageWrap {
   grid-area: preview;
   display: block;
-  position: relative;
   min-width: 0;
+  overflow: visible;
+  line-height: 0;
   text-decoration: none;
 }
-.deviceStage {
-  position: relative;
-  isolation: isolate;
+
+.mockupImage {
+  display: block;
   width: 100%;
-  aspect-ratio: 3.02 / 1;
-  overflow: hidden;
-  border: 1px solid rgba(218, 209, 198, 0.18);
+  height: auto;
+  aspect-ratio: 1500 / 844;
+  object-fit: contain;
+  border: 1px solid rgba(244, 241, 234, 0.12);
   border-radius: 2px;
-  background:
-    radial-gradient(ellipse 60% 90% at 47% 12%, rgba(226, 213, 195, 0.20), transparent 90%),
-    linear-gradient(113deg, #5d554e 0%, #423b35 45%, #252321 100%);
-  box-shadow: inset 0 1px rgba(255,255,255,0.08);
-}
-.deviceStage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    linear-gradient(120deg, rgba(248, 235, 220, 0.12), transparent 30%),
-    radial-gradient(ellipse at 50% 120%, rgba(8, 8, 9, 0.48), transparent 60%);
-}
-.deviceStage::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  height: 12%;
-  background: linear-gradient(180deg, #61594f2a, #221f1bba);
-  border-top: 1px solid rgba(245, 228, 203, 0.14);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.20);
+  transition: box-shadow 250ms ease, transform 250ms ease;
 }
 
-/* MacBook-like frame matched in relative proportions to reference. */
-.laptopFrame {
-  position: absolute;
-  z-index: 2;
-  left: 16.5%;
-  top: 8.5%;
-  width: 57%;
-  filter: drop-shadow(0 10px 9px rgba(0, 0, 0, 0.35));
-  transition: transform 260ms ease;
+.showcaseImageWrap:hover .mockupImage,
+.showcaseImageWrap:focus-visible .mockupImage {
+  box-shadow: 0 19px 48px rgba(0, 0, 0, 0.28);
+  transform: translateY(-2px);
 }
-.laptopLid {
-  position: relative;
-  border: 1px solid #929397;
-  border-bottom: 0;
-  padding: clamp(3px, .4vw, 7px);
-  padding-top: clamp(10px, .85vw, 14px);
-  border-radius: clamp(7px, .8vw, 12px) clamp(7px, .8vw, 12px) 0 0;
-  background: linear-gradient(112deg, #303235, #090a0b 20%, #08090a 80%, #34363a);
-  box-shadow: inset 0 1px 0 rgba(242, 243, 244, 0.30);
-}
-.laptopCamera {
-  position: absolute;
-  top: clamp(3px, .35vw, 6px);
-  left: 50%;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #505d68;
-  transform: translateX(-50%);
-}
-.showcaseImage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2.06 / 1;
-  overflow: hidden;
-  background: #f4f0e7;
-  border: 1px solid #080809;
-}
-.showcaseImageEl {
-  object-fit: contain;
-  object-position: center center;
-}
-/* Tatweer is a 2000×1307 original screenshot: use contain to keep ALL its content. */
-.showcaseTatweer .showcaseImageEl { object-fit: contain; }
-.laptopBase {
-  position: relative;
-  width: 108%;
-  height: clamp(5px, .68vw, 10px);
-  margin: -1px 0 0 -4%;
-  border: 1px solid #74777c;
-  border-top: 1px solid #b8b9bc;
-  border-radius: 1px 1px 44% 44% / 1px 1px 100% 100%;
-  background: linear-gradient(180deg, #bbbcc0, #75777e 22%, #35363c 70%, #66686e 100%);
-  box-shadow: 0 3px 2px rgba(0,0,0,.25);
-}
-.laptopBase::after {
-  content: "";
-  position: absolute;
-  left: 42%;
-  top: 0;
-  width: 16%;
-  height: 45%;
-  background: #45474e;
-  border-radius: 0 0 10px 10px;
-}
-
-/* iPhone-style mobile frame — fully visible, not cut off at the stage bottom. */
-.phoneFrame {
-  position: absolute;
-  z-index: 3;
-  top: 5%;
-  right: 9%;
-  width: 13.25%;
-  aspect-ratio: 9 / 18.85;
-  border: clamp(2px, .23vw, 4px) solid #95989a;
-  border-radius: clamp(12px, 1.45vw, 25px);
-  padding: clamp(3px, .32vw, 6px);
-  background: #101112;
-  box-shadow: 0 0 0 1px #131415, 0 13px 22px rgba(0,0,0,.55), inset 0 1px rgba(255,255,255,.3);
-  transition: transform 260ms ease;
-}
-.phoneFrame::before, .phoneFrame::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  background: #96989b;
-  border-radius: 2px;
-}
-.phoneFrame::before { right: -4px; top: 24%; height: 13%; }
-.phoneFrame::after { left: -4px; top: 22%; height: 18%; }
-.phoneScreen {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: clamp(9px, 1.2vw, 18px);
-  background: #f5f0e5;
-}
-.phoneNotch {
-  position: absolute;
-  z-index: 4;
-  top: clamp(4px, .43vw, 7px);
-  left: 50%;
-  width: 35%;
-  height: clamp(5px, .62vw, 10px);
-  border-radius: 999px;
-  background: #08090b;
-  transform: translateX(-50%);
-}
-.phoneImage {
-  object-fit: contain;
-  object-position: top center;
-  background: #f5f0e5;
-}
-.showcase:hover .laptopFrame, .showcase:focus-within .laptopFrame { transform: translateY(-3px); }
-.showcase:hover .phoneFrame, .showcase:focus-within .phoneFrame { transform: translateY(-3px); }
 
 /* Breakpoint where full two-column reference becomes too narrow. */
 @media (max-width: 1199px) and (min-width: 900px) {
@@ -320,20 +188,15 @@
   .showcaseText { order: 1; }
   .showcaseName { font-size: clamp(2rem, 5.5vw, 2.7rem); }
   .showcaseDescription { max-width: 50ch; }
-  .deviceStage { aspect-ratio: 3 / 1; }
-  .laptopFrame { width: 56%; left: 16%; top: 8%; }
-  .phoneFrame { width: 13%; right: 9%; top: 5%; }
 }
 @media (max-width: 480px) {
-  .deviceStage { aspect-ratio: 2.72 / 1; }
-  .laptopFrame { left: 9%; width: 62%; top: 9%; }
-  .phoneFrame { right: 8%; width: 14.8%; top: 6%; }
-  .laptopLid { padding-top: 10px; }
   .showcaseName { font-size: 2.08rem; }
   .stack { gap: .5rem .9rem; }
   .projectActions { gap: .75rem; }
   .viewButton, .liveButton { font-size: .65rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .work, .laptopFrame, .phoneFrame, .viewArrow, .viewButton, .liveButton { transition: none; }
+  .work, .mockupImage, .viewArrow, .viewButton, .liveButton { transition: none; }
+  .showcaseImageWrap:hover .mockupImage,
+  .showcaseImageWrap:focus-visible .mockupImage { transform: none; }
 }
