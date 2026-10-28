@@ -1,365 +1,160 @@
-/* Selected Work — Option C: alternating editorial case-study features.
-   Kept entirely inside the Work CSS module. All project data and image assets
-   continue to come from Work.tsx, unchanged. */
+/* Selected Work — exact editorial hierarchy and device balance from supplied reference.
+   All screenshots are genuine, fitted fully inside the display (never object-fit: cover). */
 .work {
   position: relative;
-  padding: clamp(6rem, 9vw, 8rem) 0 clamp(6rem, 9vw, 8rem);
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(4.5rem, 7vw, 6.5rem);
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 800ms ease, transform 800ms ease;
-  scroll-margin-top: 56px;
+  transform: translateY(22px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  scroll-margin-top: 55px;
 }
-
-.workRevealed {
-  opacity: 1;
-  transform: translateY(0);
-}
+.workRevealed { opacity: 1; transform: translateY(0); }
 
 .intro {
-  position: relative;
-  padding: 0 clamp(1.25rem, 5vw, 3.5rem) clamp(2.7rem, 4.5vw, 4rem) clamp(4.5rem, 9vw, 7rem);
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem) clamp(2rem, 3vw, 2.6rem) clamp(4.5rem, 9vw, 7rem);
 }
-
 .kicker {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 0 0 1rem;
+  margin: 0 0 0.4rem;
+  color: #9e9c99;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.17em;
 }
-
-.kickerNumber {
-  font-size: 0.76rem;
-  letter-spacing: 0.09em;
-  color: var(--color-fg);
-}
-
-.kickerNumber::after {
-  content: "/";
-  margin-left: 1rem;
-  color: var(--color-border-strong);
-}
-
-.kickerLabel {
-  font-size: 0.76rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-fg-muted);
-}
-
 .heading {
-  max-width: 12ch;
-  margin: 0 0 1.6rem;
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(3.1rem, 6.5vw, 5.5rem);
-  font-weight: 400;
-  line-height: 0.98;
+  margin: 0;
   color: var(--color-fg);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.15rem, 2.7vw, 2.6rem);
+  line-height: 1.14;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
-
-.introRule {
-  display: block;
-  width: min(100%, 21rem);
-  height: 1px;
-  background: var(--color-border-strong);
+.introCopy {
+  max-width: 58ch;
+  margin: 0.75rem 0 0;
+  color: #a7a5a3;
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(0.85rem, 1vw, 0.96rem);
+  font-weight: 400;
+  line-height: 1.57;
 }
 
 .list {
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0;
   padding: 0 clamp(1.25rem, 5vw, 3.5rem) 0 clamp(4.5rem, 9vw, 7rem);
 }
-
-/* First feature has the genuine Tatweer screenshot on the left. */
 .showcase {
-  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.34fr) minmax(240px, 0.86fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(285px, 0.86fr);
   grid-template-areas: "preview details";
   align-items: center;
-  gap: clamp(2.5rem, 5vw, 6rem);
-  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.4rem, 4.1vw, 3.75rem);
-  border-top: 1px solid var(--color-border);
-  background: transparent;
+  gap: clamp(2rem, 3.2vw, 4.2rem);
+  border-bottom: 1px solid #252526;
+  padding: 0 0 1.1rem;
 }
-
-.showcase:last-child {
-  border-bottom: 1px solid var(--color-border);
+.showcase + .showcase {
+  padding-top: 1.2rem;
 }
-
-/* Second feature mirrors the composition: copy left, Casa Luce screenshot right. */
 .showcaseCasaLuce {
-  grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.38fr);
+  grid-template-columns: minmax(285px, 0.84fr) minmax(0, 1.47fr);
   grid-template-areas: "details preview";
-  padding-top: clamp(2.4rem, 4.1vw, 3.75rem);
-}
-
-/* Retain existing markup, but eliminate the original heavy image blur cards. */
-.showcaseBackdrop,
-.showcaseScrim,
-.showcaseMeta {
-  display: none;
 }
 
 .showcaseText {
   grid-area: details;
-  position: relative;
-  z-index: 1;
   min-width: 0;
-  max-width: 26rem;
+  align-self: center;
+  padding: 0.25rem 0 0;
 }
-
 .showcaseNumber {
   display: block;
-  margin-bottom: 1.1rem;
-  font-size: 0.77rem;
-  letter-spacing: 0.12em;
-  color: var(--color-fg-muted);
+  margin: 0 0 0.65rem;
+  color: #a6a39f;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
 }
-
-.showcaseNumber::after {
-  content: " /";
-  margin-left: 0.6rem;
-  color: var(--color-border-strong);
-}
-
 .showcaseName {
-  max-width: 14ch;
   margin: 0;
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(2.3rem, 3.8vw, 3.45rem);
-  font-weight: 400;
-  line-height: 1.05;
   color: var(--color-fg);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.05rem, 2.95vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
 }
-
-.showcaseType {
-  margin: 1.1rem 0 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  color: var(--color-fg-muted);
-}
+.projectTitleLink { color: inherit; text-decoration: none; }
+.projectTitleLink:hover, .projectTitleLink:focus-visible { text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
 
 .showcaseDescription {
-  max-width: 33ch;
-  margin: 1.4rem 0 0;
-  font-size: 0.94rem;
-  line-height: 1.7;
-  color: var(--color-fg-muted);
+  max-width: 42ch;
+  margin: 0.85rem 0 0;
+  color: #aaa7a3;
+  font-size: clamp(0.86rem, 1vw, 0.96rem);
+  line-height: 1.56;
 }
-
 .stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 0;
-  list-style: none;
-  margin: 1.3rem 0 0;
+  gap: 0.6rem 1.5rem;
+  margin: 1.2rem 0 0;
   padding: 0;
-  font-size: 0.68rem;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--color-fg-muted);
+  list-style: none;
+  color: #9a9895;
+  font-size: clamp(0.64rem, 0.77vw, 0.73rem);
+  font-weight: 500;
+  letter-spacing: 0.09em;
 }
-
-.stack li:not(:last-child)::after {
-  content: "\00b7";
-  padding: 0 0.55rem;
-  color: var(--color-border-strong);
+.projectActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(1.25rem, 2vw, 1.9rem);
 }
-
-.viewButton {
+.viewButton, .liveButton {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  width: fit-content;
-  margin-top: 1.85rem;
-  padding: 0.3rem 0 0.45rem;
-  border: 0;
-  border-bottom: 1px solid rgba(244, 241, 234, 0.28);
-  background: transparent;
-  font-family: var(--font-sans), sans-serif;
-  font-size: 0.76rem;
-  line-height: 1.4;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  text-decoration: none;
+  gap: 0.85rem;
   color: var(--color-fg);
-  cursor: pointer;
-  transition: border-color 240ms ease;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: opacity 180ms ease;
 }
+.liveButton { font-weight: 400; letter-spacing: 0.11em; }
+.viewArrow { font-size: 1.3rem; font-weight: 300; line-height: 1; transition: transform 180ms ease; }
+.viewButton:hover .viewArrow, .viewButton:focus-visible .viewArrow { transform: translateX(4px); }
+.viewButton:hover, .liveButton:hover { opacity: 0.73; }
 
-.viewArrow {
-  display: inline-block;
-  font-size: 1.1rem;
-  transition: transform 260ms ease;
-}
-
-.viewButton:hover,
-.viewButton:focus-visible {
-  border-color: var(--color-fg);
-}
-
-.viewButton:hover .viewArrow,
-.viewButton:focus-visible .viewArrow {
-  transform: translateX(5px);
-}
-
+/* Studio stage. Aspect is intentionally tall enough for BOTH complete device frames.
+   Avoid overflow clipping on all viewport widths. */
 .showcaseImageWrap {
   grid-area: preview;
+  display: block;
   position: relative;
-  z-index: 1;
-  width: 100%;
   min-width: 0;
-  margin: 0;
-}
-
-.showcaseImage {
-  position: relative;
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  border: 1px solid var(--color-border-strong);
-  background: #141416;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
-  transition: border-color 320ms ease, transform 420ms cubic-bezier(0.2, 0.75, 0.25, 1), box-shadow 420ms ease;
-}
-
-.showcaseImageEl {
-  object-fit: contain;
-  object-position: center;
-}
-
-.showcaseTatweer .showcaseImageEl {
-  object-fit: cover;
-  object-position: top center;
-}
-
-.showcase:hover .showcaseImage,
-.showcase:focus-within .showcaseImage {
-  border-color: rgba(244, 241, 234, 0.52);
-  transform: translateY(-5px);
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32);
-}
-
-@media (max-width: 1050px) and (min-width: 900px) {
-  .showcase {
-    gap: 2rem;
-    grid-template-columns: minmax(0, 1.12fr) minmax(215px, 0.88fr);
-  }
-
-  .showcaseCasaLuce {
-    grid-template-columns: minmax(215px, 0.86fr) minmax(0, 1.14fr);
-  }
-}
-
-@media (max-width: 899px) {
-  .work {
-    padding: 5rem 0 5.5rem;
-    scroll-margin-top: 112px;
-  }
-
-  .intro {
-    padding: 0 1.25rem 2.75rem;
-  }
-
-  .heading {
-    font-size: clamp(2.75rem, 8vw, 4.4rem);
-  }
-
-  .list {
-    padding: 0 1.25rem;
-  }
-
-  .showcase,
-  .showcaseCasaLuce {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.65rem;
-    padding: 2.1rem 0 3.2rem;
-  }
-
-  .showcaseImageWrap,
-  .showcaseCasaLuce .showcaseImageWrap {
-    order: 0;
-    width: 100%;
-    margin: 0;
-  }
-
-  .showcaseText,
-  .showcaseCasaLuce .showcaseText {
-    order: 1;
-    max-width: none;
-  }
-
-  .showcaseName {
-    font-size: clamp(2.2rem, 7.5vw, 3rem);
-  }
-
-  .showcaseDescription {
-    max-width: 42ch;
-  }
-
-  .showcase:hover .showcaseImage,
-  .showcase:focus-within .showcaseImage {
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .work,
-  .showcaseImage,
-  .viewButton,
-  .viewArrow {
-    transition: none;
-  }
-
-  .showcase:hover .showcaseImage,
-  .showcase:focus-within .showcaseImage,
-  .viewButton:hover .viewArrow,
-  .viewButton:focus-visible .viewArrow {
-    transform: none;
-  }
-}
-
-/* Reference-matched device showcase — real screenshots, not generated websites.
-   Matches the supplied wide studio scene and laptop / iPhone overlap. */
-.projectTitleLink {
-  color: inherit;
   text-decoration: none;
 }
-
-.projectTitleLink:hover,
-.projectTitleLink:focus-visible {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.12em;
-}
-
-.showcaseImageWrap {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  overflow: visible;
-}
-
 .deviceStage {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
   width: 100%;
-  aspect-ratio: 3.45 / 1;
-  border: 1px solid rgba(214, 195, 172, 0.12);
+  aspect-ratio: 3.02 / 1;
+  overflow: hidden;
+  border: 1px solid rgba(218, 209, 198, 0.18);
   border-radius: 2px;
   background:
-    radial-gradient(ellipse 56% 76% at 49% 13%, rgba(235, 222, 203, 0.18), transparent 85%),
-    linear-gradient(112deg, #635a51 0%, #4b423b 29%, #302b27 63%, #181717 100%);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+    radial-gradient(ellipse 60% 90% at 47% 12%, rgba(226, 213, 195, 0.20), transparent 90%),
+    linear-gradient(113deg, #5d554e 0%, #423b35 45%, #252321 100%);
+  box-shadow: inset 0 1px rgba(255,255,255,0.08);
 }
-
 .deviceStage::before {
   content: "";
   position: absolute;
@@ -367,10 +162,9 @@
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(119deg, rgba(243, 234, 218, 0.20), transparent 28%),
-    radial-gradient(ellipse 68% 45% at 43% 95%, rgba(4, 4, 4, 0.48), transparent 100%);
+    linear-gradient(120deg, rgba(248, 235, 220, 0.12), transparent 30%),
+    radial-gradient(ellipse at 50% 120%, rgba(8, 8, 9, 0.48), transparent 60%);
 }
-
 .deviceStage::after {
   content: "";
   position: absolute;
@@ -378,250 +172,168 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  height: 13%;
-  background: linear-gradient(180deg, rgba(186, 172, 153, 0.12), rgba(84, 77, 70, 0.52) 46%, rgba(20, 18, 17, 0.75));
-  border-top: 1px solid rgba(236, 222, 202, 0.16);
-  pointer-events: none;
+  height: 12%;
+  background: linear-gradient(180deg, #61594f2a, #221f1bba);
+  border-top: 1px solid rgba(245, 228, 203, 0.14);
 }
 
-/* Actual hardware proportions from supplied reference: a slim widescreen
-   laptop occupies the middle ~53%; the tall phone sits in front to the right. */
+/* MacBook-like frame matched in relative proportions to reference. */
 .laptopFrame {
   position: absolute;
   z-index: 2;
-  top: 8.3%;
-  left: 19%;
+  left: 16.5%;
+  top: 8.5%;
   width: 57%;
-  margin: 0;
-  transform: translateY(0);
-  transform-origin: bottom center;
-  filter: drop-shadow(0 10px 9px rgba(0, 0, 0, 0.47));
-  transition: transform 320ms ease, filter 320ms ease;
+  filter: drop-shadow(0 10px 9px rgba(0, 0, 0, 0.35));
+  transition: transform 260ms ease;
 }
-
 .laptopLid {
   position: relative;
-  padding: clamp(3px, 0.52vw, 8px);
-  padding-top: clamp(10px, 1.04vw, 15px);
-  border: 1px solid #6d6e71;
-  border-bottom: 1px solid #38393c;
-  border-radius: clamp(7px, 0.96vw, 13px) clamp(7px, 0.96vw, 13px) 1px 1px;
-  background: linear-gradient(115deg, #17191d, #050608 52%, #282a2d);
-  box-shadow: inset 0 1px 1px rgba(224, 226, 231, 0.38), inset 0 0 0 1px #050608;
+  border: 1px solid #929397;
+  border-bottom: 0;
+  padding: clamp(3px, .4vw, 7px);
+  padding-top: clamp(10px, .85vw, 14px);
+  border-radius: clamp(7px, .8vw, 12px) clamp(7px, .8vw, 12px) 0 0;
+  background: linear-gradient(112deg, #303235, #090a0b 20%, #08090a 80%, #34363a);
+  box-shadow: inset 0 1px 0 rgba(242, 243, 244, 0.30);
 }
-
 .laptopCamera {
   position: absolute;
-  top: clamp(3px, 0.46vw, 6px);
+  top: clamp(3px, .35vw, 6px);
   left: 50%;
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #39495a;
-  box-shadow: 0 0 0 1px #55575a;
+  background: #505d68;
   transform: translateX(-50%);
 }
-
 .showcaseImage {
   position: relative;
   width: 100%;
+  aspect-ratio: 2.06 / 1;
   overflow: hidden;
-  border: 0;
-  border-radius: 1px;
-  background: #f3f0e8;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9);
-  transform: none;
+  background: #f4f0e7;
+  border: 1px solid #080809;
 }
-
-.showcaseImage::after {
-  display: none;
-}
-
 .showcaseImageEl {
   object-fit: contain;
-  object-position: center top;
+  object-position: center center;
 }
-
-.showcaseTatweer .showcaseImageEl {
-  object-fit: cover;
-  object-position: center top;
-}
-
+/* Tatweer is a 2000×1307 original screenshot: use contain to keep ALL its content. */
+.showcaseTatweer .showcaseImageEl { object-fit: contain; }
 .laptopBase {
   position: relative;
-  width: 109%;
-  height: clamp(4px, 0.7vw, 10px);
-  margin: -1px 0 0 -4.5%;
-  border: 1px solid #727579;
-  border-top-color: #92959a;
-  border-radius: 1px 1px 34% 34% / 1px 1px 100% 100%;
-  background: linear-gradient(180deg, #a4a6a9 0%, #73777b 20%, #35383e 68%, #65686b 100%);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  width: 108%;
+  height: clamp(5px, .68vw, 10px);
+  margin: -1px 0 0 -4%;
+  border: 1px solid #74777c;
+  border-top: 1px solid #b8b9bc;
+  border-radius: 1px 1px 44% 44% / 1px 1px 100% 100%;
+  background: linear-gradient(180deg, #bbbcc0, #75777e 22%, #35363c 70%, #66686e 100%);
+  box-shadow: 0 3px 2px rgba(0,0,0,.25);
 }
-
-.laptopBase::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(90deg, rgba(254, 254, 255, 0.25), transparent 26%, transparent 75%, rgba(0, 0, 0, 0.15));
-}
-
 .laptopBase::after {
   content: "";
   position: absolute;
-  top: 0;
   left: 42%;
+  top: 0;
   width: 16%;
-  height: 39%;
-  border-radius: 0 0 9px 9px;
-  background: linear-gradient(180deg, #35373b, #818388);
+  height: 45%;
+  background: #45474e;
+  border-radius: 0 0 10px 10px;
 }
 
-/* The phone extends beyond the stage bottom, as in the reference photo. */
+/* iPhone-style mobile frame — fully visible, not cut off at the stage bottom. */
 .phoneFrame {
   position: absolute;
-  z-index: 4;
-  top: 17%;
-  right: 13%;
-  bottom: auto;
-  width: 16%;
-  aspect-ratio: 9 / 19.5;
-  padding: clamp(2px, 0.44vw, 6px);
-  overflow: visible;
-  border: clamp(2px, 0.27vw, 4px) solid #85888b;
-  border-radius: clamp(11px, 1.78vw, 26px);
-  background: #101113;
-  box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.22),
-    0 0 0 1px rgba(3, 3, 4, 0.8),
-    0 11px 25px rgba(0, 0, 0, 0.49);
-  transform: none;
-  transition: transform 320ms ease;
+  z-index: 3;
+  top: 5%;
+  right: 9%;
+  width: 13.25%;
+  aspect-ratio: 9 / 18.85;
+  border: clamp(2px, .23vw, 4px) solid #95989a;
+  border-radius: clamp(12px, 1.45vw, 25px);
+  padding: clamp(3px, .32vw, 6px);
+  background: #101112;
+  box-shadow: 0 0 0 1px #131415, 0 13px 22px rgba(0,0,0,.55), inset 0 1px rgba(255,255,255,.3);
+  transition: transform 260ms ease;
 }
-
-.phoneFrame::before,
-.phoneFrame::after {
+.phoneFrame::before, .phoneFrame::after {
   content: "";
   position: absolute;
-  z-index: 0;
   width: 2px;
+  background: #96989b;
   border-radius: 2px;
-  background: linear-gradient(#b2b5b8, #525459);
 }
-
-.phoneFrame::before {
-  right: -4px;
-  top: 24%;
-  height: 16%;
-}
-
-.phoneFrame::after {
-  left: -4px;
-  top: 22%;
-  height: 19%;
-}
-
+.phoneFrame::before { right: -4px; top: 24%; height: 13%; }
+.phoneFrame::after { left: -4px; top: 22%; height: 18%; }
 .phoneScreen {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: clamp(8px, 1.34vw, 21px);
-  background: #f7f2e6;
+  border-radius: clamp(9px, 1.2vw, 18px);
+  background: #f5f0e5;
 }
-
 .phoneNotch {
   position: absolute;
-  z-index: 5;
-  top: clamp(4px, 0.62vw, 9px);
+  z-index: 4;
+  top: clamp(4px, .43vw, 7px);
   left: 50%;
-  width: 32%;
-  height: clamp(5px, 0.78vw, 12px);
+  width: 35%;
+  height: clamp(5px, .62vw, 10px);
   border-radius: 999px;
-  background: #090a0c;
-  box-shadow: 0 1px rgba(255, 255, 255, 0.1);
+  background: #08090b;
   transform: translateX(-50%);
 }
-
 .phoneImage {
   object-fit: contain;
-  object-position: center top;
-  background: #f7f2e6;
+  object-position: top center;
+  background: #f5f0e5;
 }
+.showcase:hover .laptopFrame, .showcase:focus-within .laptopFrame { transform: translateY(-3px); }
+.showcase:hover .phoneFrame, .showcase:focus-within .phoneFrame { transform: translateY(-3px); }
 
-.showcaseTatweer .phoneImage {
-  object-position: center top;
+/* Breakpoint where full two-column reference becomes too narrow. */
+@media (max-width: 1199px) and (min-width: 900px) {
+  .showcase { grid-template-columns: minmax(0, 1.14fr) minmax(260px, .9fr); gap: 2rem; }
+  .showcaseCasaLuce { grid-template-columns: minmax(260px, .9fr) minmax(0, 1.14fr); }
+  .showcaseName { font-size: clamp(1.9rem, 3vw, 2.4rem); }
+  .projectActions { flex-wrap: wrap; }
+  .liveButton { margin-left: auto; }
 }
-
-.showcase:hover .showcaseImage,
-.showcase:focus-within .showcaseImage {
-  transform: none;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9);
-  border: 0;
-}
-
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .showcase:hover .laptopFrame,
-  .showcase:focus-within .laptopFrame {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 12px 11px rgba(0, 0, 0, 0.55));
-  }
-
-  .showcase:hover .phoneFrame,
-  .showcase:focus-within .phoneFrame {
-    transform: translateY(-3px);
-  }
-}
-
 @media (max-width: 899px) {
-  .deviceStage {
-    aspect-ratio: 2.75 / 1;
+  .work { padding: 4.5rem 0; scroll-margin-top: 95px; }
+  .intro { padding: 0 1.25rem 2rem; }
+  .heading { font-size: clamp(2.1rem, 6vw, 2.6rem); }
+  .introBreak { display: none; }
+  .list { padding: 0 1.25rem; }
+  .showcase, .showcaseCasaLuce {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.3rem;
+    padding: 1.25rem 0 2.4rem;
   }
-
-  .laptopFrame {
-    top: 14%;
-    left: 10%;
-    width: 70%;
-  }
-
-  .phoneFrame {
-    top: 13%;
-    right: 8%;
-    width: 18%;
-  }
+  .showcase + .showcase { padding-top: 2.2rem; }
+  .showcaseImageWrap { order: 0; }
+  .showcaseText { order: 1; }
+  .showcaseName { font-size: clamp(2rem, 5.5vw, 2.7rem); }
+  .showcaseDescription { max-width: 50ch; }
+  .deviceStage { aspect-ratio: 3 / 1; }
+  .laptopFrame { width: 56%; left: 16%; top: 8%; }
+  .phoneFrame { width: 13%; right: 9%; top: 5%; }
 }
-
-@media (max-width: 430px) {
-  .deviceStage {
-    aspect-ratio: 2.3 / 1;
-  }
-
-  .laptopFrame {
-    top: 21%;
-    left: 7%;
-    width: 77%;
-  }
-
-  .phoneFrame {
-    top: 15%;
-    right: 5%;
-    width: 21%;
-  }
-
-  .laptopLid {
-    padding-top: 9px;
-  }
-
-  .laptopCamera {
-    top: 3px;
-  }
+@media (max-width: 480px) {
+  .deviceStage { aspect-ratio: 2.72 / 1; }
+  .laptopFrame { left: 9%; width: 62%; top: 9%; }
+  .phoneFrame { right: 8%; width: 14.8%; top: 6%; }
+  .laptopLid { padding-top: 10px; }
+  .showcaseName { font-size: 2.08rem; }
+  .stack { gap: .5rem .9rem; }
+  .projectActions { gap: .75rem; }
+  .viewButton, .liveButton { font-size: .65rem; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .laptopFrame,
-  .phoneFrame {
-    transition: none;
-  }
+  .work, .laptopFrame, .phoneFrame, .viewArrow, .viewButton, .liveButton { transition: none; }
 }
