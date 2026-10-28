@@ -325,8 +325,8 @@
   }
 }
 
-/* Genuine project screenshots inside responsive laptop / phone hardware.
-   The editorial alternating rows above remain unchanged. */
+/* Premium device presentation — true responsive hardware framing.
+   The genuine desktop/mobile screenshots are untouched. */
 .projectTitleLink {
   color: inherit;
   text-decoration: none;
@@ -348,183 +348,17 @@
 
 .deviceStage {
   position: relative;
-  width: 100%;
-  padding: 0 8% 5.5% 0;
-}
-
-.laptopFrame {
-  position: relative;
-  width: 98%;
-  transform: translateY(0);
-  transition: transform 420ms cubic-bezier(0.2, 0.75, 0.25, 1);
-}
-
-.laptopLid {
-  position: relative;
-  padding: clamp(5px, 0.65vw, 9px);
-  padding-top: clamp(11px, 1vw, 15px);
-  border: 1px solid #64676c;
-  border-radius: clamp(6px, 0.95vw, 13px) clamp(6px, 0.95vw, 13px) 3px 3px;
-  background: linear-gradient(150deg, #292a2d, #0c0d0e 75%);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.37);
-}
-
-.laptopCamera {
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #74777d;
-  transform: translateX(-50%);
-}
-
-.showcaseImage {
-  border: 0;
-  background: #eeede8;
-  box-shadow: none;
-  transform: none;
-}
-
-.showcaseImage::after {
-  display: none;
-}
-
-.laptopBase {
-  position: relative;
-  height: clamp(6px, 0.95vw, 12px);
-  margin: 0 -4.2%;
-  border: 1px solid #55575b;
-  border-top: 0;
-  border-radius: 0 0 55% 55% / 0 0 100% 100%;
-  background: linear-gradient(180deg, #76787d 0%, #3a3c40 28%, #18191c 75%, #55565a 100%);
-  box-shadow: 0 7px 16px rgba(0, 0, 0, 0.30);
-}
-
-.laptopBase::after {
-  content: "";
-  position: absolute;
-  width: 15%;
-  height: 38%;
-  top: 0;
-  left: 42.5%;
-  border-radius: 0 0 12px 12px;
-  background: rgba(15, 16, 18, 0.35);
-}
-
-.phoneFrame {
-  position: absolute;
-  z-index: 3;
-  right: 0;
-  bottom: -1%;
-  width: 23%;
-  aspect-ratio: 9 / 19.5;
-  padding: clamp(3px, 0.48vw, 7px);
-  overflow: hidden;
-  border: 2px solid #73757b;
-  border-radius: clamp(13px, 2.25vw, 27px);
-  background: #17181a;
-  box-shadow: 0 13px 28px rgba(0, 0, 0, 0.47), inset 0 0 0 1px #17181a;
-  transform: rotate(-1deg);
-  transition: transform 420ms cubic-bezier(0.2, 0.75, 0.25, 1);
-}
-
-.phoneScreen {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: clamp(9px, 1.65vw, 21px);
-  background: #efede5;
-}
-
-.phoneNotch {
-  position: absolute;
-  z-index: 4;
-  top: clamp(3px, 0.45vw, 7px);
-  left: 50%;
-  width: 32%;
-  height: clamp(5px, 0.8vw, 11px);
-  border-radius: 0 0 9px 9px;
-  background: #151517;
-  transform: translateX(-50%);
-}
-
-.phoneImage {
-  object-fit: cover;
-  object-position: top center;
-}
-
-/* Tatweer has a genuine desktop capture, shown as a narrow crop in the phone;
-   Casa Luce uses its genuine dedicated mobile screenshot. */
-.showcaseTatweer .phoneImage {
-  object-position: left top;
-}
-
-.showcase:hover .showcaseImage,
-.showcase:focus-within .showcaseImage {
-  border-color: transparent;
-  transform: none;
-  box-shadow: none;
-}
-
-.showcase:hover .laptopFrame,
-.showcase:focus-within .laptopFrame {
-  transform: translateY(-4px);
-}
-
-.showcase:hover .phoneFrame,
-.showcase:focus-within .phoneFrame {
-  transform: translateY(-5px) rotate(-1deg);
-}
-
-@media (max-width: 899px) {
-  .deviceStage {
-    padding-right: 10%;
-    padding-bottom: 6%;
-  }
-
-  .laptopFrame {
-    width: 100%;
-  }
-
-  .phoneFrame {
-    width: 24%;
-  }
-
-  .showcase:hover .laptopFrame,
-  .showcase:focus-within .laptopFrame,
-  .showcase:hover .phoneFrame,
-  .showcase:focus-within .phoneFrame {
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .laptopFrame,
-  .phoneFrame {
-    transition: none;
-  }
-}
-
-/* Device presentation refinement — matches the warm studio mockup reference.
-   Screenshot sources are real captures (Tatweer mobile is independently cropped). */
-.deviceStage {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  position: relative;
   isolation: isolate;
   width: 100%;
-  min-height: 0;
-  aspect-ratio: 1.95 / 1;
-  padding: 7.5% 5.5% 6.5% 6%;
+  aspect-ratio: 1.78 / 1;
   overflow: hidden;
-  border: 1px solid rgba(244, 241, 234, 0.12);
+  border: 1px solid rgba(216, 207, 196, 0.2);
   background:
-    radial-gradient(ellipse at 50% 6%, rgba(232, 218, 200, 0.25), transparent 70%),
-    linear-gradient(135deg, #4d4742 0%, #35322f 45%, #292726 100%);
+    radial-gradient(ellipse 73% 69% at 58% 15%, rgba(226, 207, 185, 0.24), transparent 85%),
+    linear-gradient(125deg, #55504a 0%, #3a3734 49%, #292725 100%);
+  box-shadow:
+    inset 0 1px rgba(245, 233, 219, 0.08),
+    0 22px 50px rgba(0, 0, 0, 0.16);
 }
 
 .deviceStage::before {
@@ -532,145 +366,286 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  opacity: 0.55;
   pointer-events: none;
   background:
-    linear-gradient(115deg, rgba(235, 225, 210, 0.17) 0%, transparent 37%),
-    radial-gradient(ellipse at 50% 112%, rgba(11, 10, 10, 0.54), transparent 64%);
+    linear-gradient(117deg, rgba(255, 248, 237, 0.13) 0%, transparent 26%, rgba(0, 0, 0, 0.10) 75%),
+    radial-gradient(ellipse 67% 23% at 48% 90%, rgba(5, 5, 7, 0.45), transparent 100%);
 }
 
 .deviceStage::after {
   content: "";
   position: absolute;
   z-index: -1;
-  bottom: 3.5%;
-  left: 5%;
-  width: 90%;
-  height: 14%;
-  border-radius: 50%;
-  background: rgba(9, 9, 10, 0.33);
-  filter: blur(20px);
+  left: -5%;
+  right: -5%;
+  bottom: 0;
+  height: 12%;
   pointer-events: none;
+  background: linear-gradient(180deg, rgba(104, 95, 84, 0.02), rgba(14, 13, 13, 0.18));
+  border-top: 1px solid rgba(224, 206, 182, 0.05);
 }
 
+/* Laptop: raised display, camera, metallic chin and tapering machined base. */
 .laptopFrame {
-  z-index: 1;
+  position: absolute;
+  z-index: 2;
+  left: 7.3%;
+  bottom: 9%;
   width: 78%;
-  margin: 0 0 2% 1.6%;
-  transform: none;
+  margin: 0;
+  transform: translateY(0);
+  transform-origin: bottom center;
+  filter: drop-shadow(0 19px 14px rgba(0, 0, 0, 0.35));
+  transition: transform 430ms cubic-bezier(0.22, 0.75, 0.3, 1), filter 430ms ease;
 }
 
 .laptopLid {
-  padding: clamp(4px, 0.53vw, 8px);
-  padding-top: clamp(11px, 0.92vw, 15px);
-  border: 1px solid #77787a;
-  border-bottom-color: #2d2e31;
-  border-radius: clamp(7px, 0.9vw, 12px) clamp(7px, 0.9vw, 12px) 2px 2px;
-  background: linear-gradient(155deg, #38393b, #0d0e10 68%, #262728);
-  box-shadow: 0 14px 31px rgba(0, 0, 0, 0.40);
+  position: relative;
+  padding: clamp(4px, 0.46vw, 8px);
+  padding-top: clamp(12px, 1.03vw, 17px);
+  border: 1px solid #888b90;
+  border-bottom: 2px solid #383b40;
+  border-radius: clamp(6px, 0.9vw, 13px) clamp(6px, 0.9vw, 13px) 2px 2px;
+  background: linear-gradient(140deg, #44464a 0%, #111214 20%, #08090b 81%, #4e5055 100%);
+  box-shadow:
+    inset 0 0 0 1px #0a0b0d,
+    inset 0 1px rgba(248, 249, 255, 0.25),
+    0 7px 12px rgba(0, 0, 0, 0.38);
+}
+
+.laptopLid::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: auto 3px 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #93969b 50%, transparent);
+  opacity: 0.5;
 }
 
 .laptopCamera {
-  top: clamp(3px, 0.4vw, 6px);
-  background: #85888d;
-}
-
-.laptopBase {
-  height: clamp(6px, 0.9vw, 11px);
-  margin: 0 -4%;
-  border-color: #77787a;
-  background: linear-gradient(180deg, #949598 0%, #626367 21%, #222427 72%, #55565a 100%);
+  position: absolute;
+  z-index: 2;
+  top: clamp(4px, 0.44vw, 7px);
+  left: 50%;
+  width: clamp(2px, 0.25vw, 4px);
+  height: clamp(2px, 0.25vw, 4px);
+  border-radius: 50%;
+  background: #263d56;
+  box-shadow: 0 0 0 1px #56595d;
+  transform: translateX(-50%);
 }
 
 .showcaseImage {
-  background: #f5f3ec;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  border-radius: 1px;
+  background: #f5f2ec;
+  box-shadow: 0 0 0 1px #070809;
+  transform: none;
 }
 
+.showcaseImage::after {
+  display: none;
+}
+
+.showcaseImageEl {
+  object-fit: contain;
+  object-position: center;
+}
+
+.showcaseTatweer .showcaseImageEl {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.laptopBase {
+  position: relative;
+  width: 112%;
+  height: clamp(7px, 0.98vw, 14px);
+  margin: -1px 0 0 -6%;
+  border: 1px solid #8a8c90;
+  border-top: 1px solid #aaaeb3;
+  border-radius: 1px 1px 42% 42% / 1px 1px 100% 100%;
+  background: linear-gradient(180deg,
+    #b5b7ba 0%,
+    #777b81 14%,
+    #494c52 34%,
+    #2e3036 67%,
+    #8b8d92 100%);
+  box-shadow: 0 2px 0 rgba(10, 11, 13, 0.28);
+}
+
+.laptopBase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.22), transparent 23%, transparent 80%, rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+
+.laptopBase::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 41%;
+  width: 18%;
+  height: 46%;
+  background: linear-gradient(180deg, #37393d, #74777d);
+  border-radius: 0 0 12px 12px;
+  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.2);
+}
+
+/* Phone: glass-to-metal edge, realistic island and side controls. */
 .phoneFrame {
+  position: absolute;
   z-index: 4;
-  right: 6.3%;
-  bottom: 7.3%;
-  width: 21%;
-  aspect-ratio: 9 / 19.6;
-  border: 2px solid #6d7073;
-  border-radius: clamp(13px, 1.95vw, 28px);
-  padding: clamp(3px, 0.46vw, 6px);
-  background: #111214;
+  right: 8.1%;
+  bottom: 8.5%;
+  width: 19.7%;
+  aspect-ratio: 9 / 19.55;
+  padding: clamp(3px, 0.47vw, 7px);
+  overflow: visible;
+  border: clamp(2px, 0.3vw, 4px) solid #96989d;
+  border-radius: clamp(14px, 1.88vw, 29px);
+  background: linear-gradient(130deg, #1c1e21, #08090b 68%, #3b3d40);
   box-shadow:
-    0 15px 27px rgba(0, 0, 0, 0.57),
-    inset 0 0 0 1px #252729,
-    1px 0 0 rgba(232, 233, 234, 0.26);
-  transform: rotate(0deg);
+    0 1px 0 rgba(255, 255, 255, 0.28) inset,
+    0 0 0 1px rgba(8, 8, 10, 0.9),
+    0 17px 30px rgba(0, 0, 0, 0.52),
+    -8px 7px 20px rgba(0, 0, 0, 0.22);
+  transform: translateY(0) rotate(-1.1deg);
+  transform-origin: center bottom;
+  transition: transform 430ms cubic-bezier(0.22, 0.75, 0.3, 1), box-shadow 430ms ease;
+}
+
+.phoneFrame::before,
+.phoneFrame::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 3px;
+  background: linear-gradient(180deg, #d0d0d1, #56585a);
+  box-shadow: 0 1px rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+}
+
+.phoneFrame::before {
+  right: -5px;
+  top: 25%;
+  height: 15%;
+}
+
+.phoneFrame::after {
+  left: -5px;
+  top: 23%;
+  height: 19%;
 }
 
 .phoneScreen {
-  background: #f6f2e7;
-  border-radius: clamp(9px, 1.5vw, 22px);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: clamp(9px, 1.4vw, 23px);
+  background: #f9f5ec;
+  box-shadow: inset 0 0 0 1px rgba(14, 14, 17, 0.75);
 }
 
 .phoneNotch {
-  background: #111214;
+  position: absolute;
+  z-index: 5;
+  top: clamp(6px, 0.7vw, 11px);
+  left: 50%;
   width: 32%;
+  height: clamp(6px, 0.85vw, 12px);
+  border-radius: 999px;
+  background: #090a0b;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.14);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .phoneImage {
   object-fit: contain;
   object-position: center top;
-  background: #f6f2e7;
+  background: #f9f5ec;
 }
 
 .showcaseTatweer .phoneImage {
   object-position: center top;
 }
 
-.showcase:hover .phoneFrame,
-.showcase:focus-within .phoneFrame {
-  transform: translateY(-5px);
+.showcase:hover .showcaseImage,
+.showcase:focus-within .showcaseImage {
+  border-color: transparent;
+  transform: none;
+  box-shadow: 0 0 0 1px #070809;
 }
 
-@media (max-width: 899px) {
-  .deviceStage {
-    aspect-ratio: 1.83 / 1;
-    padding: 7% 5% 6% 5%;
-  }
-
-  .laptopFrame {
-    width: 79%;
-    margin-left: 1%;
-  }
-
-  .phoneFrame {
-    right: 5%;
-    bottom: 7%;
-    width: 22.5%;
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .showcase:hover .laptopFrame,
+  .showcase:focus-within .laptopFrame {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 23px 17px rgba(0, 0, 0, 0.40));
   }
 
   .showcase:hover .phoneFrame,
   .showcase:focus-within .phoneFrame {
-    transform: none;
+    transform: translateY(-7px) rotate(-1.1deg);
+  }
+}
+
+@media (max-width: 899px) {
+  .deviceStage {
+    aspect-ratio: 1.7 / 1;
+  }
+
+  .laptopFrame {
+    left: 6%;
+    bottom: 11%;
+    width: 81%;
+  }
+
+  .phoneFrame {
+    right: 6%;
+    bottom: 10%;
+    width: 22%;
   }
 }
 
 @media (max-width: 430px) {
   .deviceStage {
-    aspect-ratio: 1.55 / 1;
-    padding-bottom: 8%;
-  }
-
-  .phoneFrame {
-    width: 25%;
-    right: 4%;
-    bottom: 9%;
+    aspect-ratio: 1.5 / 1;
   }
 
   .laptopFrame {
-    width: 81%;
+    width: 84%;
+    left: 5%;
+    bottom: 12%;
+  }
+
+  .phoneFrame {
+    right: 4.3%;
+    bottom: 9.5%;
+    width: 25%;
+  }
+
+  .laptopLid {
+    padding-top: 11px;
+  }
+
+  .laptopCamera {
+    top: 4px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .showcase:hover .phoneFrame,
-  .showcase:focus-within .phoneFrame {
-    transform: none;
+  .laptopFrame,
+  .phoneFrame {
+    transition: none;
   }
 }
