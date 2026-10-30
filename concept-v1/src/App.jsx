@@ -72,7 +72,7 @@ function Hero() {
           <span className="statement-rule" aria-hidden="true" />
           <p>I build interfaces <em>people feel.</em><br />And products <em>people use.</em></p>
         </div>
-        <p className="hero-intro">A front-end focused developer bringing thoughtful design, clean code and a curiosity for AI into every project.</p>
+        <p className="hero-intro">I build responsive interfaces and practical web applications with React, Next.js and TypeScript — combining people-first thinking with a background in AI studies.</p>
         <div className="hero-buttons">
           <a className="btn-main" href="#work">VIEW MY WORK <span aria-hidden="true">↗</span></a>
           <a className="underlink" href="#about">The person behind the code <span aria-hidden="true">↗</span></a>
@@ -204,8 +204,8 @@ function About() {
           </div>
           <p className="about-v3-editorial">From people<br />to <em>pixels.</em></p>
           <div className="about-v3-body-copy">
-            <p>Before I started focusing on front-end development, I worked in recruitment and customer-facing roles. That taught me how to listen, understand real problems, and care about the details that make an experience work for someone.</p>
-            <p>Now I take that same curiosity into building for the web — crafting responsive interfaces with React, Next.js and TypeScript, and exploring how AI can turn thoughtful ideas into useful products.</p>
+            <p>My work in recruitment and customer service has taught me to listen carefully, communicate clearly, and understand the real people behind every request. That experience continues to shape the way I approach technology.</p>
+            <p>On the front end, I build responsive web experiences with React, Next.js and TypeScript. My studies in Artificial Intelligence at Zarqa University and Princess Sumaya University for Technology also inform my interest in creating practical, AI-powered products.</p>
           </div>
           <a className="about-v3-story-link" href="#contact">A GOOD CONVERSATION STARTS HERE <span aria-hidden="true">↗</span></a>
         </AnimatedContent>
@@ -292,7 +292,7 @@ function Contact() {
       <div className="contact-v3-bottom">
         <div className="contact-v3-bottom-note">
           <span className="contact-v3-signal" aria-hidden="true" />
-          <span>BASED IN THE UAE <span className="contact-v3-dot">/</span> OPEN TO CONVERSATIONS</span>
+          <span>BASED IN THE UAE <span className="contact-v3-dot">/</span> OPEN TO FRONT-END OPPORTUNITIES</span>
         </div>
         <nav className="contact-v3-socials" aria-label="Social links">
           <a href="https://www.linkedin.com/in/amer-qussad-727a6a199" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
