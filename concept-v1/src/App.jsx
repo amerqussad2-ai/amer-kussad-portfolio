@@ -9,8 +9,10 @@ const projects = [
   {
     id: '01',
     title: 'Tatweer Employment',
-    category: 'RECRUITMENT PLATFORM',
-    description: 'A bilingual recruitment experience bringing candidates, employers, and real-world workflows together.',
+    category: 'RECRUITMENT WEB APP',
+    description: 'A bilingual recruitment application built around clearer journeys for candidates, employers and internal teams.',
+    angle: 'Bilingual experiences. Practical workflows.',
+    label: 'PRODUCT-FOCUSED FRONT-END',
     stack: ['React', 'TypeScript', 'Supabase'],
     image: '/images/projects/tatweer-home.webp',
     alt: 'Screenshot of the Tatweer Employment recruitment platform',
@@ -20,8 +22,10 @@ const projects = [
   {
     id: '02',
     title: 'Casa Luce',
-    category: 'FRONT-END EXPERIENCE',
-    description: 'An editorial restaurant website that balances atmosphere, responsive design, and thoughtful interaction.',
+    category: 'RESTAURANT WEBSITE',
+    description: 'A multi-page experience for a fictional Italian restaurant, built with a focus on responsive layouts and visual detail.',
+    angle: 'Editorial design. Responsive interactions.',
+    label: 'CREATIVE FRONT-END',
     stack: ['Next.js', 'TypeScript', 'Responsive UI'],
     image: '/images/projects/casa-luce-home.webp',
     alt: 'Screenshot of the Casa Luce restaurant website',
@@ -98,29 +102,74 @@ function Hero() {
 }
 
 function Work() {
-  return <section className="work-section" id="work" aria-labelledby="work-heading">
-    <div className="shell">
-      <div className="section-head">
-        <div><span className="section-number">01 / SELECTED WORK</span><h2 id="work-heading">Things I've<br /><em>built.</em></h2></div>
-        <p>Every project teaches me something new. Here's a selection of the work I've been exploring and creating.</p>
+  return <section className="work-section work-v3" id="work" aria-labelledby="work-heading">
+    <div className="shell work-shell">
+      <div className="work-overline-row">
+        <span className="section-number">01 / A FEW THINGS I'VE BUILT</span>
+        <span className="work-count">SELECTED WORK · 02 PROJECTS</span>
       </div>
-      <ScrollStack className="projects-stack" useWindowScroll smoothScroll={false} itemDistance={100} itemStackDistance={22} stackPosition="12%" baseScale={0.92} itemScale={0.035} dimAmount={0.12} holdDistance={220}>
-        {projects.map(project => <ScrollStackItem key={project.id} itemClassName={'project-card '+project.accent}>
-          <div className="project-content">
-            <div className="project-info">
-              <div className="project-top"><span>{project.id} / {project.category}</span><span>PERSONAL WORK</span></div>
-              <div className="project-bottom">
-                <p className="project-kicker">FEATURED PROJECT</p>
-                <h3>{project.title}</h3><p className="project-description">{project.description}</p>
-                <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
-                <a className="project-link" href={project.link} target="_blank" rel="noopener noreferrer" aria-label={'View '+project.title+' case study'}>EXPLORE PROJECT <span aria-hidden="true">↗</span></a>
+      <div className="work-v3-heading">
+        <h2 id="work-heading">Made with<br /><em>intention.</em></h2>
+        <div className="work-v3-heading-aside">
+          <span className="work-v3-decoration" aria-hidden="true">✳</span>
+          <p>Different ideas, different challenges — each one a chance to get the details right.</p>
+          <span className="work-v3-discovery">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span>
+        </div>
+      </div>
+
+      <ScrollStack className="projects-stack projects-stack-v3" useWindowScroll smoothScroll={false} itemDistance={130} itemStackDistance={24} stackPosition="11%" baseScale={0.95} itemScale={0.028} dimAmount={0.10} holdDistance={210}>
+        {projects.map(project => <ScrollStackItem key={project.id} itemClassName={'project-card case-card '+project.accent}>
+          <article className="case-article" aria-label={project.title}>
+            <div className="case-details">
+              <div className="case-topline">
+                <span>PROJECT {project.id} <span className="case-slash">/</span> 02</span>
+                <span className="case-tag">{project.label}</span>
               </div>
+              <div className="case-main">
+                <span className="case-category"><span className="case-category-dot"/> {project.category}</span>
+                <h3>{project.title}</h3>
+                <p className="case-description">{project.description}</p>
+                <p className="case-angle">{project.angle}</p>
+                <div className="case-stack">
+                  <span className="case-stack-label">BUILT WITH</span>
+                  <div className="case-tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
+                </div>
+                <a className="case-cta" href={project.link} target="_blank" rel="noopener noreferrer" aria-label={'View '+project.title+' on the original portfolio'}>
+                  <span>EXPLORE THIS PROJECT</span><span className="case-cta-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <div className="case-bottomline"><span>AK / PERSONAL PORTFOLIO</span><span>CASE STUDY {project.id}</span></div>
             </div>
-            <div className="project-preview"><img src={project.image} alt={project.alt} loading="lazy" /><span className="project-preview-label">PROJECT PREVIEW / {project.id}</span></div>
-          </div>
+            <div className="case-visual">
+              <div className="case-visual-top">
+                <span className="case-visual-marker" aria-hidden="true">✳</span>
+                <span>TAKE A CLOSER LOOK</span>
+                <span>{project.id} — 02</span>
+              </div>
+              <div className="case-device">
+                <div className="case-device-bar" aria-hidden="true">
+                  <span className="case-dots"><i/><i/><i/></span>
+                  <span className="case-address">{project.title.toLowerCase().replaceAll(' ','-')}.preview</span>
+                  <span className="case-browser-menu">↗</span>
+                </div>
+                <div className="case-image-wrap">
+                  <img src={project.image} alt={project.alt} loading="lazy" width="1350" height="610" />
+                </div>
+              </div>
+              <div className="case-visual-foot">
+                <span>REAL PROJECT SCREENSHOT</span>
+                <span>DESIGN × DEVELOPMENT</span>
+              </div>
+              <span className="case-watermark" aria-hidden="true">{project.id}</span>
+            </div>
+          </article>
         </ScrollStackItem>)}
       </ScrollStack>
-      <p className="work-footnote">MORE IDEAS IN PROGRESS <span aria-hidden="true">↗</span></p>
+      <div className="work-v3-tail">
+        <span className="work-v3-line" aria-hidden="true"/>
+        <p>And I'm not done building yet.</p>
+        <a href="#contact">LET'S CREATE SOMETHING <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </section>;
 }
