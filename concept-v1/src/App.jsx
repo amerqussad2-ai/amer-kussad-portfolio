@@ -16,7 +16,7 @@ const projects = [
     angle: 'Bilingual experiences. Practical workflows.',
     label: 'PRODUCT-FOCUSED FRONT-END',
     stack: ['React', 'TypeScript', 'Supabase'],
-    image: '/images/projects/tatweer-home.webp',
+    image: '/images/optimized/projects/tatweer-home.webp',
     alt: 'Screenshot of the Tatweer Employment recruitment platform',
     link: '/projects/tatweer',
     accent: 'teal'
@@ -30,7 +30,7 @@ const projects = [
     angle: 'Editorial design. Responsive interactions.',
     label: 'CREATIVE FRONT-END',
     stack: ['Next.js', 'TypeScript', 'Responsive UI'],
-    image: '/images/projects/casa-luce-home.webp',
+    image: '/images/optimized/projects/casa-luce-home.webp',
     alt: 'Screenshot of the Casa Luce restaurant website',
     link: '/projects/casa-luce',
     accent: 'blue'
@@ -89,7 +89,7 @@ function Hero() {
         <div className="portrait-serial" aria-hidden="true"><span>AK / 01</span><span>PERSONAL ARCHIVE</span></div>
         <FadeContent trigger="mount" effect="fade" blur duration={1.05} delay={0.35} className="portrait-reveal">
           <div className="portrait-frame">
-            <img src="/images/amer-kussad-profile.jpg" alt="Portrait of Amer Kussad" width="900" height="1200" fetchPriority="high" />
+            <img src="/images/optimized/amer-kussad-profile.webp" alt="Portrait of Amer Kussad" width="820" height="1093" fetchPriority="high" />
             <div className="portrait-film" aria-hidden="true" />
             <div className="portrait-footer">
               <span>AMER KUSSAD <b>✳</b></span>
@@ -313,7 +313,7 @@ function Contact() {
 export default function App() {
   const slug = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
   if (window.location.pathname.startsWith('/projects/')) {
-    return <><Header /><CaseStudy slug={slug} /></>;
+    return <><a className="skip-link" href="#main-content">Skip to content</a><Header /><CaseStudy slug={slug} /></>;
   }
-  return <><Header /><main><Hero /><div className="statement-strip"><div className="shell strip-inner"><span>PERSONAL NOTE</span><strong>Good interfaces make complicated things feel simple.</strong><span>DESIGN × CODE × CURIOSITY</span></div></div><Work /><About /><Contact /></main></>;
+  return <><a className="skip-link" href="#main-content">Skip to content</a><Header /><main id="main-content"><Hero /><div className="statement-strip"><div className="shell strip-inner"><span>PERSONAL NOTE</span><strong>Good interfaces make complicated things feel simple.</strong><span>DESIGN × CODE × CURIOSITY</span></div></div><Work /><About /><Contact /></main></>;
 }
