@@ -4,10 +4,12 @@ import FadeContent from './reactbits/FadeContent.jsx';
 import ScrollStack, { ScrollStackItem } from './reactbits/ScrollStack.jsx';
 import AnimatedContent from './reactbits/AnimatedContent.jsx';
 import Magnet from './reactbits/Magnet.jsx';
+import CaseStudy from './CaseStudy.jsx';
 
 const projects = [
   {
     id: '01',
+    slug: 'tatweer',
     title: 'Tatweer Employment',
     category: 'RECRUITMENT WEB APP',
     description: 'A bilingual recruitment application built around clearer journeys for candidates, employers and internal teams.',
@@ -16,11 +18,12 @@ const projects = [
     stack: ['React', 'TypeScript', 'Supabase'],
     image: '/images/projects/tatweer-home.webp',
     alt: 'Screenshot of the Tatweer Employment recruitment platform',
-    link: 'https://amer-kussad-portfolio.vercel.app/#tatweer',
+    link: '/projects/tatweer',
     accent: 'teal'
   },
   {
     id: '02',
+    slug: 'casa-luce',
     title: 'Casa Luce',
     category: 'RESTAURANT WEBSITE',
     description: 'A multi-page experience for a fictional Italian restaurant, built with a focus on responsive layouts and visual detail.',
@@ -29,20 +32,21 @@ const projects = [
     stack: ['Next.js', 'TypeScript', 'Responsive UI'],
     image: '/images/projects/casa-luce-home.webp',
     alt: 'Screenshot of the Casa Luce restaurant website',
-    link: 'https://amer-kussad-portfolio.vercel.app/#casa-luce',
+    link: '/projects/casa-luce',
     accent: 'blue'
   }
 ];
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const onProject = window.location.pathname.startsWith('/projects/');
   return <header className="header">
     <div className="shell header-inner">
-      <a className="brand" href="#home" aria-label="Amer Kussad, back to top"><span className="brand-mark">AK<span>.</span></span><span className="brand-meta"><b>AMER KUSSAD</b><small>PERSONAL PORTFOLIO</small></span></a>
+      <a className="brand" href={onProject ? "/" : "#home"} aria-label="Amer Kussad, back to top"><span className="brand-mark">AK<span>.</span></span><span className="brand-meta"><b>AMER KUSSAD</b><small>PERSONAL PORTFOLIO</small></span></a>
       <nav className={open ? 'nav open' : 'nav'} aria-label="Main navigation" id="main-navigation">
-        <a href="#work" onClick={() => setOpen(false)}>Work</a>
-        <a href="#about" onClick={() => setOpen(false)}>About me</a>
-        <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+        <a href={onProject ? "/#work" : "#work"} onClick={() => setOpen(false)}>Work</a>
+        <a href={onProject ? "/#about" : "#about"} onClick={() => setOpen(false)}>About me</a>
+        <a href={onProject ? "/#contact" : "#contact"} onClick={() => setOpen(false)}>Contact</a>
       </nav>
       <div className="header-actions"><a className="resume-link" href="https://amer-kussad-portfolio.vercel.app/Amer_Kussad_Frontend_Resume.pdf" target="_blank" rel="noopener noreferrer">RESUME <span aria-hidden="true">↗</span></a><button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? '✕' : '☰'}</button></div>
     </div>
@@ -134,7 +138,7 @@ function Work() {
                   <span className="case-stack-label">BUILT WITH</span>
                   <div className="case-tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
                 </div>
-                <a className="case-cta" href={project.link} target="_blank" rel="noopener noreferrer" aria-label={'View '+project.title+' on the original portfolio'}>
+                <a className="case-cta" href={project.link} aria-label={'Explore '+project.title+' case study'}>
                   <span>EXPLORE THIS PROJECT</span><span className="case-cta-arrow" aria-hidden="true">↗</span>
                 </a>
               </div>
@@ -245,5 +249,9 @@ function Contact() {
 }
 
 export default function App() {
+  const slug = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
+  if (window.location.pathname.startsWith('/projects/')) {
+    return <><Header /><CaseStudy slug={slug} /></>;
+  }
   return <><Header /><main><Hero /><div className="statement-strip"><div className="shell strip-inner"><span>PERSONAL NOTE</span><strong>Good interfaces make complicated things feel simple.</strong><span>DESIGN × CODE × CURIOSITY</span></div></div><Work /><About /><Contact /></main></>;
 }
