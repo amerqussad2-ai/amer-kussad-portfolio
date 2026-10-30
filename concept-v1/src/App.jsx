@@ -46,28 +46,54 @@ function Header() {
 }
 
 function Hero() {
-  return <section className="hero shell" id="home" aria-labelledby="hero-title">
-    <div className="hero-copy">
-      <p className="eyebrow"><span className="rule" /> FRONT-END DEVELOPER · AI PRODUCT BUILDER</p>
-      <p className="hello">Hey, I'm</p>
-      <h1 className="hero-name" id="hero-title">
-        <span className="name-row"><SplitText text="Amer" tag="span" trigger="load" splitType="chars" effect="rise" delay={80} duration={1.05} textAlign="left" /></span>
-        <span className="name-row"><SplitText text="Kussad" tag="span" trigger="load" splitType="chars" effect="rise" delay={65} duration={1.15} textAlign="left" /><span className="name-period">.</span></span>
-      </h1>
-      <p className="hero-claim">I turn ideas into <em>digital experiences</em> worth using.</p>
-      <p className="hero-intro">I'm a developer who cares about the little things: clean interfaces, useful products, and the possibilities that AI opens up.</p>
-      <div className="hero-buttons"><a className="btn-main" href="#work">EXPLORE MY WORK <span aria-hidden="true">↗</span></a><a className="underlink" href="#about">Get to know me <span aria-hidden="true">↗</span></a></div>
-      <p className="hero-location"><span className="location-dot" /> BASED IN THE UAE <span className="bullet">✳</span> CODE · CURIOSITY · CRAFT</p>
+  return <section className="hero-stage" id="home" aria-labelledby="hero-title">
+    <div className="hero-atmosphere" aria-hidden="true" />
+    <div className="shell hero-layout">
+      <div className="hero-copy">
+        <div className="hero-topline">
+          <span className="hero-overline">01 / AN INTRODUCTION</span>
+          <span className="hero-topline-dot" aria-hidden="true">✳</span>
+        </div>
+        <p className="eyebrow"><span className="rule" /> FRONT-END DEVELOPER <span className="role-divider">/</span> AI PRODUCT BUILDER</p>
+        <p className="hello">Hello, I'm</p>
+        <h1 className="hero-name" id="hero-title">
+          <span className="name-row"><SplitText text="Amer" tag="span" trigger="load" splitType="chars" effect="rise" delay={70} duration={0.95} textAlign="left" /></span>
+          <span className="name-row"><SplitText text="Kussad" tag="span" trigger="load" splitType="chars" effect="rise" delay={62} duration={1.05} textAlign="left" /><span className="name-period">.</span></span>
+        </h1>
+        <div className="hero-statement">
+          <span className="statement-rule" aria-hidden="true" />
+          <p>I build interfaces <em>people feel.</em><br />And products <em>people use.</em></p>
+        </div>
+        <p className="hero-intro">A front-end focused developer bringing thoughtful design, clean code and a curiosity for AI into every project.</p>
+        <div className="hero-buttons">
+          <a className="btn-main" href="#work">VIEW MY WORK <span aria-hidden="true">↗</span></a>
+          <a className="underlink" href="#about">The person behind the code <span aria-hidden="true">↗</span></a>
+        </div>
+        <div className="hero-bottom-info">
+          <span className="hero-location"><span className="location-dot" /> BASED IN THE UAE</span>
+          <a href="#work" className="hero-scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div className="hero-photo">
+        <div className="portrait-grid" aria-hidden="true" />
+        <div className="portrait-outline" aria-hidden="true" />
+        <div className="portrait-serial" aria-hidden="true"><span>AK / 01</span><span>PERSONAL ARCHIVE</span></div>
+        <FadeContent trigger="mount" effect="fade" blur duration={1.05} delay={0.35} className="portrait-reveal">
+          <div className="portrait-frame">
+            <img src="/images/amer-kussad-profile.jpg" alt="Portrait of Amer Kussad" width="900" height="1200" fetchPriority="high" />
+            <div className="portrait-film" aria-hidden="true" />
+            <div className="portrait-footer">
+              <span>AMER KUSSAD <b>✳</b></span>
+              <span>THE PERSON BEHIND THE PIXELS</span>
+            </div>
+          </div>
+        </FadeContent>
+        <div className="portrait-vertical" aria-hidden="true">DEVELOPER · MAKER · CURIOUS MIND</div>
+        <div className="portrait-signal" aria-hidden="true"><span /> HUMAN FIRST. ALWAYS.</div>
+      </div>
     </div>
-    <div className="hero-photo" aria-label="Personal portrait">
-      <span className="photo-outline" aria-hidden="true" />
-      <FadeContent trigger="mount" effect="fade" blur duration={1.25} delay={0.45} className="portrait-reveal">
-        <div className="portrait-frame"><img src="/images/amer-kussad-profile.jpg" alt="Amer Kussad" width="900" height="1200" fetchPriority="high" /></div>
-      </FadeContent>
-      <span className="portrait-ticket">NICE TO MEET YOU ✳</span>
-      <span className="portrait-caption">ONE PERSON.<br />A LOT OF IDEAS.<br />ALWAYS BUILDING.</span>
-      <span className="portrait-edge">PORTRAIT / AK · 2026</span>
-    </div>
+    <div className="shell hero-bottom-rule" aria-hidden="true"><span>DESIGN × ENGINEERING × CURIOSITY</span><span>AK — 2026</span></div>
   </section>;
 }
 
