@@ -234,17 +234,79 @@ function About() {
 }
 
 function Contact() {
-  return <section className="contact-section shell" id="contact" aria-labelledby="contact-heading">
-    <span className="section-number">03 / LET'S CONNECT</span>
-    <AnimatedContent distance={44} duration={1} threshold={0.15}>
-      <h2 id="contact-heading">Have something<br /><em>in mind?</em></h2>
-      <p className="contact-sub">I'm always open to meaningful conversations, new opportunities, and interesting ideas.</p>
-    </AnimatedContent>
-    <Magnet padding={90} magnetStrength={3.6} maxOffset={17} wrapperClassName="magnet-contact">
-      <a className="contact-button" href="mailto:amerkussad5@gmail.com">LET'S TALK <span aria-hidden="true">↗</span></a>
-    </Magnet>
-    <div className="contact-links"><a href="mailto:amerkussad5@gmail.com">amerkussad5@gmail.com</a><a href="https://www.linkedin.com/in/amer-qussad-727a6a199" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a><a href="https://github.com/amerqussad2-ai" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div>
-    <footer className="footer"><span>© {new Date().getFullYear()} AMER KUSSAD.</span><span>DESIGNED TO FEEL PERSONAL.</span><a href="#home">BACK TO TOP ↑</a></footer>
+  const [copyStatus, setCopyStatus] = useState('idle');
+  const email = 'amerkussad5@gmail.com';
+
+  const copyEmail = async () => {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(email);
+      setCopyStatus('copied');
+    } catch {
+      setCopyStatus('failed');
+    }
+  };
+
+  return <section className="contact-section contact-v3" id="contact" aria-labelledby="contact-heading">
+    <div className="shell contact-v3-inner">
+      <div className="contact-v3-topline">
+        <span className="section-number">03 / LET'S CONNECT</span>
+        <span className="contact-v3-note">A PERSONAL INVITATION <span aria-hidden="true">✳</span></span>
+      </div>
+
+      <div className="contact-v3-heading">
+        <AnimatedContent distance={42} duration={0.95} threshold={0.13}>
+          <span className="contact-v3-hello">Now it's your turn.</span>
+          <h2 id="contact-heading">Let's make<br/>something <em>matter.</em></h2>
+        </AnimatedContent>
+        <AnimatedContent distance={28} duration={0.9} threshold={0.14} delay={0.08} className="contact-v3-aside">
+          <div className="contact-v3-orbit" aria-hidden="true"><span>AK<span>.</span></span><i>✳</i></div>
+          <p>Whether it's an opportunity, an interesting idea, or just a conversation about building things — I'd love to hear from you.</p>
+        </AnimatedContent>
+      </div>
+
+      <div className="contact-v3-panel">
+        <div className="contact-v3-email">
+          <span className="contact-v3-label">THE BEST WAY TO REACH ME</span>
+          <a className="contact-v3-email-address" href={'mailto:'+email}>{email}</a>
+          <div className="contact-v3-copy-row">
+            <button type="button" className="contact-v3-copy" onClick={copyEmail} aria-label="Copy email address">
+              {copyStatus==='copied'?'EMAIL COPIED ✓':'COPY EMAIL ADDRESS'} <span aria-hidden="true">{copyStatus==='copied'?'✓':'⧉'}</span>
+            </button>
+            <span className="contact-v3-copy-feedback" aria-live="polite">
+              {copyStatus==='failed'?'Could not copy. Use the email link instead.':copyStatus==='copied'?'Ready to paste anywhere.':''}
+            </span>
+          </div>
+        </div>
+        <div className="contact-v3-action">
+          <span className="contact-v3-label">HAVE SOMETHING IN MIND?</span>
+          <Magnet padding={85} magnetStrength={3.8} maxOffset={14} wrapperClassName="contact-v3-magnet">
+            <a className="contact-v3-primary-button" href={'mailto:'+email+'?subject=Hello%20Amer'}>
+              SAY HELLO <span aria-hidden="true">↗</span>
+            </a>
+          </Magnet>
+          <span className="contact-v3-button-caption">ONE CLICK. AN ACTUAL CONVERSATION.</span>
+        </div>
+      </div>
+
+      <div className="contact-v3-bottom">
+        <div className="contact-v3-bottom-note">
+          <span className="contact-v3-signal" aria-hidden="true" />
+          <span>BASED IN THE UAE <span className="contact-v3-dot">/</span> OPEN TO CONVERSATIONS</span>
+        </div>
+        <nav className="contact-v3-socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/amer-qussad-727a6a199" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+          <a href="https://github.com/amerqussad2-ai" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+          <a href="/Amer_Kussad_Frontend_Resume.pdf" target="_blank" rel="noopener noreferrer">RESUME ↗</a>
+        </nav>
+      </div>
+
+      <footer className="contact-v3-footer">
+        <span>© {new Date().getFullYear()} AMER KUSSAD.</span>
+        <span>MADE WITH CURIOSITY. BUILT WITH INTENTION.</span>
+        <a href="#home">BACK TO TOP ↑</a>
+      </footer>
+    </div>
   </section>;
 }
 
