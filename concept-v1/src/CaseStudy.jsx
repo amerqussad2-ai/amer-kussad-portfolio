@@ -117,7 +117,7 @@ export default function CaseStudy({slug}) {
   const project=CASE_STUDIES[slug];
   useEffect(()=>{
     if (!project) return;
-    document.title = project.title + ' — Case Study | Amer Kussad';
+    document.title = project.title + ' — Front-End Case Study | Amer Kussad';
     window.scrollTo({top:0,left:0,behavior:'instant'});
     return () => {document.title='Amer Kussad — Developer & AI Product Builder';};
   },[project]);
