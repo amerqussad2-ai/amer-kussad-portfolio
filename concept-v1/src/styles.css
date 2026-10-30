@@ -582,3 +582,110 @@ img{max-width:100%;display:block}
  .about-v3-tool-list span{font-size:10px;padding:9px 10px}
  .about-v3-footer{font-size:8px}
 }
+
+
+/* Contact V3 — a personal closing note with purposeful magnetic CTA */
+.contact-v3{
+  position:relative;
+  padding:0;
+  background:radial-gradient(ellipse 43% 58% at 85% 18%,rgba(59,112,116,.15),transparent 78%),#303234;
+  border:0;
+  overflow:hidden;
+}
+.contact-v3::before{
+  content:"";position:absolute;right:-150px;top:100px;width:470px;height:470px;border:1px solid rgba(191,216,221,.085);border-radius:50%;pointer-events:none;
+}
+.contact-v3-inner{padding-top:120px}
+.contact-v3-topline{display:flex;justify-content:space-between;align-items:center;gap:25px;border-top:1px solid var(--border);padding-top:28px}
+.contact-v3-topline .section-number{margin:0}
+.contact-v3-note{font-size:10px;color:#a8bfbb;letter-spacing:.14em;font-weight:800}
+.contact-v3-note span{color:var(--orange);margin-left:8px}
+.contact-v3-heading{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,7vw,125px);align-items:end;padding-block:54px 77px}
+.contact-v3-hello{display:inline-block;margin-bottom:18px;font-family:"DM Serif Display",Georgia,serif;font-style:italic;color:var(--mist);font-size:clamp(25px,3vw,41px)}
+.contact-v3-heading h2{font-size:clamp(68px,7.5vw,120px);line-height:.93;letter-spacing:-.087em;font-weight:790;margin:0}
+.contact-v3-heading h2 em{color:var(--mist);font-style:normal}
+.contact-v3-aside{align-self:end;display:flex;flex-direction:column;align-items:flex-start;gap:23px;padding-bottom:3px}
+.contact-v3-aside p{max-width:400px;color:#ccdad6;font-size:16px;line-height:1.85;margin:0}
+.contact-v3-orbit{width:100px;height:100px;border:1px solid rgba(191,216,221,.38);border-radius:50%;position:relative;display:grid;place-items:center;background:linear-gradient(125deg,rgba(59,112,116,.20),rgba(41,77,99,.13));color:var(--white);font-weight:800;letter-spacing:-.09em;font-size:29px}
+.contact-v3-orbit span span{color:var(--orange)}
+.contact-v3-orbit i{position:absolute;top:0;right:4px;font-style:normal;font-size:18px;color:var(--orange)}
+.contact-v3-panel{display:grid;grid-template-columns:1.15fr .85fr;border:1px solid rgba(191,216,221,.27);background:rgba(26,38,41,.29)}
+.contact-v3-email{padding:clamp(27px,4.2vw,62px);border-right:1px solid var(--border);min-width:0;display:flex;align-items:flex-start;flex-direction:column}
+.contact-v3-label{font-size:10px;font-weight:800;letter-spacing:.17em;color:var(--mist)}
+.contact-v3-email-address{font-size:clamp(21px,3.1vw,48px);font-weight:700;letter-spacing:-.055em;line-height:1.25;color:var(--white);margin:36px 0 30px;max-width:100%;overflow-wrap:anywhere;border-bottom:1px solid rgba(191,216,221,.55);padding-bottom:14px;transition:color .2s,border-color .2s}
+.contact-v3-email-address:hover{color:var(--mist);border-bottom-color:var(--orange)}
+.contact-v3-copy-row{display:flex;align-items:center;flex-wrap:wrap;gap:15px}
+.contact-v3-copy{cursor:pointer;border:1px solid rgba(191,216,221,.35);background:none;padding:14px 16px;min-height:44px;color:var(--white);font-size:10px;letter-spacing:.13em;font-weight:800;display:inline-flex;align-items:center;gap:24px;transition:background .2s,border-color .2s}
+.contact-v3-copy:hover{background:var(--ocean);border-color:var(--mist)}
+.contact-v3-copy span{font-size:17px;color:var(--orange)}
+.contact-v3-copy-feedback{font-size:11px;color:var(--mist);line-height:1.5}
+.contact-v3-action{padding:clamp(27px,4.2vw,62px);display:flex;align-items:flex-start;flex-direction:column;justify-content:space-between;gap:32px;background:linear-gradient(120deg,rgba(41,77,99,.30),rgba(59,112,116,.08))}
+.contact-v3-magnet{margin:auto 0;display:inline-block}
+.contact-v3-primary-button{min-width:min(280px,100%);display:inline-flex;align-items:center;justify-content:space-between;gap:55px;padding:24px 27px;background:var(--mist);border:1px solid var(--mist);color:#1f3a40;font-size:13px;letter-spacing:.13em;font-weight:850;transition:background .2s,color .2s}
+.contact-v3-primary-button:hover{background:var(--white);border-color:var(--white)}
+.contact-v3-primary-button span{font-size:25px}
+.contact-v3-button-caption{font-size:9px;letter-spacing:.13em;font-weight:750;color:#a7bdb9}
+.contact-v3-bottom{display:flex;justify-content:space-between;align-items:center;gap:35px;padding:36px 0 64px}
+.contact-v3-bottom-note{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:800;letter-spacing:.12em;color:#a9bdb9}
+.contact-v3-signal{width:8px;height:8px;background:var(--orange);border-radius:50%;flex:none}
+.contact-v3-dot{padding-inline:7px;color:var(--orange)}
+.contact-v3-socials{display:flex;flex-wrap:wrap;align-items:center;gap:27px}
+.contact-v3-socials a{font-size:11px;font-weight:800;letter-spacing:.1em;border-bottom:1px solid var(--teal);padding-bottom:7px}
+.contact-v3-socials a:hover{color:var(--mist);border-color:var(--orange)}
+.contact-v3-footer{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:25px 0 36px;border-top:1px solid var(--border);font-size:10px;font-weight:750;letter-spacing:.11em;color:#aebeba}
+.contact-v3-footer a:hover{color:var(--white)}
+@media(max-width:1150px){
+  .contact-v3-heading h2{font-size:clamp(68px,7.3vw,102px)}
+  .contact-v3-panel{grid-template-columns:1fr .85fr}
+  .contact-v3-primary-button{min-width:250px}
+}
+@media(max-width:850px){
+  .contact-v3-inner{padding-top:95px}
+  .contact-v3-heading{grid-template-columns:1fr;gap:35px;padding-block:45px 53px}
+  .contact-v3-heading h2{font-size:clamp(68px,10vw,110px)}
+  .contact-v3-aside{flex-direction:row;align-items:center;gap:26px}
+  .contact-v3-aside p{max-width:490px;font-size:15px}
+  .contact-v3-orbit{width:82px;height:82px;font-size:25px;flex:none}
+  .contact-v3-panel{grid-template-columns:1fr}
+  .contact-v3-email{border-right:0;border-bottom:1px solid var(--border);padding:36px}
+  .contact-v3-email-address{font-size:clamp(26px,5vw,43px);margin:28px 0}
+  .contact-v3-action{padding:32px 36px;gap:25px}
+  .contact-v3-magnet{margin:0}
+  .contact-v3-bottom{align-items:flex-start;flex-direction:column;gap:25px}
+}
+@media(max-width:600px){
+  .contact-v3-inner{padding-top:78px}
+  .contact-v3-topline{padding-top:21px}
+  .contact-v3-topline .section-number{font-size:9px}
+  .contact-v3-note{font-size:8px}
+  .contact-v3-heading{padding:33px 0 36px;gap:24px}
+  .contact-v3-hello{font-size:28px;margin-bottom:14px}
+  .contact-v3-heading h2{font-size:clamp(53px,12.4vw,75px)}
+  .contact-v3-aside{gap:18px}
+  .contact-v3-aside p{font-size:13px;line-height:1.75}
+  .contact-v3-orbit{width:62px;height:62px;font-size:21px}
+  .contact-v3-orbit i{font-size:13px}
+  .contact-v3-email{padding:26px 21px 28px}
+  .contact-v3-label{font-size:9px}
+  .contact-v3-email-address{font-size:clamp(22px,6.8vw,33px);margin:23px 0 19px;padding-bottom:11px}
+  .contact-v3-copy{font-size:9px;padding:12px 13px;gap:15px}
+  .contact-v3-action{padding:26px 21px;gap:22px}
+  .contact-v3-primary-button{min-width:230px;gap:40px;padding:20px 22px;font-size:12px}
+  .contact-v3-button-caption{font-size:8px}
+  .contact-v3-bottom{padding:29px 0 46px}
+  .contact-v3-bottom-note{font-size:9px;letter-spacing:.09em}
+  .contact-v3-socials{gap:22px}
+  .contact-v3-socials a{font-size:10px}
+  .contact-v3-footer{align-items:flex-start;flex-direction:column;gap:13px;font-size:9px;padding-bottom:25px}
+}
+@media(max-width:370px){
+  .contact-v3-note{display:none}
+  .contact-v3-heading h2{font-size:clamp(47px,12vw,57px)}
+  .contact-v3-email-address{font-size:21px}
+  .contact-v3-orbit{width:54px;height:54px;flex:none}
+  .contact-v3-aside p{font-size:12px}
+  .contact-v3-bottom-note{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .contact-v3-copy,.contact-v3-primary-button,.contact-v3-email-address{transition:none}
+}
