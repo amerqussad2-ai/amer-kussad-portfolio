@@ -48,7 +48,7 @@ function Header() {
         <a href={onProject ? "/#about" : "#about"} onClick={() => setOpen(false)}>About me</a>
         <a href={onProject ? "/#contact" : "#contact"} onClick={() => setOpen(false)}>Contact</a>
       </nav>
-      <div className="header-actions"><a className="resume-link" href="https://amer-kussad-portfolio.vercel.app/Amer_Kussad_Frontend_Resume.pdf" target="_blank" rel="noopener noreferrer">RESUME <span aria-hidden="true">↗</span></a><button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? '✕' : '☰'}</button></div>
+      <div className="header-actions"><a className="resume-link" href="/Amer_Kussad_Frontend_Resume.pdf" target="_blank" rel="noopener noreferrer">RESUME <span aria-hidden="true">↗</span></a><button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? '✕' : '☰'}</button></div>
     </div>
   </header>;
 }
