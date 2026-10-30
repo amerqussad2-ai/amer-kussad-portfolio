@@ -175,24 +175,58 @@ function Work() {
 }
 
 function About() {
-  return <section className="about-section" id="about" aria-labelledby="about-heading"><div className="shell about-layout">
-    <AnimatedContent distance={65} duration={1.1} threshold={0.15} className="about-left">
-      <span className="section-number">02 / THE PERSON BEHIND THE PIXELS</span>
-      <h2 id="about-heading">More than<br />a <em>job title.</em></h2>
-      <div className="about-rule" />
-      <p className="about-aside">BUILDING WITH INTENTION,<br />NOT JUST TECHNOLOGY.</p>
-    </AnimatedContent>
-    <div className="about-right">
-      <AnimatedContent distance={45} duration={1.0} threshold={0.12} delay={0.08}>
-        <p className="about-quote">“I like building things people actually enjoy using.”</p>
-      </AnimatedContent>
-      <AnimatedContent distance={36} duration={0.95} threshold={0.12} delay={0.14}>
-        <p>My background started in recruitment and customer-facing roles. That taught me to listen, understand real problems, and care about the people behind every interaction.</p>
-        <p>Today I bring that mindset into front-end development, carefully considered UI, and my exploration of practical AI products.</p>
-        <div className="skill-pills"><span>React</span><span>Next.js</span><span>TypeScript</span><span>Front-End</span><span>AI Exploration</span></div>
-      </AnimatedContent>
+  return <section className="about-section about-v3" id="about" aria-labelledby="about-heading">
+    <div className="shell">
+      <div className="about-v3-eyebrow">
+        <span className="section-number">02 / THE PERSON BEHIND THE WORK</span>
+        <span className="about-v3-index">PERSONAL NOTES — AMER KUSSAD</span>
+      </div>
+      <div className="about-v3-intro">
+        <AnimatedContent distance={55} duration={0.95} threshold={0.14} className="about-v3-title-wrap">
+          <h2 id="about-heading">There's more<br />to me than <em>code.</em></h2>
+          <span className="about-v3-title-mark" aria-hidden="true">✳</span>
+        </AnimatedContent>
+        <AnimatedContent distance={40} duration={0.95} threshold={0.14} delay={0.1} className="about-v3-intro-note">
+          <span className="about-v3-small-rule" aria-hidden="true" />
+          <p>I believe the best digital experiences start with understanding people — not just picking the right technology.</p>
+        </AnimatedContent>
+      </div>
+
+      <div className="about-v3-main">
+        <AnimatedContent distance={42} duration={0.95} threshold={0.12} className="about-v3-story">
+          <div className="about-v3-story-header">
+            <span>01 / MY STORY</span>
+            <span className="about-v3-story-icon" aria-hidden="true">↗</span>
+          </div>
+          <p className="about-v3-editorial">From people<br />to <em>pixels.</em></p>
+          <div className="about-v3-body-copy">
+            <p>Before I started focusing on front-end development, I worked in recruitment and customer-facing roles. That taught me how to listen, understand real problems, and care about the details that make an experience work for someone.</p>
+            <p>Now I take that same curiosity into building for the web — crafting responsive interfaces with React, Next.js and TypeScript, and exploring how AI can turn thoughtful ideas into useful products.</p>
+          </div>
+          <a className="about-v3-story-link" href="#contact">A GOOD CONVERSATION STARTS HERE <span aria-hidden="true">↗</span></a>
+        </AnimatedContent>
+
+        <div className="about-v3-right">
+          <AnimatedContent distance={48} duration={0.95} threshold={0.14} delay={0.08} className="about-v3-values">
+            <div className="about-v3-panel-top"><span>02 / HOW I THINK</span><span aria-hidden="true">✳</span></div>
+            <p className="about-v3-quote">“Design for people.<br /><em>Build with purpose.</em>”</p>
+            <div className="about-v3-principles">
+              <div><span>01</span><strong>Keep it clear.</strong><p>A simple experience often takes the most thoughtful work.</p></div>
+              <div><span>02</span><strong>Make it feel right.</strong><p>Good front-end work lives in the details and interactions.</p></div>
+              <div><span>03</span><strong>Stay curious.</strong><p>Keep experimenting with modern tools, products and AI.</p></div>
+            </div>
+          </AnimatedContent>
+          <AnimatedContent distance={34} duration={0.9} threshold={0.12} className="about-v3-tools">
+            <div className="about-v3-tools-heading"><span>03 / MY TOOLKIT</span><span>ALWAYS EVOLVING</span></div>
+            <div className="about-v3-tool-list">
+              <span>React</span><span>Next.js</span><span>TypeScript</span><span>UI / UX</span><span>AI Exploration</span>
+            </div>
+          </AnimatedContent>
+        </div>
+      </div>
+      <div className="about-v3-footer"><span>THE HUMAN SIDE OF BUILDING THINGS.</span><span>AK / 2026</span></div>
     </div>
-  </div></section>;
+  </section>;
 }
 
 function Contact() {
