@@ -1,5 +1,9 @@
 # Amer Kussad — Personal Portfolio V2
 
+**Live portfolio:** https://amerkussad.vercel.app
+
+**Previous project address (still active):** https://amer-kussad-portfolio-v2.vercel.app
+
 A personal-first dark-mode React portfolio built with Vite, featuring **five selected React Bits interactions**.
 
 ## Approved effects (implemented)
