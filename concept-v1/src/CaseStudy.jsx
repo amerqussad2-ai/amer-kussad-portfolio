@@ -14,29 +14,29 @@ const CASE_STUDIES = {
     vision: 'People looking for work and businesses looking for talent have different needs. The challenge was to make those pathways feel clear, intuitive and connected, without getting in the way of the task.',
     approach: 'I focused on the front-end experience: legible layouts, structured forms, responsive screens, and interfaces that work naturally in both right-to-left and left-to-right contexts.',
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase'],
-    image: '/images/projects/tatweer-home.webp',
+    image: '/images/optimized/projects/tatweer-home.webp',
     imageAlt: 'Tatweer Employment recruitment platform homepage',
     screens: [
       {
-        image: '/images/projects/tatweer/jobs-listing.png',
+        image: '/images/optimized/projects/tatweer/jobs-listing.webp',
         alt: 'Tatweer Employment job opportunities listing page',
         title: 'Browse opportunities',
         copy: 'Job listings and details help candidates navigate available roles.'
       },
       {
-        image: '/images/projects/tatweer/job-detail.png',
+        image: '/images/optimized/projects/tatweer/job-detail.webp',
         alt: 'Tatweer Employment job detail page',
         title: 'Find the details',
         copy: 'Individual job pages keep requirements and next steps within reach.'
       },
       {
-        image: '/images/projects/tatweer/arabic-rtl.png',
+        image: '/images/optimized/projects/tatweer/arabic-rtl.webp',
         alt: 'Arabic right-to-left version of Tatweer',
         title: 'Designed for both directions',
         copy: 'Arabic and English interfaces adapt to RTL and LTR layouts.'
       },
       {
-        image: '/images/projects/tatweer/admin-dashboard.png',
+        image: '/images/optimized/projects/tatweer/admin-dashboard.webp',
         alt: 'Tatweer Employment admin dashboard',
         title: 'Structured administration',
         copy: 'An authenticated administrative area supports the management of jobs and submitted data.'
@@ -64,23 +64,23 @@ const CASE_STUDIES = {
     vision: 'A restaurant website has to communicate a feeling before it asks someone to read. The idea was to give food, interior photography and typography room to tell the story.',
     approach: 'The front-end brings large visuals, quiet transitions and a clear information hierarchy together across the home page, menu, gallery, story and contact pages.',
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-    image: '/images/projects/casa-luce-home.webp',
+    image: '/images/optimized/projects/casa-luce-home.webp',
     imageAlt: 'Casa Luce Italian restaurant website homepage',
     screens: [
       {
-        image: '/images/projects/casa-luce/home-desktop.png',
+        image: '/images/optimized/projects/casa-luce/home-desktop.webp',
         alt: 'Casa Luce desktop homepage',
         title: 'Editorial from the first scroll',
         copy: 'Bold serif typography and atmospheric restaurant imagery establish the visual language.'
       },
       {
-        image: '/images/projects/casa-luce/gallery-desktop.png',
+        image: '/images/optimized/projects/casa-luce/gallery-desktop.webp',
         alt: 'Casa Luce restaurant gallery',
         title: 'Let the imagery lead',
         copy: 'A gallery puts food and atmosphere in focus, with minimal interface distractions.'
       },
       {
-        image: '/images/projects/casa-luce/home-mobile.png',
+        image: '/images/optimized/projects/casa-luce/home-mobile.webp',
         alt: 'Casa Luce mobile homepage',
         title: 'The same feeling on mobile',
         copy: 'Layouts adapt to smaller screens while preserving the visual hierarchy.'
@@ -121,10 +121,10 @@ export default function CaseStudy({slug}) {
   },[project]);
 
   if(!project){
-    return <main className="case-not-found shell"><span className="study-label">404 / PROJECT NOT FOUND</span><h1>This page isn't here.</h1><a href="/#work" className="study-link">BACK TO MY WORK ↗</a></main>;
+    return <main id="main-content" className="case-not-found shell"><span className="study-label">404 / PROJECT NOT FOUND</span><h1>This page isn't here.</h1><a href="/#work" className="study-link">BACK TO MY WORK ↗</a></main>;
   }
 
-  return <main className={'case-page case-page-'+slug}>
+  return <main id="main-content" className={'case-page case-page-'+slug}>
     <section className="case-hero shell" aria-labelledby="case-title">
       <div className="case-crumbs"><a href="/#work">← ALL PROJECTS</a><span> / </span><span>CASE STUDY {project.number}</span></div>
       <div className="case-hero-heading">
