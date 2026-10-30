@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#303234" />
 <meta name="description" content="Concept portfolio homepage for Amer Kussad, Developer & AI Product Builder." />
-<title>Amer Kussad — Homepage Design Concept V1</title>
+<title>Amer Kussad — Personal Portfolio V2</title>
 <style>
 :root{
   --bg:#303234; --teal:#3B7074; --white:#F7F7F5; --mist:#BFD8DD; --blue:#294D63; --orange:#F45129;
@@ -33,48 +33,51 @@
 @media(max-width:900px){.links,.nav-cta{display:none}.mobile-toggle{display:block}.mobile-links.open{display:flex;flex-direction:column;gap:0;background:#292f31;padding:16px 6vw 25px;border-top:1px solid var(--line)}.mobile-links a{padding:14px 0;font-size:12px;letter-spacing:.1em;border-bottom:1px solid var(--line)}.nav-inner{height:76px}.hero{min-height:0;padding-top:85px;padding-bottom:80px;grid-template-columns:1fr;gap:25px}.hero-copy{padding-top:0}.hero h1{font-size:clamp(58px,8vw,82px);max-width:700px}.art{transform:none;max-width:570px;width:100%;margin:0 auto;height:590px}.meta-row{margin-top:42px}.band-inner{flex-wrap:wrap;padding-top:28px;padding-bottom:32px}.cap-grid{grid-template-columns:1fr;gap:45px}}
 @media(max-width:620px){.container{padding-left:23px;padding-right:23px}.nav-inner{height:70px}.logo-caption{font-size:9px}.hero{padding-top:65px;padding-bottom:51px}.topline{font-size:9px;margin-bottom:27px;letter-spacing:.14em}.hero h1{font-size:clamp(47px,11vw,68px);letter-spacing:-.077em;line-height:1.08;margin-bottom:23px}.hero .intro{font-size:14px;line-height:1.85;margin-bottom:28px}.primary{min-height:54px;gap:28px;font-size:10px}.secondary{font-size:11px}.meta-row{font-size:9px;gap:10px;margin-top:45px}.art{height:450px;max-width:420px;margin-top:0}.art::after{width:410px;height:410px;top:15px}.art::before{width:320px;height:320px;top:50px}.interface{width:87%;margin:0;transform:rotate(-1.5deg)}.interface-top{height:45px;padding:0 15px}.interface-body{padding:18px 16px 20px}.interface h3{font-size:27px;margin:16px 0}.demo-kicker{font-size:7px}.demo-kicker span:last-child{font-size:7px;padding:6px}.flow-line{margin:16px 0;grid-template-columns:1fr 16px 1fr 16px 1fr}.flow-step{min-height:56px;padding:7px 6px}.flow-step b{font-size:7px;margin-bottom:8px}.flow-step strong{font-size:8px}.flow-arrow{font-size:12px}.metric>div{padding:11px}.metric span{font-size:7px;margin-bottom:9px}.metric strong{font-size:10px}.float-tag{padding:11px;gap:9px}.float-tag .glyph{width:28px;height:28px;font-size:18px}.float-tag b{font-size:8px}.float-tag small{font-size:8px}.float1{top:9px;left:0}.float2{right:-2px;bottom:15px}.art-label{top:-2px;font-size:8px}.art-coordinate{font-size:8px}.section{padding-top:85px;padding-bottom:90px}.section-heading{align-items:start;flex-direction:column;margin-bottom:33px}.section-heading h2,.cap-left h2,.contact h2{font-size:42px}.section-heading p{font-size:13px}.work-cards{grid-template-columns:1fr;gap:20px}.mock{height:260px}.mock-window{width:82%}.cap-grid{gap:30px}.cap-item h3{font-size:18px}.contact{padding-top:95px;padding-bottom:45px}.contact-circle{width:65px;height:65px;font-size:30px;flex-shrink:0}.contact-top{align-items:center}.foot{margin-top:80px;flex-wrap:wrap;line-height:1.8}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+/* V2 personal portfolio */
+.hero{grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);min-height:710px}
+.hero-copy{padding-top:0}
+.personal-hello{font-family:Georgia,serif;font-size:clamp(29px,3vw,43px);font-style:italic;color:var(--mist);margin:31px 0 8px}
+.hero h1{font-size:clamp(80px,8.8vw,143px);font-weight:750;line-height:.91;letter-spacing:-.095em;margin:0 0 30px}
+.hero h1 span{color:var(--white)}
+.hero .intro{max-width:490px}
+.personal-portrait{position:relative;min-height:580px;margin:0;display:grid;place-items:center}
+.portrait-offset{position:absolute;width:76%;height:85%;top:1%;right:6%;transform:translate(20px,-7px);border:1px solid rgba(191,216,221,.34);background:rgba(41,77,99,.26)}
+.portrait-window{position:relative;width:81%;height:530px;overflow:hidden;background:#1d2729;box-shadow:0 40px 90px rgba(0,0,0,.27);border:1px solid rgba(191,216,221,.25)}
+.portrait-window img{height:100%;width:100%;object-fit:cover;object-position:center top;filter:grayscale(1) brightness(.89) contrast(1.07);transition:transform .7s,filter .7s}
+.portrait-window:hover img{transform:scale(1.04);filter:grayscale(.3) brightness(.95)}
+.personal-sticker{position:absolute;z-index:2;left:0;top:10%;transform:rotate(-6deg);background:var(--mist);color:#294D63;padding:15px 17px;font-size:10px;font-weight:850;letter-spacing:.1em;box-shadow:0 15px 25px rgba(0,0,0,.18)}
+.personal-portrait figcaption{position:absolute;z-index:2;right:-7px;bottom:6%;background:var(--blue);border:1px solid rgba(191,216,221,.35);padding:19px 20px;transform:rotate(3deg);color:var(--white);font-size:10px;letter-spacing:.13em;font-weight:750;line-height:1.8}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:clamp(78px,12vw,120px)}.personal-portrait{max-width:550px;width:100%;margin:0 auto}}
+@media(max-width:620px){.hero h1{font-size:clamp(65px,15vw,92px)}.personal-hello{font-size:30px;margin-top:22px}.personal-portrait{min-height:420px}.portrait-window{height:380px;width:79%}.personal-sticker{font-size:8px;top:2%;padding:12px}.personal-portrait figcaption{font-size:8px;bottom:0;padding:12px 14px}}
 </style>
 </head>
 <body>
 <div class="page" id="top">
   <header class="nav">
    <div class="container nav-inner">
-    <a class="logo" href="#top" aria-label="Amer Kussad — home"><span class="logo-symbol">AK<em>.</em></span><span class="logo-divider"></span><span class="logo-caption">AMER KUSSAD<br>INDEPENDENT DEVELOPER</span></a>
-    <nav class="links" aria-label="Primary"><a href="#work">WORK</a><a href="#expertise">EXPERTISE</a><a href="#contact">CONTACT</a></nav>
+    <a class="logo" href="#top" aria-label="Amer Kussad — home"><span class="logo-symbol">AK<em>.</em></span><span class="logo-divider"></span><span class="logo-caption">AMER KUSSAD<br>PERSONAL PORTFOLIO</span></a>
+    <nav class="links" aria-label="Primary"><a href="#work">WORK</a><a href="#about">ABOUT ME</a><a href="#contact">CONTACT</a></nav>
     <div class="nav-cta"><span class="availability">OPEN TO COLLABORATION</span><a href="#contact" class="lets-talk">LET'S TALK <span class="arrow" aria-hidden="true">↗</span></a></div>
     <button class="mobile-toggle" aria-controls="mobile-links" aria-expanded="false" aria-label="Open navigation" onclick="const n=document.getElementById('mobile-links'); const x=n.classList.toggle('open');this.setAttribute('aria-expanded',x)">☰</button>
    </div>
-   <nav class="mobile-links" id="mobile-links" aria-label="Mobile"><a href="#work">WORK</a><a href="#expertise">EXPERTISE</a><a href="#contact">CONTACT</a></nav>
+   <nav class="mobile-links" id="mobile-links" aria-label="Mobile"><a href="#work">WORK</a><a href="#about">EXPERTISE</a><a href="#contact">CONTACT</a></nav>
   </header>
   <main>
    <section class="container hero" id="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-     <div class="topline">DEVELOPER & AI PRODUCT BUILDER</div>
-     <h1 id="hero-title">Building<br>products that<br><span>make sense.</span></h1>
-     <p class="intro">I turn ambitious ideas into refined digital experiences — combining front-end engineering, thoughtful product design, and practical AI.</p>
-     <div class="actions"><a href="#work" class="primary">EXPLORE MY WORK <span class="arrow" aria-hidden="true">↗</span></a><a href="#expertise" class="secondary">HOW I BUILD <span aria-hidden="true">↗</span></a></div>
-     <div class="meta-row"><span>BASED IN THE UAE</span><i aria-hidden="true"></i><span>DESIGN × CODE × INTELLIGENCE</span></div>
+     <div class="topline">FRONT-END DEVELOPER / AI PRODUCT BUILDER</div><p class="personal-hello">Hey, I’m</p>
+     <h1 id="hero-title">Amer<br><span>Kussad.</span></h1>
+     <p class="intro">I’m a developer who loves turning ideas into useful digital products. I care about front-end details you can feel, and the thoughtful engineering behind them.</p>
+     <div class="actions"><a href="#work" class="primary">SEE WHAT I’VE BUILT <span class="arrow" aria-hidden="true">↗</span></a><a href="#about" class="secondary">GET TO KNOW ME <span aria-hidden="true">↗</span></a></div>
+     <div class="meta-row"><span>BASED IN THE UAE</span><i aria-hidden="true"></i><span>CODE × CURIOSITY × CRAFT</span></div>
     </div>
-    <div class="art" aria-label="Conceptual illustration of the process from idea to interface to intelligence">
-     <span class="art-label" aria-hidden="true">PRODUCT THINKING / 001</span><span class="art-bg-plus p1" aria-hidden="true">+</span><span class="art-bg-plus p2" aria-hidden="true">+</span>
-     <div class="interface">
-      <div class="interface-top"><div class="dots"><b></b><b></b><b></b></div><div class="frame-title">THE BUILD PROCESS</div><span class="frame-menu" aria-hidden="true">⌁</span></div>
-      <div class="interface-body">
-       <div class="demo-kicker"><span>FROM CONCEPT TO PRODUCT</span><span>● ITERATIVE BY DESIGN</span></div>
-       <h3>Better by<br><span>design & logic.</span></h3>
-       <div class="flow-line">
-        <div class="flow-step"><b>01 / THINK</b><strong>IDEA</strong></div><div class="flow-arrow">→</div>
-        <div class="flow-step active"><b>02 / CRAFT</b><strong>INTERFACE</strong></div><div class="flow-arrow">→</div>
-        <div class="flow-step"><b>03 / BUILD</b><strong>PRODUCT</strong></div>
-       </div>
-       <div class="metric"><div><span>DESIGN DISCIPLINE</span><strong>Human-centered UI</strong></div><div><span>ENGINEERING APPROACH</span><strong class="accent">Practical AI + Code</strong></div></div>
-      </div>
-      <div class="interface-footer"><span>AK / CREATIVE ENGINEERING</span><div class="line-tick"></div><span>01—03</span></div>
-     </div>
-     <div class="float-tag float1" aria-hidden="true"><span class="glyph">⌘</span><span><b>FRONT-END</b><small>Crafted with care</small></span></div>
-     <div class="float-tag float2" aria-hidden="true"><span class="glyph">✳</span><span><b>AI PRODUCTS</b><small>Built with purpose</small></span></div>
-     <span class="art-coordinate" aria-hidden="true">DESIGN SYSTEM / BUILD 001</span>
-    </div>
+    <figure class="personal-portrait">
+      <div class="portrait-offset" aria-hidden="true"></div>
+      <div class="portrait-window"><img src="https://amer-kussad-portfolio.vercel.app/images/amer-kussad-profile.jpg" alt="Portrait of Amer Kussad" width="680" height="880" loading="eager"></div>
+      <span class="personal-sticker">NICE TO MEET YOU ✳</span>
+      <figcaption>ONE PERSON. A LOT OF IDEAS.<br>AND A LOVE FOR BUILDING THINGS.</figcaption>
+    </figure>
    </section>
   </main>
   <div class="band"><div class="container band-inner"><span class="band-label">WHAT DRIVES THE WORK</span><div class="band-skills"><span>Thoughtful interfaces</span><i>✳</i><span>Reliable engineering</span><i>✳</i><span>Useful intelligence</span></div></div></div>
