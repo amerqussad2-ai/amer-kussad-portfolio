@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap');
+
 :root{--charcoal:#303234;--teal:#3B7074;--white:#F7F7F5;--mist:#BFD8DD;--ocean:#294D63;--orange:#F45129;--muted:#bac5c3;--border:rgba(191,216,221,.19);font-family:"DM Sans",Inter,Arial,sans-serif;color:var(--white);background:var(--charcoal);font-synthesis:none;-webkit-font-smoothing:antialiased}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
@@ -689,3 +689,7 @@ img{max-width:100%;display:block}
 @media(prefers-reduced-motion:reduce){
   .contact-v3-copy,.contact-v3-primary-button,.contact-v3-email-address{transition:none}
 }
+
+/* Accessibility: a visible skip link for keyboard navigation */
+.skip-link{position:fixed;z-index:9999;left:16px;top:-120px;padding:14px 18px;background:var(--mist);color:#1c393e;font-size:13px;font-weight:800;box-shadow:0 5px 25px #0004}
+.skip-link:focus{top:16px}
