@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = path.resolve('dist');
-const SITE = 'https://amer-kussad-portfolio-v2.vercel.app';
+const SITE = 'https://amerkussad.vercel.app';
 const sources = [
  ['images/amer-kussad-profile.jpg','images/optimized/amer-kussad-profile.webp',820],
  ['images/projects/tatweer-home.webp','images/optimized/projects/tatweer-home.webp',1400],
