@@ -1,6 +1,22 @@
 {
   "rewrites": [
     {
+      "source": "/projects/tatweer",
+      "destination": "/projects/tatweer/index.html"
+    },
+    {
+      "source": "/projects/casa-luce",
+      "destination": "/projects/casa-luce/index.html"
+    },
+    {
+      "source": "/projects/tatweer/",
+      "destination": "/projects/tatweer/index.html"
+    },
+    {
+      "source": "/projects/casa-luce/",
+      "destination": "/projects/casa-luce/index.html"
+    },
+    {
       "source": "/projects/:path*",
       "destination": "/index.html"
     }
