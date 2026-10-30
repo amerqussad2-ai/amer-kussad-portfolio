@@ -1,29 +1,38 @@
-# Amer Kussad — Portfolio V2 (Concept V1)
+# Amer Kussad — Personal Portfolio V2
 
-A standalone, responsive dark-mode homepage for **Amer Kussad — Developer & AI Product Builder**, with emphasis on front-end engineering.
+A personal-first dark-mode React portfolio built with Vite, featuring **five selected React Bits interactions**.
 
-## Preview
-This branch contains the V2 concept in `concept-v1/index.html`. It is isolated from the original Next.js portfolio in the `main` branch.
+## Approved effects (implemented)
+1. **SplitText** — hero name reveal, triggered on load
+2. **FadeContent** — portrait entrance with gentle blur
+3. **ScrollStack** — project case-study cards stack as the visitor scrolls
+4. **AnimatedContent** — understated on-scroll About section entrance
+5. **Magnet** — magnetic contact CTA on pointer-capable devices
 
-## Palette
-| Token | Hex |
-| --- | --- |
-| Charcoal | `#303234` |
-| Deep Teal | `#3B7074` |
-| Soft White | `#F7F7F5` |
-| Mist Blue | `#BFD8DD` |
-| Ocean Blue | `#294D63` |
-| Vibrant Orange | `#F45129` |
+These are source components copied from [React Bits](https://github.com/DavidHDev/react-bits) and kept under `src/reactbits/`. See `REACT_BITS_LICENSE.md` for the upstream MIT + Commons Clause license. This repository contains an application using these components, **not a component library for resale**.
 
-## Run locally
-Open `concept-v1/index.html` in a browser or serve the `concept-v1` directory with a static HTTP server. No dependencies are required for this concept.
+## Develop
 
-## Scope
-- Hero, works, expertise and contact sections
-- Responsive desktop/mobile layout, menu, smooth anchor navigation
-- Placeholder project artwork; not yet the finished case studies
-- Static HTML/CSS concept. Future versions may be migrated to Next.js.
-- The original portfolio remains unchanged on `main`.
+```bash
+cd concept-v1
+npm install
+npm run dev
+```
 
-## Deployment
-Vercel project for this concept should use `concept-v1` as its root directory and no framework preset.
+## Build
+```bash
+npm run build
+```
+
+Vercel settings: root directory `concept-v1`, framework `Vite`, output directory `dist`.
+
+## Design
+- Dark theme with agreed six-color palette (#303234, #3B7074, #F7F7F5, #BFD8DD, #294D63, #F45129)
+- Personal narrative led by Amer's name and photograph
+- Photos from existing portfolio copied locally; no external image service
+- Selected work: Tatweer Employment, Casa Luce (existing project case-study links)
+- Respects `prefers-reduced-motion`; hover effects not required for usability
+- Existing original site on `main` remains unchanged
+
+## What is not final
+This is a design and animation milestone, not finished audited production portfolio. Project writeups and mobile motion tuning may need further refinement after real-device testing.
