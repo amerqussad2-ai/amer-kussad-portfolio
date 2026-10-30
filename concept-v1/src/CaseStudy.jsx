@@ -9,6 +9,7 @@ const CASE_STUDIES = {
     title: 'Tatweer Employment',
     subtitle: 'Making recruitment feel more accessible.',
     type: 'Bilingual Recruitment Web Application',
+    focus: 'Bilingual front-end & recruitment workflows',
     category: 'WEB APPLICATION',
     lead: 'A recruitment platform with different journeys for candidates, employers, and administrators — brought together through a consistent Arabic and English experience.',
     vision: 'People looking for work and businesses looking for talent have different needs. The challenge was to make those pathways feel clear, intuitive and connected, without getting in the way of the task.',
@@ -47,7 +48,7 @@ const CASE_STUDIES = {
       ['02', 'For employers', 'Submit hiring requirements through focused request forms.'],
       ['03', 'For administrators', 'Manage jobs and review applications with protected access to candidate data.']
     ],
-    note: 'The project combines bilingual public pages with authenticated management workflows.',
+    note: 'The project showcases bilingual public-facing experiences alongside authenticated workflows for managing jobs and candidate data.',
     live: 'https://tatweer-employment.amerqussad2.workers.dev',
     liveLabel: 'VISIT THE LIVE PLATFORM',
     next: 'casa-luce',
@@ -59,6 +60,7 @@ const CASE_STUDIES = {
     title: 'Casa Luce',
     subtitle: 'A restaurant atmosphere, translated to the screen.',
     type: 'Multi-page Restaurant Website',
+    focus: 'Responsive front-end & interaction design',
     category: 'CREATIVE FRONT-END',
     lead: 'An editorial web experience for a fictional modern Italian restaurant in Dubai Marina — designed to feel warm, immersive and effortless across screen sizes.',
     vision: 'A restaurant website has to communicate a feeling before it asks someone to read. The idea was to give food, interior photography and typography room to tell the story.',
@@ -91,7 +93,7 @@ const CASE_STUDIES = {
       ['02', 'Thoughtful responsiveness', 'The same visual character carries across desktop and mobile layouts.'],
       ['03', 'Clear reservation flow', 'A front-end demonstration form includes validation and a success state. No bookings are sent or stored.']
     ],
-    note: 'Casa Luce is a fictional restaurant concept. Its reservation interaction is a front-end demonstration, not a live booking system.',
+    note: 'Casa Luce is a fictional restaurant concept. Its reservation and contact flows demonstrate interface validation and success states; they do not send or store real bookings.',
     live: 'https://casa-luce-nine.vercel.app',
     liveLabel: 'VISIT THE LIVE DEMO',
     source: 'https://github.com/amerqussad2-ai/casa-luce',
@@ -139,7 +141,7 @@ export default function CaseStudy({slug}) {
         <p>{project.lead}</p>
         <div className="case-overview-meta">
           <div><span>PROJECT TYPE</span><strong>{project.type}</strong></div>
-          <div><span>FOCUS</span><strong>Front-end & User Experience</strong></div>
+          <div><span>MY FOCUS</span><strong>{project.focus}</strong></div>
           <div><span>BUILT WITH</span><strong>{project.stack.slice(0,3).join(' · ')}</strong></div>
         </div>
       </div>
@@ -191,7 +193,7 @@ export default function CaseStudy({slug}) {
 
     <section className="case-conclusion">
       <div className="shell case-conclusion-grid">
-        <div><span className="study-label">05 / THE RESULT</span><h2>Design meets<br/><em>function.</em></h2><p className="case-disclaimer">{project.note}</p></div>
+        <div><span className="study-label">05 / WHAT THIS SHOWS</span><h2>Design meets<br/><em>function.</em></h2><p className="case-disclaimer">{project.note}</p></div>
         <div className="case-outro">
           <span className="study-label">THE TOOLKIT</span>
           <div className="case-outro-tags">{project.stack.map(t=><span key={t}>{t}</span>)}</div>
