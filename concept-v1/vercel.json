@@ -17,6 +17,30 @@
       "destination": "/projects/casa-luce/index.html"
     },
     {
+      "source": "/projects/smash-district",
+      "destination": "/projects/smash-district/index.html"
+    },
+    {
+      "source": "/projects/smash-district/",
+      "destination": "/projects/smash-district/index.html"
+    },
+    {
+      "source": "/projects/alsedr",
+      "destination": "/projects/alsedr/index.html"
+    },
+    {
+      "source": "/projects/alsedr/",
+      "destination": "/projects/alsedr/index.html"
+    },
+    {
+      "source": "/projects/dont-wake-him",
+      "destination": "/projects/dont-wake-him/index.html"
+    },
+    {
+      "source": "/projects/dont-wake-him/",
+      "destination": "/projects/dont-wake-him/index.html"
+    },
+    {
       "source": "/projects/:path*",
       "destination": "/index.html"
     }

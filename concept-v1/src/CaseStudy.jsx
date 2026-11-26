@@ -97,6 +97,124 @@ const CASE_STUDIES = {
     live: 'https://casa-luce-nine.vercel.app',
     liveLabel: 'VISIT THE LIVE DEMO',
     source: 'https://github.com/amerqussad2-ai/casa-luce',
+    next: 'smash-district',
+    nextTitle: 'Smash District'
+  },
+  'smash-district': {
+    slug: 'smash-district',
+    number: '03',
+    title: 'Smash District',
+    subtitle: 'A burger brand that refuses to sit still.',
+    type: 'Interactive Restaurant & Ordering Concept',
+    focus: 'Motion design & interactive UI',
+    category: 'INTERACTIVE FRONT-END',
+    lead: 'A high-energy website for a fictional smash-burger brand in Dubai — loud typography, real food photography and interactions that let visitors explore the menu, build a burger and fill a bag.',
+    vision: 'Fast-food brands live on attitude. The goal was a site that feels as bold as the food, while keeping the menu and ordering flow genuinely easy to use.',
+    approach: 'I paired an animated hero and oversized type with practical components: a five-category menu, a burger builder that updates the preview and price as you choose, and a bag that keeps count across the page.',
+    stack: ['JavaScript', 'GSAP', 'Vite', 'HTML / CSS', 'Vercel'],
+    image: '/images/optimized/projects/smash-district/home-desktop.webp',
+    imageAlt: 'Smash District homepage with the Built To Crave hero',
+    screens: [
+      {
+        image: '/images/optimized/projects/smash-district/menu-desktop.webp',
+        alt: 'Smash District menu with category tabs and burger cards',
+        title: 'A menu without the chaos',
+        copy: 'Seventeen items across five categories, switched with clear tabs instead of a long scroll.'
+      },
+      {
+        image: '/images/optimized/projects/smash-district/builder-desktop.webp',
+        alt: 'Smash District build-your-own burger tool',
+        title: 'Build your own',
+        copy: 'Each choice updates the burger preview and the running price in real time.'
+      },
+      {
+        image: '/images/optimized/projects/smash-district/home-mobile.webp',
+        alt: 'Smash District homepage on mobile',
+        title: 'Just as loud on mobile',
+        copy: 'The bold type and calls to action reflow cleanly for small screens.'
+      }
+    ],
+    principles: [
+      ['01', 'Motion with a purpose', 'The hero animation sets the tone once, then gets out of the way of the menu.'],
+      ['02', 'Interactive ordering', 'A burger builder and a bag show state changes clearly as visitors make choices.'],
+      ['03', 'Honest demo', 'Prices are illustrative and the restaurant is fictional; no orders or payments are processed.']
+    ],
+    note: 'Smash District is a fictional restaurant concept. Its menu, builder and bag demonstrate front-end state and interaction; no real orders or payments are taken.',
+    live: 'https://smash-district-dubai.vercel.app',
+    liveLabel: 'VISIT THE LIVE DEMO',
+    next: 'alsedr',
+    nextTitle: 'Al-Sedr Mansaf'
+  },
+  alsedr: {
+    slug: 'alsedr',
+    number: '04',
+    title: 'Al-Sedr Mansaf',
+    subtitle: 'Jordanian hospitality, in Arabic and in motion.',
+    type: 'Arabic RTL Restaurant Website',
+    focus: 'RTL layout, motion & AI-assisted visuals',
+    category: 'MOTION & RTL',
+    lead: 'An Arabic-first website for a fictional mansaf restaurant in Amman — written in Jordanian dialect, laid out right-to-left, and built around a cinematic video hero and scroll-driven storytelling.',
+    vision: 'Most restaurant templates are designed left-to-right and translated later. This one starts from Arabic: its typography, its reading direction and the everyday Jordanian phrases people actually say at the table.',
+    approach: 'A looping video hero, a mansaf tray that assembles itself layer by layer as you scroll, a tabbed menu with photos, a party-size calculator and a validated booking form — all in a single, lightweight page. The food photography and hero video were generated with AI tools and art-directed for the brand.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Higgsfield AI'],
+    image: '/images/optimized/projects/alsedr/home-desktop.webp',
+    imageAlt: 'Al-Sedr homepage with a mansaf video hero and Arabic headline',
+    screens: [
+      {
+        image: '/images/optimized/projects/alsedr/menu-desktop.webp',
+        alt: 'Al-Sedr Arabic menu with prices and a dish photo',
+        title: 'A menu that reads right-to-left',
+        copy: 'Arabic calligraphic headings, prices in Jordanian dinars and photos that change with each category.'
+      },
+      {
+        image: '/images/optimized/projects/alsedr/calculator-desktop.webp',
+        alt: 'Al-Sedr party calculator for guests, trays and meat',
+        title: 'How many guests are coming?',
+        copy: 'A slider calculates trays, meat, rice and an estimated cost — with a playful verdict for each party size.'
+      }
+    ],
+    principles: [
+      ['01', 'Arabic first', 'Right-to-left layout, Arabic typography and copy written in Jordanian dialect.'],
+      ['02', 'Scroll storytelling', 'The mansaf is assembled on screen, layer by layer, as the visitor scrolls.'],
+      ['03', 'AI-assisted art direction', 'Hero video and food photography generated with AI, then curated to match the brand.']
+    ],
+    note: 'Al-Sedr is a fictional restaurant concept. Its booking form demonstrates validation and a success state; no bookings are sent or stored.',
+    live: 'https://alsedr-mansaf.vercel.app',
+    liveLabel: 'VISIT THE LIVE DEMO',
+    next: 'dont-wake-him',
+    nextTitle: "Don't Wake Him"
+  },
+  'dont-wake-him': {
+    slug: 'dont-wake-him',
+    number: '05',
+    title: "Don't Wake Him",
+    subtitle: 'A small game about making no noise.',
+    type: 'Browser Stealth Game',
+    focus: 'Game UI, interaction & 3D in the browser',
+    category: 'CREATIVE CODING',
+    lead: 'A stealth game played in the browser: complete three missions in a dark room without waking a very light sleeper. It started as a 2D prototype and was rebuilt as a first-person 3D edition.',
+    vision: 'Games are a fast way to learn interaction design — every sound, prompt and timer has to communicate instantly. The idea was to turn one simple tension, staying quiet, into a complete experience.',
+    approach: 'The first version uses Phaser and TypeScript inside Next.js, with a noise system, sleep meter and objectives. The 3D edition is built with Babylon.js and Vite: three levels, PBR lighting, level select, keyboard and touch controls.',
+    stack: ['Babylon.js', 'Phaser', 'TypeScript', 'Next.js', 'Vite'],
+    image: '/images/optimized/projects/dont-wake-him-home.webp',
+    imageAlt: "Don't Wake Him 3D — first-person view of the bedroom level",
+    screens: [
+      {
+        image: '/images/optimized/projects/dont-wake-him/3d-gameplay.webp',
+        alt: "Don't Wake Him 3D gameplay with missions, noise meter and timer",
+        title: 'Inside the bedroom',
+        copy: 'Missions, a noise meter, sleeper alertness and a countdown keep every step tense.'
+      }
+    ],
+    principles: [
+      ['01', 'One clear tension', 'Noise, a sleep meter and a timer make every move feel risky.'],
+      ['02', 'From 2D to 3D', 'The same idea rebuilt as a first-person experience with three distinct levels.'],
+      ['03', 'Prototype, honestly labeled', 'Procedural assets and synthesized sounds; built to explore ideas, not to ship as a commercial game.']
+    ],
+    note: "Don't Wake Him is a personal prototype. It is best played on a desktop with a keyboard and mouse.",
+    live: 'https://dont-wake-him-3d.vercel.app',
+    liveLabel: 'PLAY THE 3D EDITION',
+    source: 'https://github.com/amerqussad2-ai/dont-wake-him',
     next: 'tatweer',
     nextTitle: 'Tatweer Employment'
   }

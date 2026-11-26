@@ -15,6 +15,17 @@ const sources = [
  ['images/projects/casa-luce/home-desktop.png','images/optimized/projects/casa-luce/home-desktop.webp',1600],
  ['images/projects/casa-luce/gallery-desktop.png','images/optimized/projects/casa-luce/gallery-desktop.webp',1600],
  ['images/projects/casa-luce/home-mobile.png','images/optimized/projects/casa-luce/home-mobile.webp',650],
+ ['images/projects/smash-district-home.jpg','images/optimized/projects/smash-district-home.webp',1400],
+ ['images/projects/smash-district/home-desktop.jpg','images/optimized/projects/smash-district/home-desktop.webp',1600],
+ ['images/projects/smash-district/menu-desktop.jpg','images/optimized/projects/smash-district/menu-desktop.webp',1600],
+ ['images/projects/smash-district/builder-desktop.jpg','images/optimized/projects/smash-district/builder-desktop.webp',1600],
+ ['images/projects/smash-district/home-mobile.jpg','images/optimized/projects/smash-district/home-mobile.webp',650],
+ ['images/projects/alsedr-home.jpg','images/optimized/projects/alsedr-home.webp',1400],
+ ['images/projects/alsedr/home-desktop.jpg','images/optimized/projects/alsedr/home-desktop.webp',1600],
+ ['images/projects/alsedr/menu-desktop.jpg','images/optimized/projects/alsedr/menu-desktop.webp',1600],
+ ['images/projects/alsedr/calculator-desktop.jpg','images/optimized/projects/alsedr/calculator-desktop.webp',1600],
+ ['images/projects/dont-wake-him-home.jpg','images/optimized/projects/dont-wake-him-home.webp',1400],
+ ['images/projects/dont-wake-him/3d-gameplay.jpg','images/optimized/projects/dont-wake-him/3d-gameplay.webp',1600],
 ];
 
 let totalOriginal = 0, totalOptimized = 0;
@@ -48,7 +59,13 @@ const cases=[
  {slug:'tatweer',title:'Tatweer Employment — Front-End Case Study | Amer Kussad',
   description:'Explore Tatweer Employment: a bilingual React and TypeScript recruitment application with jobs, RTL layouts and a Supabase-powered workflow.'},
  {slug:'casa-luce',title:'Casa Luce — Front-End Case Study | Amer Kussad',
-  description:'Explore Casa Luce: a responsive, multi-page Italian restaurant website built with Next.js and TypeScript, with editorial design and a visual gallery.'}
+  description:'Explore Casa Luce: a responsive, multi-page Italian restaurant website built with Next.js and TypeScript, with editorial design and a visual gallery.'},
+ {slug:'smash-district',title:'Smash District — Front-End Case Study | Amer Kussad',
+  description:'Explore Smash District: a motion-led burger brand website with a filterable menu, a build-your-own burger tool and a working bag, built with JavaScript, GSAP and Vite.'},
+ {slug:'alsedr',title:'Al-Sedr Mansaf — Front-End Case Study | Amer Kussad',
+  description:'Explore Al-Sedr: an Arabic-first, right-to-left restaurant website with a cinematic video hero, scroll storytelling and a party calculator, built with GSAP.'},
+ {slug:'dont-wake-him',title:"Don't Wake Him — Front-End Case Study | Amer Kussad",
+  description:"Explore Don't Wake Him: a browser stealth game that grew from a 2D Phaser prototype into a first-person 3D edition built with Babylon.js."}
 ];
 const homeDescription='Amer Kussad is a Front-End Developer & AI Product Builder based in the UAE. Explore selected React, Next.js and TypeScript projects and get in touch.';
 const person={'@context':'https://schema.org','@type':'Person',name:'Amer Kussad',url:SITE,jobTitle:'Front-End Developer & AI Product Builder',description:homeDescription,sameAs:['https://github.com/amerqussad2-ai','https://www.linkedin.com/in/amer-qussad-727a6a199']};

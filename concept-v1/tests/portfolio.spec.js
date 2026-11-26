@@ -8,9 +8,12 @@ test('homepage renders the personal hero and real project cards', async ({ page 
   await expect(page.locator('h1')).toContainText('Kussad');
   await expect(page.locator('.portrait-frame img')).toBeVisible();
   await expect.poll(() => page.locator('.portrait-frame img').evaluate(img => img.naturalWidth > 0)).toBe(true);
-  await expect(page.locator('.case-cta')).toHaveCount(2);
+  await expect(page.locator('.case-cta')).toHaveCount(5);
   await expect(page.locator('.case-cta').nth(0)).toHaveAttribute('href', '/projects/tatweer');
   await expect(page.locator('.case-cta').nth(1)).toHaveAttribute('href', '/projects/casa-luce');
+  await expect(page.locator('.case-cta').nth(2)).toHaveAttribute('href', '/projects/smash-district');
+  await expect(page.locator('.case-cta').nth(3)).toHaveAttribute('href', '/projects/alsedr');
+  await expect(page.locator('.case-cta').nth(4)).toHaveAttribute('href', '/projects/dont-wake-him');
   expect(errors).toEqual([]);
 });
 
@@ -24,12 +27,12 @@ test('case study links remain inside the new portfolio', async ({ page }) => {
   await expect(page).toHaveURL(/\/#work$/);
 });
 
-test('both project detail pages and their screenshots load', async ({ page, request }) => {
-  for (const slug of ['tatweer', 'casa-luce']) {
+test('all project detail pages and their screenshots load', async ({ page, request }) => {
+  for (const slug of ['tatweer', 'casa-luce', 'smash-district', 'alsedr', 'dont-wake-him']) {
     await page.goto('/projects/' + slug);
     await expect(page.locator('h1')).toBeVisible();
     const images = await page.locator('.case-gallery img').evaluateAll(nodes => nodes.map(el => el.getAttribute('src')));
-    expect(images.length).toBeGreaterThan(2);
+    expect(images.length).toBeGreaterThan(0);
     for (const image of images) {
       const response = await request.get(image);
       expect(response.ok(), 'Image should load: ' + image).toBeTruthy();
@@ -57,7 +60,10 @@ test('static case pages contain unique SEO metadata', async ({ request }) => {
   // Preview serves the generated directory HTML at the explicit trailing-slash URLs.
   const expected = [
     ['/projects/tatweer/', 'Tatweer Employment'],
-    ['/projects/casa-luce/', 'Casa Luce']
+    ['/projects/casa-luce/', 'Casa Luce'],
+    ['/projects/smash-district/', 'Smash District'],
+    ['/projects/alsedr/', 'Al-Sedr Mansaf'],
+    ['/projects/dont-wake-him/', "Don't Wake Him"]
   ];
   for (const [route, title] of expected) {
     const response = await request.get(route);

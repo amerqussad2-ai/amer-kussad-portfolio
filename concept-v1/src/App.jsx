@@ -34,8 +34,51 @@ const projects = [
     alt: 'Screenshot of the Casa Luce restaurant website',
     link: '/projects/casa-luce',
     accent: 'blue'
+  },
+  {
+    id: '03',
+    slug: 'smash-district',
+    title: 'Smash District',
+    category: 'INTERACTIVE ORDERING CONCEPT',
+    description: 'A bold, motion-led burger brand site with a filterable menu, a build-your-own burger tool and a working bag.',
+    angle: 'Loud brand. Real interactions.',
+    label: 'INTERACTIVE FRONT-END',
+    stack: ['JavaScript', 'GSAP', 'Vite'],
+    image: '/images/optimized/projects/smash-district-home.webp',
+    alt: 'Screenshot of the Smash District burger website',
+    link: '/projects/smash-district',
+    accent: 'teal'
+  },
+  {
+    id: '04',
+    slug: 'alsedr',
+    title: 'Al-Sedr Mansaf',
+    category: 'ARABIC RTL RESTAURANT SITE',
+    description: 'An Arabic-first restaurant website for a Jordanian mansaf house, with a cinematic video hero and scroll-built storytelling.',
+    angle: 'Right-to-left. Rich in motion.',
+    label: 'MOTION & RTL',
+    stack: ['HTML / CSS', 'GSAP', 'AI Visuals'],
+    image: '/images/optimized/projects/alsedr-home.webp',
+    alt: 'Screenshot of the Al-Sedr mansaf restaurant website',
+    link: '/projects/alsedr',
+    accent: 'blue'
+  },
+  {
+    id: '05',
+    slug: 'dont-wake-him',
+    title: "Don't Wake Him",
+    category: 'BROWSER GAME',
+    description: 'A playful stealth game that grew from a 2D Phaser prototype into a first-person 3D edition with three levels.',
+    angle: 'Quiet steps. Big ideas.',
+    label: 'CREATIVE CODING',
+    stack: ['Babylon.js', 'Phaser', 'TypeScript'],
+    image: '/images/optimized/projects/dont-wake-him-home.webp',
+    alt: "Screenshot of the Don't Wake Him 3D game",
+    link: '/projects/dont-wake-him',
+    accent: 'teal'
   }
 ];
+const TOTAL = String(projects.length).padStart(2, '0');
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -110,7 +153,7 @@ function Work() {
     <div className="shell work-shell">
       <div className="work-overline-row">
         <span className="section-number">01 / A FEW THINGS I'VE BUILT</span>
-        <span className="work-count">SELECTED WORK · 02 PROJECTS</span>
+        <span className="work-count">SELECTED WORK · {TOTAL} PROJECTS</span>
       </div>
       <div className="work-v3-heading">
         <h2 id="work-heading">Made with<br /><em>intention.</em></h2>
@@ -126,7 +169,7 @@ function Work() {
           <article className="case-article" aria-label={project.title}>
             <div className="case-details">
               <div className="case-topline">
-                <span>PROJECT {project.id} <span className="case-slash">/</span> 02</span>
+                <span>PROJECT {project.id} <span className="case-slash">/</span> {TOTAL}</span>
                 <span className="case-tag">{project.label}</span>
               </div>
               <div className="case-main">
@@ -148,7 +191,7 @@ function Work() {
               <div className="case-visual-top">
                 <span className="case-visual-marker" aria-hidden="true">✳</span>
                 <span>TAKE A CLOSER LOOK</span>
-                <span>{project.id} — 02</span>
+                <span>{project.id} — {TOTAL}</span>
               </div>
               <div className="case-device">
                 <div className="case-device-bar" aria-hidden="true">
